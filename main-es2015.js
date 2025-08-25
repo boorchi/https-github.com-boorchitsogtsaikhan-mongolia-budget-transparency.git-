@@ -959,7 +959,8 @@ class Constants {
         // Remove any leading slashes or asset references
         const cleanPath = relativePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, '');
         // Check if we're on GitHub Pages
-        const isGitHubPages = window.location.hostname === 'boorchi.github.io';
+        const isGitHubPages = window.location.hostname === 'boorchi.github.io' ||
+            window.location.pathname.includes('/https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-/');
         if (isGitHubPages) {
             // GitHub Pages subdirectory path
             const repoName = 'https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-';
@@ -972,7 +973,52 @@ class Constants {
     }
     // Get image path specifically (alias for getAssetPath)
     static getImagePath(imagePath) {
-        return this.getAssetPath(imagePath);
+        // For better debugging, let's also handle the base href from Angular
+        const cleanPath = imagePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, '');
+        // Get base element
+        const baseElement = document.querySelector('base');
+        const baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/';
+        // If base href includes our repo name, we're on GitHub Pages
+        if (baseHref.includes('https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-')) {
+            return `${baseHref}assets/${cleanPath}`;
+        }
+        // Fallback to hostname check
+        const isGitHubPages = window.location.hostname === 'boorchi.github.io';
+        if (isGitHubPages) {
+            const repoName = 'https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-';
+            return `/${repoName}/assets/${cleanPath}`;
+        }
+        // Local development
+        return `/assets/${cleanPath}`;
+    }
+    // Original Government API
+    // public static HOST = 'http://localhost:8080/';
+    // public static PATH = 'http://localhost:8080';
+    // Fix mixed content issue for GitHub Pages (HTTPS) deployment
+    static getSecureApiUrl() {
+        const isHttps = window.location.protocol === 'https:';
+        const isGitHubPages = window.location.hostname === 'boorchi.github.io';
+        if (isHttps && isGitHubPages) {
+            // For GitHub Pages, use mock API endpoints that serve static data
+            // This prevents mixed content issues while maintaining functionality
+            const baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '');
+            return {
+                HOST: baseUrl + '/api/',
+                PATH: baseUrl + '/api'
+            };
+        }
+        else if (window.location.origin.indexOf("10.11.11.59") > -1) {
+            return {
+                HOST: 'http://10.11.11.59:8080/',
+                PATH: 'http://10.11.11.59:8080'
+            };
+        }
+        else {
+            return {
+                HOST: 'http://iltod.mof.gov.mn:8080/',
+                PATH: 'http://iltod.mof.gov.mn:8080'
+            };
+        }
     }
 }
 Constants.IP = window.location.origin;
@@ -986,11 +1032,9 @@ Constants.NEW_BACKEND_PUBLIC = window.location.hostname === 'localhost'
 Constants.NEW_BACKEND_GOVERNMENT = window.location.hostname === 'localhost'
     ? 'http://localhost:3001/api/government'
     : 'https://your-backend-domain.com/api/government';
-// Original Government API
-// public static HOST = 'http://localhost:8080/';
-// public static PATH = 'http://localhost:8080';
-Constants.HOST = window.location.origin.indexOf("10.11.11.59") > 1 ? 'http://10.11.11.59:8080/' : 'http://iltod.mof.gov.mn:8080/';
-Constants.PATH = window.location.origin.indexOf("10.11.11.59") > 1 ? 'http://10.11.11.59:8080' : 'http://iltod.mof.gov.mn:8080';
+Constants.apiUrls = Constants.getSecureApiUrl();
+Constants.HOST = Constants.apiUrls.HOST;
+Constants.PATH = Constants.apiUrls.PATH;
 Constants.PAGE_DETAILJOB = 'detail';
 Constants.DICTIONARY = "websan/api/dictionary";
 Constants.LEGALS = "websan/api/legals";

@@ -1,0 +1,16 @@
+[
+  {
+    "code": "BOND_001",
+    "name": "Government Bond Series A",
+    "amount": 500000000000,
+    "maturityDate": "2030-12-31",
+    "interestRate": 5.2
+  },
+  {
+    "code": "BOND_002",
+    "name": "Government Bond Series B",
+    "amount": 750000000000,
+    "maturityDate": "2028-06-30",
+    "interestRate": 4.8
+  }
+]

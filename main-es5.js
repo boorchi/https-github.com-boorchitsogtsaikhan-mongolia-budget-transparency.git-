@@ -1865,7 +1865,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           // Remove any leading slashes or asset references
           var cleanPath = relativePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, ''); // Check if we're on GitHub Pages
 
-          var isGitHubPages = window.location.hostname === 'boorchi.github.io';
+          var isGitHubPages = window.location.hostname === 'boorchi.github.io' || window.location.pathname.includes('/https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-/');
 
           if (isGitHubPages) {
             // GitHub Pages subdirectory path
@@ -1880,7 +1880,56 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       }, {
         key: "getImagePath",
         value: function getImagePath(imagePath) {
-          return this.getAssetPath(imagePath);
+          // For better debugging, let's also handle the base href from Angular
+          var cleanPath = imagePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, ''); // Get base element
+
+          var baseElement = document.querySelector('base');
+          var baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/'; // If base href includes our repo name, we're on GitHub Pages
+
+          if (baseHref.includes('https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-')) {
+            return "".concat(baseHref, "assets/").concat(cleanPath);
+          } // Fallback to hostname check
+
+
+          var isGitHubPages = window.location.hostname === 'boorchi.github.io';
+
+          if (isGitHubPages) {
+            var repoName = 'https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-';
+            return "/".concat(repoName, "/assets/").concat(cleanPath);
+          } // Local development
+
+
+          return "/assets/".concat(cleanPath);
+        } // Original Government API
+        // public static HOST = 'http://localhost:8080/';
+        // public static PATH = 'http://localhost:8080';
+        // Fix mixed content issue for GitHub Pages (HTTPS) deployment
+
+      }, {
+        key: "getSecureApiUrl",
+        value: function getSecureApiUrl() {
+          var isHttps = window.location.protocol === 'https:';
+          var isGitHubPages = window.location.hostname === 'boorchi.github.io';
+
+          if (isHttps && isGitHubPages) {
+            // For GitHub Pages, use mock API endpoints that serve static data
+            // This prevents mixed content issues while maintaining functionality
+            var baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '');
+            return {
+              HOST: baseUrl + '/api/',
+              PATH: baseUrl + '/api'
+            };
+          } else if (window.location.origin.indexOf("10.11.11.59") > -1) {
+            return {
+              HOST: 'http://10.11.11.59:8080/',
+              PATH: 'http://10.11.11.59:8080'
+            };
+          } else {
+            return {
+              HOST: 'http://iltod.mof.gov.mn:8080/',
+              PATH: 'http://iltod.mof.gov.mn:8080'
+            };
+          }
         }
       }]);
     }();
@@ -1889,12 +1938,10 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
     Constants.NEW_BACKEND_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001/api' : 'https://your-backend-domain.com/api';
     Constants.NEW_BACKEND_PUBLIC = window.location.hostname === 'localhost' ? 'http://localhost:3001/api/public' : 'https://your-backend-domain.com/api/public';
-    Constants.NEW_BACKEND_GOVERNMENT = window.location.hostname === 'localhost' ? 'http://localhost:3001/api/government' : 'https://your-backend-domain.com/api/government'; // Original Government API
-    // public static HOST = 'http://localhost:8080/';
-    // public static PATH = 'http://localhost:8080';
-
-    Constants.HOST = window.location.origin.indexOf("10.11.11.59") > 1 ? 'http://10.11.11.59:8080/' : 'http://iltod.mof.gov.mn:8080/';
-    Constants.PATH = window.location.origin.indexOf("10.11.11.59") > 1 ? 'http://10.11.11.59:8080' : 'http://iltod.mof.gov.mn:8080';
+    Constants.NEW_BACKEND_GOVERNMENT = window.location.hostname === 'localhost' ? 'http://localhost:3001/api/government' : 'https://your-backend-domain.com/api/government';
+    Constants.apiUrls = Constants.getSecureApiUrl();
+    Constants.HOST = Constants.apiUrls.HOST;
+    Constants.PATH = Constants.apiUrls.PATH;
     Constants.PAGE_DETAILJOB = 'detail';
     Constants.DICTIONARY = "websan/api/dictionary";
     Constants.LEGALS = "websan/api/legals";

@@ -149,13 +149,17 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleMapInterpolate1"]("background: ", ctx_r0.colors[i_r4], "");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx_r0.getImagePath("image/icons/Main/4_macro_white.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", macro_r3.name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](10, 7, macro_r3.value), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](10, 8, macro_r3.value), " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
@@ -245,9 +249,15 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           category: _services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].category
         };
         this.colors = _services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].colorsMacro;
-      }
+      } // Add image path helper method
+
 
       return _createClass(MacroComponent, [{
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return _services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           this.getMacro();
@@ -406,7 +416,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       selectors: [["app-macro"]],
       decls: 8,
       vars: 4,
-      consts: [[1, "budget-block"], [1, "row"], ["class", "col-md-4", 3, "click", 4, "ngFor", "ngForOf"], ["class", "subdiv", 4, "ngIf"], [3, "description"], [1, "col-md-4", 3, "click"], [1, "special-col"], [1, "special-item"], [1, "special-img"], ["src", "../../../assets/image/icons/Main/4_macro_white.svg", 1, "macro_img"], [1, "title"], [1, "special-text"], [1, "currency"], [1, "cur-text"], [1, "cur-desc"], [1, "cur-desc-text"], [1, "subdiv"], [1, "block-container"], ["id", "chartContainer", 2, "height", "370px", "width", "100%"], ["id", "chartContainer1", 2, "height", "370px", "width", "100%"]],
+      consts: [[1, "budget-block"], [1, "row"], ["class", "col-md-4", 3, "click", 4, "ngFor", "ngForOf"], ["class", "subdiv", 4, "ngIf"], [3, "description"], [1, "col-md-4", 3, "click"], [1, "special-col"], [1, "special-item"], [1, "special-img"], [1, "macro_img", 3, "src"], [1, "title"], [1, "special-text"], [1, "currency"], [1, "cur-text"], [1, "cur-desc"], [1, "cur-desc-text"], [1, "subdiv"], [1, "block-container"], ["id", "chartContainer", 2, "height", "370px", "width", "100%"], ["id", "chartContainer1", 2, "height", "370px", "width", "100%"]],
       template: function MacroComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -419,7 +429,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, MacroComponent_div_4_Template, 17, 9, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, MacroComponent_div_4_Template, 17, 10, "div", 2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 

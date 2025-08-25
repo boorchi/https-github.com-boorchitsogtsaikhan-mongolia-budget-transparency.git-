@@ -160,6 +160,12 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           })["catch"](function (error) {
             console.log(error);
           });
+        } // Add image path helper method
+
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return src_app_services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
         }
       }]);
     }();
@@ -172,8 +178,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       type: ConceptComponent,
       selectors: [["app-concept"]],
       decls: 13,
-      vars: 3,
-      consts: [[1, "budget-content"], [1, "budget-top"], [1, "trapezoid"], [3, "showSelect"], [1, "budget-main-invest", "investment", "col-12"], [1, "title"], ["class", "total", 4, "ngIf"], [1, "tugrug"], ["src", "../../../assets/image/tugrug.PNG", "alt", ""], [1, "total"], [3, "slideData"]],
+      vars: 4,
+      consts: [[1, "budget-content"], [1, "budget-top"], [1, "trapezoid"], [3, "showSelect"], [1, "budget-main-invest", "investment", "col-12"], [1, "title"], ["class", "total", 4, "ngIf"], [1, "img"], ["alt", "", 3, "src"], [1, "total"], [3, "slideData"]],
       template: function ConceptComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -229,6 +235,10 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.show);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/tugrug.PNG"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
         }
       },
       directives: [_modules_year_change_year_change_component__WEBPACK_IMPORTED_MODULE_4__["YearChangeComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _modules_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__["CarouselComponent"]],
