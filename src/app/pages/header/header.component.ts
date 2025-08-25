@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Constants } from '../../services/constants';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  // Helper method for image paths
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
   }
 
 }

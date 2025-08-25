@@ -377,7 +377,7 @@
                             </div>
                         </div>
                         <div class="action-card-body">
-                            <a href="assets/files/budget_projects.xlsx" download class="action-btn excel-btn">
+                            <a [href]="getImagePath('files/budget_projects.xlsx')" download class="action-btn excel-btn">
                                 <i class="fas fa-download me-2"></i>
                                 Excel файл татах
                             </a>
@@ -401,7 +401,7 @@
                         </div>
                         <div class="action-card-body">
                             <div class="infographic-preview">
-                                <img src="assets/images/budget_2025_gov_infographic.png" 
+                                <img [src]="getImagePath('images/budget_2025_gov_infographic.png')" 
                                      alt="{{budgetStats.currentYear}} оны Засгийн газрын төсвийн инфографик" 
                                      class="infographic-thumbnail">
                                 <div class="preview-overlay">

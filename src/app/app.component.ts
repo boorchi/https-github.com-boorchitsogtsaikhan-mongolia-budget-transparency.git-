@@ -2,6 +2,7 @@ import { Component, NgModule, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
+import { Constants } from './services/constants';
 
 
 
@@ -27,6 +28,12 @@ import { trigger, transition, query, style, stagger, animate } from '@angular/an
 
 export class AppComponent {
   title = 'budget-front';
+  
+  // Helper method to get correct image paths
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+  
   get getMenus() {
     return "test";
   }

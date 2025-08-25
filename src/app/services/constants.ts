@@ -6,6 +6,51 @@ import { Injectable } from '@angular/core';
 export class Constants {
 	public static IP = window.location.origin;
 	
+	// Asset path helper for GitHub Pages deployment
+	public static getAssetPath(relativePath: string): string {
+		// Remove any leading slashes or asset references
+		const cleanPath = relativePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, '');
+		
+		// Check if we're on GitHub Pages
+		const isGitHubPages = window.location.hostname === 'boorchi.github.io' || 
+							 window.location.pathname.includes('/https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-/');
+		
+		if (isGitHubPages) {
+			// GitHub Pages subdirectory path
+			const repoName = 'https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-';
+			return `/${repoName}/assets/${cleanPath}`;
+		} else {
+			// Local development or other hosting
+			return `/assets/${cleanPath}`;
+		}
+	}
+	
+	// Get image path specifically (alias for getAssetPath)
+	public static getImagePath(imagePath: string): string {
+		// For better debugging, let's also handle the base href from Angular
+		const cleanPath = imagePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, '');
+		
+		// Get base element
+		const baseElement = document.querySelector('base');
+		const baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/';
+		
+		// If base href includes our repo name, we're on GitHub Pages
+		if (baseHref.includes('https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-')) {
+			return `${baseHref}assets/${cleanPath}`;
+		}
+		
+		// Fallback to hostname check
+		const isGitHubPages = window.location.hostname === 'boorchi.github.io';
+		
+		if (isGitHubPages) {
+			const repoName = 'https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-';
+			return `/${repoName}/assets/${cleanPath}`;
+		}
+		
+		// Local development
+		return `/assets/${cleanPath}`;
+	}
+	
 	// For GitHub Pages, use your production backend or mock data
 	public static NEW_BACKEND_URL = window.location.hostname === 'localhost' 
 		? 'http://localhost:3001/api' 

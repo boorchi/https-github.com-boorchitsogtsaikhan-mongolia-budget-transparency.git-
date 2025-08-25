@@ -21,6 +21,11 @@ export class BudgetFooterComponent implements OnInit {
     this.getLink();
   }
   
+  // Helper method for image paths
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+  
   
   getAddress() {
     this.mainService.baseGet(Constants.HOST + Constants.ADDRESS, null, true).then((result: any) => {

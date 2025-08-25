@@ -80,6 +80,11 @@ export class IndicatorsComponent implements OnInit {
 
   constructor(private mainService: MainService, private backendService: BackendService) { }
 
+  // Helper method for image paths
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+
   ngOnInit(): void {
     console.log('🚀 Indicators component initialized');
     

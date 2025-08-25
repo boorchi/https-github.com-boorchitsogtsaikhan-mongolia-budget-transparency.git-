@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light main-menu" id="header">
-    <a class="navbar-brand" routerLink="/"><img src="../../../assets/image/logo.png"/></a>
+    <a class="navbar-brand" routerLink="/"><img [src]="getImagePath('image/logo.png')"/></a>
     <!-- Links -->    
     <ul class="navbar-nav ml-auto top-menu">
       <li class="nav-item" [class.active]="urlName.includes('/home')">

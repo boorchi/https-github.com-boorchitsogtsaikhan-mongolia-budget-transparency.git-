@@ -15,7 +15,13 @@ export class MenuComponent implements OnInit {
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   categories = [];
   chartType = "pie";
+  
   constructor(private mainService: MainService) { }
+
+  // Helper method for image paths
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
 
   ngOnInit(): void {
     this.getCategories();

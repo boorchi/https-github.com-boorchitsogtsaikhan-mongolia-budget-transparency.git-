@@ -72,16 +72,16 @@
                      </div> -->
                 <div class="main_scale">
                     <div *ngIf="params['category']=='SUBMITTED'">  
-                        <img class="m_r" src="../../../assets/image/budget/out4.png" />
-                        <img class="m_l" src="../../../assets/image/budget/in4.png" />
+                        <img class="m_r" [src]="getAssetPath('image/budget/out4.png')" />
+                        <img class="m_l" [src]="getAssetPath('image/budget/in4.png')" />
                     </div>
                     <div *ngIf="params['category']=='APPROVED'">   
-                        <img class="m_r" src="../../../assets/image/budget/out{{check(budgetMain['APPROVED']['OUT']['percent'])}}.png" />
-                        <img class="m_l" src="../../../assets/image/budget/in{{check(budgetMain['APPROVED']['IN']['percent'])}}.png" />
+                        <img class="m_r" [src]="getAssetPath('image/budget/out' + check(budgetMain['APPROVED']['OUT']['percent']) + '.png')" />
+                        <img class="m_l" [src]="getAssetPath('image/budget/in' + check(budgetMain['APPROVED']['IN']['percent']) + '.png')" />
                     </div>  
-                    <img class="g" src="../../../assets/image/budget/main/gol.svg" />
-                    <img class="j" src="../../../assets/image/budget/main/jin.svg" />
-                    <img class="t" src="../../../assets/image/banner_pic3.png" />
+                    <img class="g" [src]="getAssetPath('image/budget/main/gol.svg')" />
+                    <img class="j" [src]="getAssetPath('image/budget/main/jin.svg')" />
+                    <img class="t" [src]="getAssetPath('image/banner_pic3.png')" />
                 </div>
                 
             </div>
@@ -114,38 +114,38 @@
             <div class="col-3 right">
                 <a routerLink="/budget/state-budget">
                     <div class="budget-type" style="background: #284c80;">
-                        <div class="soyombo"><img src="../../../assets/image/1.svg" /></div>
+                        <div class="soyombo"><img [src]="getImagePath('image/1.svg')" /></div>
                         <h3>Улсын төсөв</h3>
-                        <img class="dur1" src="../../../assets/image/icons/Duruud/Turiin_alban_haagch_3.png" width="130" />
+                        <img class="dur1" [src]="getImagePath('image/icons/Duruud/Turiin_alban_haagch_3.png')" width="130" />
                     </div>
                 </a>
                 <a routerLink="/budget/health-insurance">
                     <div class="budget-type" style="background: #05a8eb;">
-                        <div><img src="../../../assets/image/4.svg" /></div>
+                        <div><img [src]="getImagePath('image/4.svg')" /></div>
                         <h3>Эрүүл мэндийн даатгалын сангийн төсөв</h3>
-                        <img class="dur2" src="../../../assets/image/icons/Duruud/emch.png" width="110"/>
+                        <img class="dur2" [src]="getImagePath('image/icons/Duruud/emch.png')" width="110"/>
                     </div>
                 </a>
             </div>
             <div class="col-5 center">                
-                <img class="dur" src="../../../assets/image/map.svg" class="main-map" />
-                <img src="../../../assets/image/map_line.svg" class="main-map"/>
+                <img class="dur" [src]="getImagePath('image/map.svg')" class="main-map" />
+                <img [src]="getImagePath('image/map_line.svg')" class="main-map"/>
                 <h3>Монгол улсын нэгдсэн төсөв</h3>
             </div>
             <div class="col-3 left">
                 <a routerLink="/budget/oron-nutag">
                     <div class="budget-type" style="background: #feb018;">
-                        <div class="ger"><img src="../../../assets/image/2.svg" /></div>
+                        <div class="ger"><img [src]="getImagePath('image/2.svg')" /></div>
                         <h3>Орон нутгийн төсөв</h3>
-                        <img class="dur3" src="../../../assets/image/icons/Duruud/Malchin.png" width="100"/>
+                        <img class="dur3" [src]="getImagePath('image/icons/Duruud/Malchin.png')" width="100"/>
                     </div>
                 </a>
                 
                 <a routerLink="/budget/tax">
                     <div class="budget-type" style="background: #0d7c5c;">
-                        <div ><img src="../../../assets/image/3.svg" /></div>
+                        <div ><img [src]="getImagePath('image/3.svg')" /></div>
                         <h3>Нийгмийн даатгалын сангийн төсөв</h3>
-                        <img class="dur4" src="../../../assets/image/icons/Duruud/tatvar.png" width="150" />
+                        <img class="dur4" [src]="getImagePath('image/icons/Duruud/tatvar.png')" width="150" />
                     </div>
                 </a>
             </div>
@@ -159,21 +159,21 @@
         <div class="col-md-4">
             <a routerLink="/budget/debt">
                 <div class="item" style="text-align: left;">
-                    <img src="../../../assets/image/suld.png" /><h4>Засгийн газрын өр</h4>
+                    <img [src]="getImagePath('image/suld.png')" /><h4>Засгийн газрын өр</h4>
                 </div>      
             </a>     
         </div>
         <div class="col-md-4">
             <a routerLink="/budget/government-assistance">
                 <div class="item">
-                    <img src="../../../assets/image/loan.PNG" /><h4>Засгийн газрын гадаад зээл, тусламж</h4>
+                    <img [src]="getImagePath('image/loan.PNG')" /><h4>Засгийн газрын гадаад зээл, тусламж</h4>
                 </div>
             </a>
         </div>
         <div class="col-md-4">
             <a routerLink="/budget/macro">
                 <div class="item">
-                    <img src="../../../assets/image/macro.PNG" /><h4>Макро эдийн засгийн үзүүлэлтүүд</h4>
+                    <img [src]="getImagePath('image/macro.PNG')" /><h4>Макро эдийн засгийн үзүүлэлтүүд</h4>
                 </div>
             </a>
         </div>

@@ -11,7 +11,7 @@
                             <a routerLink="/legacy" [queryParams]="{type: category.id}" data-toggle="tooltip"
                                 data-placement="right" title="Ecommerce" data-nav-target="#ecommerce">
                                 <span>
-                                    <img src="../../../assets/image/legal/legal_icon_{{i}}.svg" alt="">
+                                    <img [src]="getImagePath('image/legal/legal_icon_' + i + '.svg')" alt="">
                                 </span>
                                 <div>
                                     <div>
@@ -23,7 +23,7 @@
                         <li>
                             <a routerLink="/legacy/timeline">
                                 <span>
-                                    <img src="../../../assets/image/legal/legal_icon_1.svg" alt="">
+                                    <img [src]="getImagePath('image/legal/legal_icon_1.svg')" alt="">
                                 </span>
                                 Төсвийн цаглабар
                             </a>
@@ -78,7 +78,7 @@
                             <a routerLink="/legacy/indicators" data-toggle="tooltip" data-placement="right"
                                 title="Projects" data-nav-target="#projects">
                                 <span>
-                                    <img src="../../../assets/image/icons/pages/17-1.svg" width="35px" height="35px"
+                                    <img [src]="getImagePath('image/icons/pages/17-1.svg')" width="35px" height="35px"
                                         alt="">
                                     </span>
                                 Төсвийн гол үзүүлэлтүүд
@@ -314,19 +314,19 @@
                 <!-- <div class="filter-graph">
         <div class="download-list">
             <span (click)="chartType='bar'">
-                <img src="../../assets/image/charts/bar_chart.svg" />
+                <img [src]="getImagePath('image/charts/bar_chart.svg')" />
             </span>
             <span (click)="chartType='column'">
-                <img src="../../assets/image/charts/column_chart.svg" />
+                <img [src]="getImagePath('image/charts/column_chart.svg')" />
             </span>
             <span (click)="chartType='pie'">
-                <img src="../../assets/image/charts/pie_chart.svg" />
+                <img [src]="getImagePath('image/charts/pie_chart.svg')" />
             </span>
             <span (click)="chartType='tree'">
-                <img src="../../assets/image/charts/tree_map_chart.svg" />
+                <img [src]="getImagePath('image/charts/tree_map_chart.svg')" />
             </span>
             <span (click)="chartType='table'">
-                <img src="../../assets/image/table.png" />
+                <img [src]="getImagePath('image/table.png')" />
             </span>
         </div>
         <div class="download">

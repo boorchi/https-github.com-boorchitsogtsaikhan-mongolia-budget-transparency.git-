@@ -12,6 +12,16 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 })
 export class MainComponent implements OnInit {
   
+  // Method to get correct asset path for GitHub Pages
+  getAssetPath(path: string): string {
+    return Constants.getAssetPath(path);
+  }
+  
+  // Helper method for image paths
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+  
   
   budgetMain = {
     "SUBMITTED": {"IN" : {
