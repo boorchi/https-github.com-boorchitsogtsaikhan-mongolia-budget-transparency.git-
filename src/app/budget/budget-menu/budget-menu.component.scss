@@ -79,7 +79,7 @@
     box-shadow: 0 4px 25px 0 rgba(0,0,0,.1);
     position: fixed;
     top: $header-height;
-    height: calc(100vh - $header-height);
+    height: calc(100vh - #{$header-height});
     overflow-y: auto;
     display: flex;
     flex-direction: column;

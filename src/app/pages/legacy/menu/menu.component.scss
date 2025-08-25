@@ -82,7 +82,7 @@
     flex-direction: column;
     left: 0;
     top: $header-height;
-    height: calc(100vh - $header-height - 200px);
+    height: calc(100vh - #{$header-height} - 200px);
     padding-top: 30px;
     overflow-y: auto;
     .navigation-menu-tab {
@@ -178,7 +178,7 @@
         flex-direction: column;
         left: 0;
         top: $header-height;
-        height: calc(100vh - $header-height - 200px);
+        height: calc(100vh - #{$header-height} - 200px);
         padding-top: 30px;
         overflow-y: auto;
         .navigation-menu-tab {
@@ -262,7 +262,7 @@
         width: 200px;
         box-shadow: 0 4px 25px 0 rgba(0,0,0,.1);
         position: relative;
-        height: calc(100vh - $header-height - 200px);
+        height: calc(100vh - #{$header-height} - 200px);
         display: flex;
         flex-direction: column;
         left: 0;
