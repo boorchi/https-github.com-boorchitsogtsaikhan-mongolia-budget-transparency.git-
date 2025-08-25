@@ -18,6 +18,11 @@ export class BudgetMenuComponent implements OnInit {
   @Input()
   menu;
 
+  // Add image path helper method
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+
   params = {year: Constants.year, category: Constants.category};
 
   constructor(private router: Router, private mainService: MainService) { 

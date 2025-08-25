@@ -18,6 +18,19 @@ export class CoviddemoComponent implements OnInit {
   slideData = {type:10, datas: []};
   loList = [];
   def = '';
+  
+  // Add image path helper method
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+  
+  // Helper method for dynamic image paths
+  getSelectedImage(): string {
+    if (this.selected && this.selected.code) {
+      return this.getImagePath(`image/${this.selected.code}.png`);
+    }
+    return '';
+  }
   show = false;
   isLoNull = false;
   isNull = false;

@@ -26,14 +26,14 @@
                     </p>
                 </div>
             </div> 
-            <img src="../../../assets/image/house.svg" />
+            <img [src]="getImagePath('image/house.svg')" />
         </div>
       
         <div *ngFor='let item of covidMain; let i = index' class="invest-item" (click)="select(item)" style="background: {{colors[i]}}; {{covid[i]}}">
             <div class="content">
                 <div>
                     <span>
-                        <img src="../../../assets/image/budget/main/HO1.svg" alt="">{{item["value"] | number}}
+                        <img [src]="getImagePath('image/budget/main/HO1.svg')" alt="">{{item["value"] | number}}
                         <p  style="font-size: 12px;">
                             тэрбум төгрөг
                         </p>
@@ -56,7 +56,7 @@
             <div class="col-md-6">
                 <a>
                     <div class="item" style="text-align: left;">
-                        <img src="../../../assets/image/suld.png" /><h4>Олон улсын хөгжлийн түнш
+                        <img [src]="getImagePath('image/suld.png')" /><h4>Олон улсын хөгжлийн түнш
                             байгууллагуудаас олгосон дэмжлэг</h4>
                     </div>      
                 </a>     
@@ -64,7 +64,7 @@
             <div class="col-md-6">
                 <a>
                     <div class="item">
-                        <img src="../../../assets/image/loan.PNG" /><h4>Засгийн газрын нөөц хөрөнгө болон
+                        <img [src]="getImagePath('image/loan.PNG')" /><h4>Засгийн газрын нөөц хөрөнгө болон
                             төсвийн тодотголоор хэрэгжсэн арга хэмжээ</h4>
                     </div>
                 </a>
@@ -77,7 +77,7 @@
     <h3>{{selected.name}}	
         </h3>
     <div class="block-container covid-bottom">
-        <img class="center" src="../../../assets/image/{{selected.code}}.png" />
+        <img class="center" [src]="getSelectedImage()" />
         <div class="row">
                 <div class="col-md-4 ">
                     <div class="invest-main sub back" style="background-color: {{colors[index]}};">

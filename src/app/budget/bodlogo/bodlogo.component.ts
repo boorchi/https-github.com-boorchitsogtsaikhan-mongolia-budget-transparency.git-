@@ -22,7 +22,12 @@ export class BodlogoComponent implements OnInit {
           }
           this.getBodlogo();
         }
-  });  
+      });  
+  }
+  
+  // Add image path helper method
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
   }
 
   setQueryParam(param){

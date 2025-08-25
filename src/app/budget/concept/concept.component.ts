@@ -58,4 +58,9 @@ export class ConceptComponent implements OnInit {
     });
   }
 
+
+  // Add image path helper method
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
 }

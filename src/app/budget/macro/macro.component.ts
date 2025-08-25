@@ -19,6 +19,11 @@ export class MacroComponent implements OnInit {
   colors = Constants.colorsMacro;
   constructor(private mainService: MainService) { }
   
+  // Add image path helper method
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+  
 
   ngOnInit(): void {
     this.getMacro();

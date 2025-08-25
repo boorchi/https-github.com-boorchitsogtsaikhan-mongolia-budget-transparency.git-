@@ -1,3 +1,4 @@
+import { Constants } from "../../services/constants";
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -19,4 +20,9 @@ export class DebitConceptDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  // Add image path helper method
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
 }

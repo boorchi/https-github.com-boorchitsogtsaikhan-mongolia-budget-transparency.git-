@@ -8,7 +8,7 @@
 			<li [class.active]="urlName.includes('macro')">
                 <a routerLink="/budget/macro">
                     <span>
-						<img src="../../../assets/image/legal/legal_icon_0.svg" width="35px" height="35px"  alt="">
+						<img [src]="getImagePath('image/legal/legal_icon_0.svg')" width="35px" height="35px"  alt="">
 					</span>
 					<div>
 						<div>
@@ -20,7 +20,7 @@
 			<li [class.active]="urlName.includes('bodlogo')">
                 <a routerLink="/budget/bodlogo" [queryParams]="{ year: params.year, category: params.category}">
 					<span>
-						<img src="../../../assets/image/icons/pages/17-1.svg" width="35px" height="35px" alt="">
+						<img [src]="getImagePath('image/icons/pages/17-1.svg')" width="35px" height="35px" alt="">
 					</span>
 					<div>
 						<div>Төсвийн бодлого</div>
@@ -1300,7 +1300,7 @@
 			<li [class.active]="urlName.includes('covid')">
                 <a routerLink="/budget/covid" [queryParams]="{ year: params.year, category: params.category}">
                     <span>
-						<img src="../../../assets/image/icons/new/covid-19.svg" width="35px" height="35px"  alt="">
+						<img [src]="getImagePath('image/icons/new/covid-19.svg')" width="35px" height="35px"  alt="">
 					</span>
 					<div>
 						<div>
