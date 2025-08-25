@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Path Debug</title>
+</head>
+<body>
+    <h1>Debug Image Paths for GitHub Pages</h1>
+    
+    <div>
+        <h2>Current Environment:</h2>
+        <p><strong>Hostname:</strong> <span id="hostname"></span></p>
+        <p><strong>Pathname:</strong> <span id="pathname"></span></p>
+        <p><strong>Base Href:</strong> <span id="baseHref"></span></p>
+    </div>
+
+    <div>
+        <h2>Expected Image Paths:</h2>
+        <p><strong>Logo:</strong> <span id="logoPath"></span></p>
+        <p><strong>MN Logo:</strong> <span id="mnLogoPath"></span></p>
+        <p><strong>Union Logo:</strong> <span id="unionLogoPath"></span></p>
+    </div>
+
+    <div>
+        <h2>Test Images:</h2>
+        <p><strong>Logo:</strong><br><img id="logoImg" alt="Logo" style="max-width: 200px; border: 1px solid red;"></p>
+        <p><strong>MN Logo:</strong><br><img id="mnLogoImg" alt="MN Logo" style="max-width: 200px; border: 1px solid red;"></p>
+        <p><strong>Union Logo:</strong><br><img id="unionLogoImg" alt="Union Logo" style="max-width: 100px; border: 1px solid red;"></p>
+    </div>
+
+    <script>
+        function getImagePath(imagePath) {
+            const cleanPath = imagePath.replace(/^(\.\.\/)*assets\//, '').replace(/^\/+/, '');
+            
+            // Get base element
+            const baseElement = document.querySelector('base');
+            const baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/';
+            
+            // If base href includes our repo name, we're on GitHub Pages
+            if (baseHref.includes('https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-')) {
+                return baseHref + 'assets/' + cleanPath;
+            }
+            
+            // Fallback to hostname check
+            const isGitHubPages = window.location.hostname === 'boorchi.github.io';
+            
+            if (isGitHubPages) {
+                const repoName = 'https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-';
+                return '/' + repoName + '/assets/' + cleanPath;
+            }
+            
+            // Local development
+            return '/assets/' + cleanPath;
+        }
+
+        // Update debug info
+        document.getElementById('hostname').textContent = window.location.hostname;
+        document.getElementById('pathname').textContent = window.location.pathname;
+        
+        const baseElement = document.querySelector('base');
+        const baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/';
+        document.getElementById('baseHref').textContent = baseHref;
+
+        // Generate paths
+        const logoPath = getImagePath('image/logo.png');
+        const mnLogoPath = getImagePath('image/icons/mn-logo-rectangle-with-border.svg');
+        const unionLogoPath = getImagePath('image/icons/union.jpg');
+
+        document.getElementById('logoPath').textContent = logoPath;
+        document.getElementById('mnLogoPath').textContent = mnLogoPath;
+        document.getElementById('unionLogoPath').textContent = unionLogoPath;
+
+        // Set image sources
+        document.getElementById('logoImg').src = logoPath;
+        document.getElementById('mnLogoImg').src = mnLogoPath;
+        document.getElementById('unionLogoImg').src = unionLogoPath;
+    </script>
+</body>
+</html>
