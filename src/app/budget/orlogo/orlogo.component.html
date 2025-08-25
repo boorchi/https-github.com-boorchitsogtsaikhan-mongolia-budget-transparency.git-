@@ -1,0 +1,225 @@
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+</div>
+<ng-container *ngIf="menuType == 'main'">
+    <div class="budget-content">
+        <div class="budget-main-type">
+            <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+            <div class="title">
+                <h3>Нэгдсэн төсвийн нийт орлого</h3>
+                <div class="chart-text row justify-content-md-center">
+                    <div class="orlogo" (click)="changeType('eza')"  (mouseover)="orlogo()" >
+                        <div>
+                            <img *ngIf="isSalbar"  src="../../../assets/image/orlogo.PNG" width="100">
+                            <img *ngIf="isEza"  src="../../../assets/image/orlogo white.PNG" width="100"><br>
+                            <span *ngIf="isSalbar" style="font-weight: bold;">эдийн засгийн
+                                ангиллаар харах</span>                            
+                            <span *ngIf="isEza" style="font-weight: bold; color: #0081ff">эдийн засгийн
+                                ангиллаар харах</span>
+                        </div>
+                        <div class="ndleft">
+                            <img *ngIf="isEza" src="../../../assets/image/icons/right.png">
+                        </div>
+                    </div>    
+                   
+                    <div class="chart-container1" *ngIf="showChart">
+                        <ulsiintusuv-charts [sub]="0" [colors]="['#28c66f']" [legend]="false" [isOrlogo]="isOrlogo" [title]="'Нийт Орлого'" 
+                        [sum]="orlogoTotal[params['category']]['approvedValue']" 
+                        [prefValue]="orlogoTotal[params['category']]['perfoValue']" 
+                        [percent]="orlogoTotal[params['category']]['percent']"   
+                        [befPercent]="orlogoTotalPer[params['category']]['percentPer']"                     
+                        [values]="[orlogoTotal[params['category']]['approvedValue']]" 
+                        [names]="['Нийт зарлага']"></ulsiintusuv-charts>
+                    </div>
+                                                       
+                    <div class="zarlaga" (mouseover)="salbar()" (click)="changeType('hz')" >
+                        <div class="ndright">
+                            <img *ngIf="isSalbar" src="../../../assets/image/icons/left.png">
+                        </div>
+                        <div>
+                            <img *ngIf="isSalbar" src="../../../assets/image/zarlaga.PNG" width="100">
+                            <img *ngIf="isEza" src="../../../assets/image/zarlaga dark.PNG" width="100"><br>
+                            <span *ngIf="isSalbar" style="font-weight: bold; color: #0081ff;">Хүчин зүйлсээр харах</span>
+                            <span *ngIf="isEza" style="font-weight: bold;">Хүчин зүйлсээр харах</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>        
+</div>
+<module-description [description]="description" *ngIf="description"></module-description>
+</ng-container>
+<ng-container *ngIf="menuType=='eza'">
+    <div class="budget-content">        
+        <div class="budget-main">
+            <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+            <div class="title">
+                <h3>Орлого эдийн засгийн ангиллаар</h3>
+                <div class="row">
+                    <div [ngClass]="(isChart)?'col-md-4':'col-md-12'">
+                        <div class="chart-container"   *ngIf="isDataLoaded">
+                            <budget-charts [sub]="0" [title]="'Нийт орлого'" [legend]="true" [isOrlogo]="isOrlogo" [sum]="sum" [process]="process" 
+                            [values]="orlogoValues" [names]="orlogoNames"  [prefValue]="orlogoTotal[params['category']]['perfoValue']" 
+                            [percent]="orlogoTotal[params['category']]['percent']" [befPercent]="orlogoTotalPer[params['category']]['percentPer']" ></budget-charts>
+                        </div>
+                    </div>
+                    <div class="col-md-8" *ngIf="isChart">
+                        <h3 style="margin-top: 30px; margin-bottom: 30px;">{{chartName}}</h3>
+                        <div id="chartContainer" style="height: 370px; width: 80%; "></div>
+                    </div>
+                    </div>
+                </div>
+                <div>
+                <div class="backbtn" (click)="menuType='main'">
+                    <img src="../../../assets/image/back.png" />
+                </div>
+            </div> 
+        </div>
+    </div>
+    <module-description [description]="description" *ngIf="description"></module-description>
+    
+    <div class="budget-block"  *ngIf="isSub1">
+        <h3>Тэнцвэржүүлсэн орлого</h3>
+        <div class="block-container">
+            <app-simple [sub]="1" [isOrlogo]="isOrlogo"  [legend]="true" [title]="'Тэнцвэржүүлсэн орлого'" [sum]="sum" [values]="orlogoSub1Values" [names]="orlogoSub1Names" [prefValue]="orlogoSub1pepoPer" 
+            [percent]="orlogoSub1Per" [befPercent]="beforlogoSub1Per" ></app-simple>
+        </div>
+    </div>
+    <div class="budget-block"  *ngIf="isSub2" id="orlogo-sub">
+        <h3>{{sub2Head}}</h3>    
+    </div>
+    
+    <div class="budget-block"  *ngIf="isSub2">  
+        <div class="block-container">
+            <app-orlogo-sub [datas]="orlogoDetailList" [befDatas]="orlogoDetailListPer"></app-orlogo-sub>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="menuType == 'hz'">
+    <div class="budget-content">
+    <div class="budget-main-invest investment">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: </div>
+        <div class="title">
+            <h3>Төсвийн орлогод нөлөөлөх хүчин зүйлс</h3>
+        </div>        
+        <div *ngFor='let item of hzDatas; let i = index' class="income-item" style="background: {{hzColor[i]}}; width: {{width}}px; height: {{height}}px; {{hzPos[i]}}">
+            <div class="content">
+                <div>
+                    <span><img src="../../../assets/image/budget/main/orlgo/{{i}}.svg" alt="">{{item["approvedValue"] | number}} тэрбум</span><br/>
+                    <div>{{getType()}} {{item.percent}}%</div>
+                    <!-- <div class="animate-show">
+                        <span>
+                            {{item["approvedValue"] | number}} тэрбум
+                        </span> -->
+                        <!-- <div *ngIf="params.category === 'SUBMITTED'">өмнөх оноос <b> &nbsp;{{salbar.percent}}%
+                            <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="salbar.percent < 0"></i-feather>
+                            <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="salbar.percent >= 0"></i-feather>    
+                            </b>
+                        </div> -->
+                    <!-- </div> -->
+                    <p>{{item["codeName"]}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="income-img">
+            <img src="../../../assets/image/yuluur.PNG" alt="">
+        </div>
+        <div class="number">
+            <span>
+                нийт орлого
+            </span>
+            <div class="curr">
+                {{orlogoTotal[params['category']]['approvedValue']| number}}
+            </div>
+            <p>
+                тэрбум төгрөг
+            </p>
+        </div>
+        
+        <span class="process">
+        <ng-container *ngIf="params['category']=='APPROVED'">
+            Гүйцэтгэл <b  style="color: #fff">
+                {{orlogoTotal[params['category']]['percent']}}%
+                </b><br/>{{orlogoTotal[params['category']]['perfoValue'] | number}} тэрбум
+            
+        </ng-container>
+          <div *ngIf="params['category']!='APPROVED'">
+            Өмнөх оноос <b style="color:#fff">{{orlogoTotalPer[params['category']]['percentPer']}}%
+              <i-feather name="arrow-down" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && orlogoTotalPer[params['category']]['percentPer'] < 0"></i-feather>
+              <i-feather name="arrow-up" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && orlogoTotalPer[params['category']]['percentPer'] >= 0"></i-feather>    
+              </b><br/>
+          </div>
+        </span>
+        <div>
+            <div class="backbtn" (click)="menuType='main';sheet = 'Sheet4'; getReleaseDate('Sheet4')">
+                <img src="../../../assets/image/back.png" />
+            </div>
+        </div> 
+    </div>
+</div>
+<module-description [description]="description" *ngIf="description"></module-description>
+<div class="budget-block" style="margin-top: 0px;">
+    <h3 style="margin: 0px" class="title">Уул уурхайн голлох бүтээгдэхүүний төлөв</h3>
+    <div class="row">
+        <div class="col-md-{{breakpoint}}" *ngFor='let item of miningDatas; let i = index'>
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors_income_ded[i]}};">
+                        <img src="../../assets/image/budget/main/alt/{{i}}.svg" />
+                    </div>
+                    <div class="ded-name" style="color:  {{colors_income_ded[i]}};">{{item["codeName"]}}</div><br>
+                    <div class="ded-detail">Хэмжээ: <b>{{item["amount"]}}</b><br>Үнэ: {{item["price"]}}</div>
+                    <!-- <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[1]}};"></i></span>
+                     -->
+                    <span class="ded-process">
+                        <div class="row">
+                            <div class="col-md-5 left">{{getNumber(item["total"])}} тэрбум</div>
+                            <div class="col-md-7 right" style="padding-right: 30px;">
+                                <div *ngIf="params['category']=='APPROVED'">
+                                    Гүйцэтгэл<br>
+                                    <b >{{item["percent"]}}%</b>
+                                </div>
+                                <div *ngIf="params['category']!='APPROVED'">
+                                    Өмнөх оноос
+                                    <b >{{item["percent"]}}%</b>
+                                <i-feather name="arrow-down" class="down-icon-w" style="position: absolute;top: 7px;color: #505054;" *ngIf="item['percent'] < 0"></i-feather>
+                                <i-feather name="arrow-up" class="down-icon-w" style="position: absolute;top: 7px;color: #505054;" *ngIf="item['percent'] >= 0"></i-feather> 
+                                </div>
+                            </div>
+                        </div>
+                    </span><br>
+                    <div class="ded-button"  (mouseover)="miningDatas[i]['changeTest']=true" style="background-color: {{colors_income_ded[i]}};">
+                        <span ><i class="arrow up"></i></span>
+                    </div>
+                    <div class="ded-back" style="background-color:  {{colors_income_ded[i]}};" *ngIf="miningDatas[i]['changeTest']" (mouseout)="miningDatas[i]['changeTest']=false">
+                        <p>
+                            {{item["description"]}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://mof.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>

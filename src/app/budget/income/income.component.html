@@ -1,0 +1,230 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main-invest investment">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: </div>
+        <div class="title">
+            <h3>Төсвийн орлогод нөлөөлөх хүчин зүйлс</h3>
+        </div>
+        <!-- <div class="total">
+            <div class="number">
+                <span>
+                    нийт зарлага
+                </span>
+                <div class="curr">
+                    11,172.8
+                </div>
+                <p>
+                    тэрбум төгрөг
+                </p>
+            </div>
+            <span class="process">гүйцэтгэл <b  style="color: #fff">
+                50%
+            </b><br/>11,172.8 тэрбум</span>
+            
+        </div> -->
+        <div class="income-item" style="background: #ef4234; width: 150px; height: 150px; left: 200px; bottom: 320px;">
+            <div class="content">
+                <div>
+                    <span><img src="../../../assets/image/budget/main/3_zarlaga.svg" alt="">8%</span>
+                    <p>импортын орлого</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="income-item" style="background: #008ffb; width: 160px; height: 160px; left: 450px; bottom: 450px;">
+            <div class="content">
+                <div>
+                    <span><img src="../../../assets/image/budget/main/4_macro.svg" alt="">12%</span>
+                    <p>Уул уурхайн салбарын орлого</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="income-item" style="background: #fcad44; width: 150px; height: 150px; left: 850px; bottom: 450px;">
+            <div class="content">
+                <div>
+                    <span><img src="../../../assets/image/budget/main/3_zarlaga.svg" alt="">21%</span>
+                    <p>татварын бус орлого</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="income-item" style="background: #b754ea; width: 170px; height: 170px; left: 1150px; bottom: 320px;">
+            <div class="content">
+                <div>
+                    <span><img src="../../../assets/image/budget/main/4_macro.svg" alt="">33%</span>
+                    <p>эдийн засгийн өсөлтийн хүчин зүйлийн орлого</p>
+                </div>
+            </div>
+        </div>
+        <div class="income-img">
+            <img src="../../../assets/image/yuluur.PNG" alt="">
+        </div>
+        <div class="number">
+            <span>
+                нийт зарлага
+            </span>
+            <div class="curr">
+                11,172.8
+            </div>
+            <p>
+                тэрбум төгрөг
+            </p>
+        </div>
+        <span class="process">Гүйцэтгэл <b  style="color: #fff">
+            50%
+        </b><br/>11,172.8 тэрбум</span>
+        
+    </div>
+    
+    
+</div>
+
+<div class="budget-block" style="margin-top: 0px;">
+    <h3 style="margin: 0px" class="title">Уул уурхайн голлох бүтээгдэхүүний төлөв</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors_income_ded[0]}};">
+                        <img src="../../assets/image/budget/ont/DB_4.svg" />
+                    </div>
+                    <div class="ded-name" style="color:  {{colors_income_ded[0]}};">АЛТ</div><br>
+                    <div class="ded-detail">Хэмжээ: <b>42 сая тн</b><br>Үнэ: <b>70-125</b> ам.доллар/унц</div>
+                    <!-- <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[1]}};"></i></span>
+                     -->
+                    <span class="ded-process">
+                        <div class="row">
+                            <div class="col-md-6 left"><b>166.0</b><br>тэрбум</div>
+                            <div class="col-md-6 right"><b>14%</b><br>2019 оноос</div>
+                        </div>
+                    </span><br>
+                    <div class="ded-button"  (mouseover)="changeText1=true" style="background-color: {{colors_income_ded[0]}};">
+                        <span ><i class="arrow up"></i></span>
+                    </div>
+                    <div class="ded-back" style="background-color:  {{colors_income_ded[0]}};" *ngIf="changeText1" (mouseout)="changeText1=false">
+                        <p>
+                            asdasdasdasd
+                            asd
+                            asdasdasdasdasd
+                            asd
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-3">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors_income_ded[1]}};">
+                        <img src="../../assets/image/budget/ont/EM_2.svg" />
+                    </div>
+                    <div class="ded-name" style="color:  {{colors_income_ded[1]}};">нүүрс</div><br>
+                    <div class="ded-detail">Хэмжээ: <b>42 сая тн</b><br>Үнэ: <b>70-125</b> ам.доллар/унц</div>
+                    <!-- <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[1]}};"></i></span>
+                     -->
+                    <span class="ded-process">
+                        <div class="row">
+                            <div class="col-md-6 left"><b>166.0</b><br>тэрбум</div>
+                            <div class="col-md-6 right"><b>14%</b><br>2019 оноос</div>
+                        </div>
+                    </span><br>
+                    <div class="ded-button" (mouseover)="changeText2=true" style="background-color: {{colors_income_ded[1]}};">
+
+                        <span ><i class="arrow up"></i></span>
+                    </div>
+                    <div class="ded-back" style="background-color:  {{colors_income_ded[1]}};" *ngIf="changeText2" (mouseout)="changeText2=false">
+                        <p>
+                            asdasdasdasd
+                            asd
+                            asdasdasdasdasd
+                            asd
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="col-md-3">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors_income_ded[2]}};">
+                        <img src="../../assets/image/budget/ont/ONU_5.svg" />
+                    </div>
+                    <div class="ded-name" style="color:  {{colors_income_ded[2]}};">Зэс</div><br>
+                    <div class="ded-detail">Хэмжээ: <b>42 сая тн</b><br>Үнэ: <b>70-125</b> ам.доллар/унц</div>
+                    <!-- <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[1]}};"></i></span>
+                     -->
+                    <span class="ded-process">
+                        <div class="row">
+                            <div class="col-md-6 left"><b>166.0</b><br>тэрбум</div>
+                            <div class="col-md-6 right"><b>14%</b><br>2019 оноос</div>
+                        </div>
+                    </span><br>
+                    <div class="ded-button"  (mouseover)="changeText3=true" style="background-color: {{colors_income_ded[2]}};">
+                        <span ><i class="arrow up"></i></span>
+                    </div>
+                    <div class="ded-back" style="background-color:  {{colors_income_ded[2]}};" *ngIf="changeText3" (mouseout)="changeText3=false">
+                        <p>
+                            asdasdasdasd
+                            asd
+                            asdasdasdasdasd
+                            asd
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="col-md-3">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors_income_ded[3]}};">
+                        <img src="../../assets/image/budget/ont/B_1.svg" />
+                    </div>
+                    <div class="ded-name" style="color:  {{colors_income_ded[3]}};">Газрын тос</div><br>
+                    <div class="ded-detail">Хэмжээ: <b>42 сая тн</b><br>Үнэ: <b>70-125</b> ам.доллар/унц</div>
+                    <!-- <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[1]}};"></i></span>
+                     -->
+                    <span class="ded-process">
+                        <div class="row">
+                            <div class="col-md-6 left"><b>166.0</b><br>тэрбум</div>
+                            <div class="col-md-6 right"><b>14%</b><br>2019 оноос</div>
+                        </div>
+                    </span><br>
+                    <div class="ded-button" (mouseover)="changeText4=true" style="background-color: {{colors_income_ded[3]}};">
+                        <span ><i class="arrow up"></i></span>
+                    </div>
+                    <div class="ded-back" style="background-color:  {{colors_income_ded[3]}};" *ngIf="changeText4" (mouseout)="changeText4=false">
+                        <p>
+                            asdasdasdasd
+                            asd
+                            asdasdasdasdasd
+                            asd
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">    
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://mof.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

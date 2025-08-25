@@ -1,0 +1,182 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div>    
+    <div class="budget-main main_page">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <div class="title">
+            <h3>Монгол улсын нэгдсэн төсөв</h3>
+
+            <div class="main_budget">
+                <a routerLink="/budget/income">                    
+                    <module-base-number class="orlogo"
+                        [showHelp]="1"
+                        [text1]="'нийт орлого'"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="budgetMain[params['category']]['IN']['approvedValue']"     
+                        [color]="'#28c66f'"  
+                        [percent]="budgetMain[params['category']]['IN']['percent']"  
+                        [befPercent]="budgetMain[params['category']]['IN']['percent']"  
+                        [prefValue]="budgetMain[params['category']]['IN']['perfoValue']"              
+                    ></module-base-number>
+                </a>  
+                <a routerLink="/budget/expense">               
+                <module-base-number class="zarlaga"
+                        [showHelp]="1"
+                        [text1]="'нийт зарлага'"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="budgetMain[params['category']]['OUT']['approvedValue']"     
+                        [color]="'#ea5455'"  
+                        [percent]="budgetMain[params['category']]['OUT']['percent']"  
+                        [befPercent]="budgetMain[params['category']]['OUT']['percent']"
+                        [prefValue]="budgetMain[params['category']]['OUT']['perfoValue']"             
+                    ></module-base-number>
+                    </a>
+                <div class="tentsel">
+                    <module-base-number 
+                        [text1]="'тэнцвэржүүлсэн тэнцэл'"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="budgetMain[params['category']]['EQUAL']['approvedValue']"     
+                        [color]="'#feb018'" 
+                        [width]="300" 
+                        class="cur"          
+                    ></module-base-number>
+                    <module-base-number 
+                        [text1]="'днб-д эзлэх хувь'"
+                        [text2]=""
+                        [baseNumber]="budgetMain[params['category']]['PERCENT']['percent']"     
+                        [color]="'#feb018'" 
+                        [width]="300"  
+                        class="hover"           
+                    ></module-base-number>
+                </div>
+                <div class="guitsetgel">
+                    <module-base-number 
+                        [text1]="params['category']=='APPROVED'?'гүйцэтгэл':'өмнөх оноос'"
+                        [text2]="params['category']=='APPROVED'?'тэрбум төгрөг':''"
+                        [baseNumber]="params['category']=='APPROVED'?budgetMain[params['category']]['EQUAL']['perfoValue']:budgetMain[params['category']]['EQUAL']['percent']"     
+                        [color]="'#feb018'" 
+                        [width]="300"           
+                    ></module-base-number>
+                    <div style ="color: rgb(254, 176, 24);" *ngIf="params['category']=='SUBMITTED'">
+                        %
+                    </div>
+                    <i-feather name="arrow-down" class="down-icon" style="position: absolute;top: 70px;right: 100px;color: #505054;" *ngIf="params['category']!='APPROVED' && budgetMain[params['category']]['EQUAL']['percent'] < 0"></i-feather>
+                    <i-feather name="arrow-up" class="down-icon" style="position: absolute;top: 70px;right: 100px;color: #505054;" *ngIf="params['category']!='APPROVED' && budgetMain[params['category']]['EQUAL']['percent'] >= 0"></i-feather>   
+                </div>
+                     <!-- <div class="tentsel1">
+                     <span class="process">гүйцэтгэл <b>{{budgetMain[params['category']]['EQUAL']['percent']}}% {{budgetMain[params['category']]['EQUAL']['perfoValue']}}</b> тэрбум</span>
+                     </div> -->
+                <div class="main_scale">
+                    <div *ngIf="params['category']=='SUBMITTED'">  
+                        <img class="m_r" src="../../../assets/image/budget/out4.png" />
+                        <img class="m_l" src="../../../assets/image/budget/in4.png" />
+                    </div>
+                    <div *ngIf="params['category']=='APPROVED'">   
+                        <img class="m_r" src="../../../assets/image/budget/out{{check(budgetMain['APPROVED']['OUT']['percent'])}}.png" />
+                        <img class="m_l" src="../../../assets/image/budget/in{{check(budgetMain['APPROVED']['IN']['percent'])}}.png" />
+                    </div>  
+                    <img class="g" src="../../../assets/image/budget/main/gol.svg" />
+                    <img class="j" src="../../../assets/image/budget/main/jin.svg" />
+                    <img class="t" src="../../../assets/image/banner_pic3.png" />
+                </div>
+                
+            </div>
+            <div class="downArrow bounce main" (click)="down()">
+                <i-feather name="chevron-down" class="down-icon"></i-feather>
+            </div>
+        </div>
+    </div>
+</div>
+<module-description [description]="description" *ngIf="description"></module-description>
+
+<div class="budget-content main-block">
+    <h3 class="main-title">Монгол улсын нэгдсэн төсөв</h3>
+    <h3 class="second-title">Дараах 4 төсвөөс бүрдэнэ</h3>
+    <p>Монгол Улсын нэгдсэн
+        төсөв нь Улсын төсөв,
+        Нийгмийн даатгалын
+        сангийн төсөв, Эрүүл
+        мэндийн даатгалын
+        төсөв, Орон нутгийн
+        төсвөөс бүрддэг. Улсын
+        төсвийг боловсруулах,
+        батлах, хэрэгжүүлэх
+        болон тайлагнах гэсэн
+        үе шатууд нь 3 жил
+        дамнан тасралтгүй
+        үргэлжлэх үйл
+        ажиллагаа юм.  </p>
+        <div class="row d-flex justify-content-center" style="margin: 0px auto;">
+            <div class="col-3 right">
+                <a routerLink="/budget/state-budget">
+                    <div class="budget-type" style="background: #284c80;">
+                        <div class="soyombo"><img src="../../../assets/image/1.svg" /></div>
+                        <h3>Улсын төсөв</h3>
+                        <img class="dur1" src="../../../assets/image/icons/Duruud/Turiin_alban_haagch_3.png" width="130" />
+                    </div>
+                </a>
+                <a routerLink="/budget/health-insurance">
+                    <div class="budget-type" style="background: #05a8eb;">
+                        <div><img src="../../../assets/image/4.svg" /></div>
+                        <h3>Эрүүл мэндийн даатгалын сангийн төсөв</h3>
+                        <img class="dur2" src="../../../assets/image/icons/Duruud/emch.png" width="110"/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-5 center">                
+                <img class="dur" src="../../../assets/image/map.svg" class="main-map" />
+                <img src="../../../assets/image/map_line.svg" class="main-map"/>
+                <h3>Монгол улсын нэгдсэн төсөв</h3>
+            </div>
+            <div class="col-3 left">
+                <a routerLink="/budget/oron-nutag">
+                    <div class="budget-type" style="background: #feb018;">
+                        <div class="ger"><img src="../../../assets/image/2.svg" /></div>
+                        <h3>Орон нутгийн төсөв</h3>
+                        <img class="dur3" src="../../../assets/image/icons/Duruud/Malchin.png" width="100"/>
+                    </div>
+                </a>
+                
+                <a routerLink="/budget/tax">
+                    <div class="budget-type" style="background: #0d7c5c;">
+                        <div ><img src="../../../assets/image/3.svg" /></div>
+                        <h3>Нийгмийн даатгалын сангийн төсөв</h3>
+                        <img class="dur4" src="../../../assets/image/icons/Duruud/tatvar.png" width="150" />
+                    </div>
+                </a>
+            </div>
+        </div>
+</div>
+<div class="budget-content main-block">
+    <!-- <h3 class="main-title">Засгийн газар эдийн засгийн</h3> -->
+    <h3 class="second-title">Бусад мэдээлэл авах</h3>
+   
+    <div class="row main-bottom">
+        <div class="col-md-4">
+            <a routerLink="/budget/debt">
+                <div class="item" style="text-align: left;">
+                    <img src="../../../assets/image/suld.png" /><h4>Засгийн газрын өр</h4>
+                </div>      
+            </a>     
+        </div>
+        <div class="col-md-4">
+            <a routerLink="/budget/government-assistance">
+                <div class="item">
+                    <img src="../../../assets/image/loan.PNG" /><h4>Засгийн газрын гадаад зээл, тусламж</h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a routerLink="/budget/macro">
+                <div class="item">
+                    <img src="../../../assets/image/macro.PNG" /><h4>Макро эдийн засгийн үзүүлэлтүүд</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+

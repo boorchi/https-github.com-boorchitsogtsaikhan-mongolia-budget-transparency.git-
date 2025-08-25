@@ -1,0 +1,24 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change [showSelect]="0"></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main-invest investment">
+        <!-- <div class="last_updated">Мэдээлэл шинэчлэгдсэн: </div> -->
+        <div class="title">
+            <h3>{{params["year"]}} оны Төсвийн зарлагын тооцоололд<br> баримталсан зарчмууд</h3>
+        </div>
+        <div class="total-debit" *ngIf="show">
+            <module-carousel [slideData]="slideData"></module-carousel>
+        </div>
+        <div class="tugrug">
+            <img src="../../../assets/image/tugrugdebit.PNG" alt="">
+        </div>
+    </div>
+</div>
+ <!-- <module-description [description]="description"></module-description> -->
+
+
+

@@ -1,0 +1,9 @@
+/* Global white background */
+body {
+    background-color: white !important;
+}
+
+/* Ensure main content areas have white background */
+.main-content {
+    background-color: white !important;
+}

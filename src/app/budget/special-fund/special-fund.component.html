@@ -1,0 +1,57 @@
+<div class="budget-content">   
+	<div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change ></module-year-change>
+        </div>
+    </div>    
+    
+    <h3 style="margin: 0px" class="title">ЗАСГИЙН ГАЗРЫН ТУСГАЙ САН</h3>
+    <div class="row">
+        <ng-container *ngFor='let item of datas; let i = index'>
+            <div *ngIf="i != index"  class="col-md-{{breakpoint}}" style="cursor: pointer;" (click)="show(item, i)">
+                <div class="ded-col">
+                    <div class="ded-item">
+                        <div class="ded-img" style="background-color: {{colors[i]}};">
+                            <img src="../../assets/image/budget/zeeliintuslamj/LA10.png" />
+                        </div>
+                        <div class="ded-name">{{item.typeName}}</div><br>
+                    </div>
+                </div>
+            </div>  
+            <div *ngIf="i == index" class="col-md-{{breakpoint2}} animation">
+                <div class="ded-col">
+                    <div class="ded-item2" style="background-color: {{colors[index]}};">
+                        <div class="ded-left">
+                            <img src="../../assets/image/budget/zeeliintuslamj/LA10.png" />
+                            <br><br>
+                            <span>{{data.typeName}}</span>
+                        </div>
+                        <div class="ded-right">                    
+                           <module-carousel [slideData]="slideData"></module-carousel>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </ng-container>
+               
+    </div>
+
+<!-- <module-description [description]="description"></module-description> -->
+
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://mof.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

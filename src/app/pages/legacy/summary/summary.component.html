@@ -1,0 +1,136 @@
+<app-menu [menuType]="'legacy'"></app-menu>
+<div class="main-content">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-content" [class.fade-in]="titleVisible">
+                        <div class="hero-icon">
+                            <i class="fas fa-chart-line fa-4x text-white"></i>
+                        </div>
+                        <h1 class="hero-title">2025 оны Хураангуй танилцуулга</h1>
+                        <p class="hero-subtitle">
+                            Монгол Улсын 2025 оны төсвийн иж бүрэн танилцуулга
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="intro-card">
+                        <div class="intro-content">
+                            <h2 class="intro-title">Төсвийн тойм</h2>
+                            <p class="intro-text">
+                                2025 оны улсын төсөв нь нийт <span class="highlight">X их наяд төгрөгийн</span> орлого, 
+                                <span class="highlight">Y их наяд төгрөгийн</span> зарлагатай байхаар батлагдлаа. 
+                                Эрүүл мэнд, боловсролын салбарын хөрөнгө оруулалтыг 15%-иар нэмэгдүүлж, дэд бүтцийн 
+                                шинэ төслүүдийг эхлүүлэхээр тусгасан. Татварын орлогын өсөлт, гадаад хөрөнгө оруулалтын 
+                                нэмэгдэл нь төсвийн гол эх үүсвэр болж байна. Энэхүү төсөв нь эдийн засгийн тогтвортой 
+                                өсөлтийг хангах, иргэдийн амьжиргааг сайжруулах зорилготой.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Cards Section -->
+    <div class="cards-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="section-title text-center mb-5">Дэлгэрэнгүй мэдээлэл</h2>
+                    <div class="navigation-grid">
+                        <!-- Goal Card -->
+                        <div class="nav-card" [class.slide-in]="buttonsVisible[0]" [routerLink]="['/legacy/general-goals']">
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">Ерөнхий зорилго</h3>
+                                <p class="nav-card-text">
+                                    2025 оны төсвийн үндсэн зорилго - эдийн засгийн өсөлт дэмжих, инфляцийг тогтворжуулах, нийгмийн халамжийг сайжруулах.
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+
+                        <!-- Budget Size Card -->
+                        <div class="nav-card" [class.slide-in]="buttonsVisible[1]" [routerLink]="['/legacy/unified-budget']">                           
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">Нийт төсвийн хэмжээ</h3>
+                                <p class="nav-card-text">
+                                    Төсвийн нийт орлого, зарлагын хэмжээ төгрөгөөр болон өмнөх онтой харьцуулсан өсөлт/бууралтын хувь.
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+
+                        <!-- Sector Financing Card -->
+                        <div class="nav-card" [class.slide-in]="buttonsVisible[2]" [routerLink]="['/legacy/sector-financing']">
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">Гол салбаруудын санхүүжилт</h3>
+                                <p class="nav-card-text">
+                                    Эрүүл мэнд, боловсрол, дэд бүтэц, нийгмийн хамгаалал гэх мэт томоохон чиглэл тус бүрт хуваарилсан санхүүжилт.
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+
+                        <!-- Financial Sources Card -->
+                        <div class="nav-card" [class.slide-in]="buttonsVisible[3]" [routerLink]="['/legacy/financial-sources']">
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">Санхүүжилтийн эх үүсвэр</h3>
+                                <p class="nav-card-text">
+                                    Татварын орлого, татварын бус орлого, гадаад зээл, хөрөнгө оруулалт гэх мэт төсвийн эх үүсвэрүүд.
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+
+                        <!-- Indicators Card -->
+                        <div class="nav-card" [class.slide-in]="buttonsVisible[4]" [routerLink]="['/legacy/indicators']">                           
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">Гол өөрчлөлтүүд</h3>
+                                <p class="nav-card-text">
+                                    2024 онтой харьцуулахад шинэ бодлого, нэмэгдсэн/буурсан санхүүжилт, шинэ төслүүдийн мэдээлэл.
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+
+                        <!-- Economic Impact Card -->
+                        <div class="nav-card" [class.slide-in]="buttonsVisible[5]">                          
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">Эдийн засгийн нөлөөлөл</h3>
+                                <p class="nav-card-text">
+                                    Төсөв хэрэгжсэнээр эдийн засагт үзүүлэх гол хүлээгдэж буй үр нөлөө болон макро эдийн засгийн үзүүлэлтүүд.
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

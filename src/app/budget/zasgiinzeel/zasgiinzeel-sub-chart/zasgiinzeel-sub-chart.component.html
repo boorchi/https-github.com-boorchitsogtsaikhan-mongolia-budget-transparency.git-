@@ -1,0 +1,20 @@
+<div class="pie_chart center" style="text-align:center; width: {{width}}px;"  *ngIf="isDataLoaded">
+    <apx-chart
+      [series]="chartOptions.series"
+      [labels]="chartOptions.labels"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+      [legend]="chartOptions.legend"
+      [plotOptions]="chartOptions.plotOptions"
+      [colors]="chartOptions.colors"
+      [stroke]="chartOptions.stroke"
+    ></apx-chart>
+    <div class="chart_text">
+      <img class="m_l" src="../../../assets/image/budget/main/small_m.svg" />
+      <span>{{title}}</span>
+      <h4>{{sum}}</h4>
+      <div class="terbum">тэрбум төгрөг</div>
+      <!-- <div class="process">Гүйцэтгэл <b>{{process}}% 123</b> тэрбум</div>  -->
+    </div>
+  </div>

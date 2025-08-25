@@ -1,0 +1,30 @@
+<div class="budget-outlet">
+<module-menu [menuType]="'statement-search'"></module-menu>
+<div class="budget-body">
+<div class="budget-content">
+    <div class="title-hd center"><b>Төсвийн зарлагын мэдээллийн сан</b>
+        
+    </div>
+    <!-- <h3>Төсвийн зарлагын мэдээллийн сан</h3> -->
+    <!-- <div class="budget-main zarlaga"> -->
+        <div class="budget-main zarlaga" *ngIf="showData.length == 0">
+            <div class="no_data_search" >
+                <p>Сайн байна уу?</p>
+                <div class="image">
+                    <div class="oval"></div>
+                    <img src="../../assets/image/icons/Duruud/Turiin_alban_haagch_3.png" />                
+                </div>
+                <p>Та төсвийн зарлагын мэдээллийн сангаас шүүлт хийх
+                    <br/> үзүүлэлтийг сонгож хайлт хийнэ үү.</p>
+                </div>
+        </div>
+        <div class="budget-main1 zarlaga" *ngIf="showData.length > 0">
+            <div class="datas" >
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
+</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,340 @@
+<div class="main-layout">
+    <div class="content-area">
+        <div class="navigation" [class.toggled]="!showMenu">
+                <a class="icon nav-toggle" (click)="showMenu=!showMenu">
+                    <i-feather name="arrow-left" class="arrow" style="color: #fff;" *ngIf="showMenu"></i-feather>
+                    <i-feather name="arrow-right" class="arrow" style="color: #fff;" *ngIf="!showMenu"></i-feather>
+                </a>
+                <div class="navigation-menu-tab">
+                    <ul>
+                        <li *ngFor='let category of categories; let i = index'>
+                            <a routerLink="/legacy" [queryParams]="{type: category.id}" data-toggle="tooltip"
+                                data-placement="right" title="Ecommerce" data-nav-target="#ecommerce">
+                                <span>
+                                    <img src="../../../assets/image/legal/legal_icon_{{i}}.svg" alt="">
+                                </span>
+                                <div>
+                                    <div>
+                                        {{category.subType}}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/timeline">
+                                <span>
+                                    <img src="../../../assets/image/legal/legal_icon_1.svg" alt="">
+                                </span>
+                                Төсвийн цаглабар
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/summary" data-toggle="tooltip" data-placement="right"
+                                title="Analytics" data-nav-target="#analytics">
+
+                                <span>
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <style type="text/css">
+                            .st0{fill:#c7c7c7;}
+                        </style>
+                        <g>
+                            <path class="st0" d="M504.5,400.18c-4.14,0-7.5,3.36-7.5,7.5V417c0,14.61-11.89,26.5-26.5,26.5h-429C26.89,443.5,15,431.61,15,417
+                                V223.68c0-4.14-3.36-7.5-7.5-7.5s-7.5,3.36-7.5,7.5V417c0,22.88,18.62,41.5,41.5,41.5h429c22.88,0,41.5-18.62,41.5-41.5v-9.32
+                                C512,403.54,508.64,400.18,504.5,400.18z"/>
+                            <path class="st0" d="M470.5,53.5h-22.35c-4.14,0-7.5,3.36-7.5,7.5s3.36,7.5,7.5,7.5h22.35c14.61,0,26.5,11.89,26.5,26.5v38.5H15V95
+                                c0-14.61,11.89-26.5,26.5-26.5h374.28c4.14,0,7.5-3.36,7.5-7.5s-3.36-7.5-7.5-7.5H41.5C18.62,53.5,0,72.12,0,95v96.48
+                                c0,4.14,3.36,7.5,7.5,7.5s7.5-3.36,7.5-7.5V148.5h482v226.99c0,4.14,3.36,7.5,7.5,7.5s7.5-3.36,7.5-7.5V95
+                                C512,72.12,493.38,53.5,470.5,53.5L470.5,53.5z"/>
+                            <path class="st0" d="M40.5,100.67c0,12.96,10.54,23.5,23.5,23.5s23.5-10.54,23.5-23.5S76.96,77.17,64,77.17S40.5,87.71,40.5,100.67
+                                z M72.5,100.67c0,4.69-3.81,8.5-8.5,8.5s-8.5-3.81-8.5-8.5s3.81-8.5,8.5-8.5S72.5,95.99,72.5,100.67z"/>
+                            <path class="st0" d="M97.5,100.67c0,12.96,10.54,23.5,23.5,23.5s23.5-10.54,23.5-23.5s-10.54-23.5-23.5-23.5
+                                S97.5,87.71,97.5,100.67z M129.5,100.67c0,4.69-3.81,8.5-8.5,8.5s-8.5-3.81-8.5-8.5s3.81-8.5,8.5-8.5S129.5,95.99,129.5,100.67z"/>
+                            <path class="st0" d="M154.5,100.67c0,12.96,10.54,23.5,23.5,23.5s23.5-10.54,23.5-23.5s-10.54-23.5-23.5-23.5
+                                S154.5,87.71,154.5,100.67z M186.5,100.67c0,4.69-3.81,8.5-8.5,8.5s-8.5-3.81-8.5-8.5s3.81-8.5,8.5-8.5S186.5,95.99,186.5,100.67z"
+                                />
+                            <path class="st0" d="M176,218.05h-40c-4.14,0-7.5,3.36-7.5,7.5v72.95H106c-4.14,0-7.5,3.36-7.5,7.5s3.36,7.5,7.5,7.5h300
+                                c4.14,0,7.5-3.36,7.5-7.5s-3.36-7.5-7.5-7.5h-22.5v-67.15c0-4.14-3.36-7.5-7.5-7.5h-32.5V166c0-4.14-3.36-7.5-7.5-7.5h-40
+                                c-4.14,0-7.5,3.36-7.5,7.5v41.02h-25v-15.54c0-4.14-3.36-7.5-7.5-7.5h-40c-4.14,0-7.5,3.36-7.5,7.5v49.76h-25v-15.69
+                                C183.5,221.41,180.14,218.05,176,218.05z M143.5,233.05h25v65.45h-25V233.05z M368.5,238.85v59.65h-25v-59.65H368.5z M303.5,173.5
+                                h25v125h-25V173.5z M288.5,222.02v76.48h-25v-76.48H288.5z M223.5,198.98h25v99.52h-25V198.98z M208.5,256.24v42.26h-25v-42.26
+                                H208.5z"/>
+                            <path class="st0" d="M269.62,369.8c8.48,0,15.93-4.52,20.06-11.27l67.83,15.33c1.21,11.83,11.23,21.1,23.38,21.1
+                                c12.96,0,23.5-10.54,23.5-23.5s-10.54-23.5-23.5-23.5c-8.48,0-15.93,4.52-20.06,11.27l-67.83-15.33
+                                c-1.21-11.83-11.23-21.1-23.38-21.1c-12.96,0-23.5,10.54-23.5,23.5v0.03l-96.31,32.54c-4.3-5.63-11.08-9.27-18.69-9.27
+                                c-12.96,0-23.5,10.54-23.5,23.5s10.54,23.5,23.5,23.5s23.5-10.54,23.5-23.5c0-0.01,0-0.01,0-0.02l96.31-32.54
+                                C255.23,366.16,262.01,369.8,269.62,369.8L269.62,369.8z M131.12,401.59c-4.69,0-8.5-3.81-8.5-8.5s3.81-8.5,8.5-8.5
+                                s8.5,3.81,8.5,8.5S135.8,401.59,131.12,401.59z M380.88,362.95c4.69,0,8.5,3.81,8.5,8.5s-3.81,8.5-8.5,8.5s-8.5-3.81-8.5-8.5
+                                S376.2,362.95,380.88,362.95z M269.62,337.8c4.69,0,8.5,3.81,8.5,8.5s-3.81,8.5-8.5,8.5c-3.73,0-6.9-2.41-8.04-5.75
+                                c0-0.01-0.01-0.02-0.01-0.03c0-0.01-0.01-0.02-0.01-0.03c-0.28-0.85-0.44-1.75-0.44-2.7C261.12,341.61,264.93,337.8,269.62,337.8z"
+                                />
+                        </g>
+                        </svg>
+                                </span>
+                                Хураангуй танилцуулга
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/indicators" data-toggle="tooltip" data-placement="right"
+                                title="Projects" data-nav-target="#projects">
+                                <span>
+                                    <img src="../../../assets/image/icons/pages/17-1.svg" width="35px" height="35px"
+                                        alt="">
+                                    </span>
+                                Төсвийн гол үзүүлэлтүүд
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/legal-plan" data-toggle="tooltip" data-placement="right"
+                                title="Projects" data-nav-target="#projects">
+                                <span>
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#c7c7c7" x="0px" y="0px"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                           
+                        <g>
+                            <path d="M512,270.12c0,78.15,0,163.3,0,241.49c-170.67,0-341.33,0-512,0c0-78.19,0-163.34,0-241.49c19.86,0,39.71,0,59.57-0.01
+                                c4.34,0,7.06-2.72,7.06-7.06c-0.01-16.33-0.02-32.67-0.02-49c0-1.25,0-2.49,0-4.05c1.54,0,2.69,0,3.84,0
+                                c10.35,0,20.71,0.05,31.06-0.05c1.51-0.01,3.22-0.37,4.5-1.14c27.27-16.27,54.49-32.61,81.72-48.94
+                                c17.54-10.52,35.06-21.08,52.63-31.57c4.03-2.41,6.18-5.29,6.15-10.47c-0.23-35.44-0.12-70.88-0.14-106.32
+                                c0-1.37-0.19-8.75-0.29-10.12c36.53,0,73.05,0,109.58,0c0,23.23,0,52.45,0,75.84c-1.88,0-3.15,0-4.43,0c-26.16,0-52.33,0-78.49,0
+                                c-4.69,0-7.22,2.52-7.21,7.2c0.01,11.53,0.2,23.07-0.06,34.6c-0.09,3.89,1.66,6.18,4.48,8.17c0.78,0.55,1.64,1,2.46,1.5
+                                c44.33,26.59,88.66,53.2,133.03,79.72c1.55,0.93,3.55,1.49,5.36,1.52c10.36,0.14,20.72,0.07,31.07,0.07c1.12,0,2.24,0,3.52,0
+                                c0,1.8,0,3.08,0,4.36c0,16.34-0.01,32.68-0.01,49.02c0,3.85,2.89,6.74,6.73,6.74C472.06,270.12,492.03,270.11,512,270.12z
+                                M255.67,270.11c54.57,0,109.14,0,163.71,0c4.41,0,6.87-2.44,6.88-6.79c0.01-9.18,0.01-18.37,0-27.55
+                                c-0.01-4.09-2.6-6.64-6.74-6.64c-109.03,0-218.07,0-327.1,0c-4.16,0-6.71,2.53-6.71,6.65c-0.01,8.86,0,17.73-0.01,26.59
+                                c-0.01,5.69,2.06,7.74,7.86,7.74C147.6,270.11,201.64,270.11,255.67,270.11z M24.78,414.62c0,19.33,0,45.66,0,64.98
+                                c0,4.94,2.21,7.22,7.03,7.22c19.22,0,38.44,0,57.66,0c4.55,0,7.06-2.49,7.06-6.98c0-38.87,0-84.74,0-123.61
+                                c0-4.53-2.69-7.18-7.32-7.18c-19.11,0-38.23-0.01-57.34,0c-4.77,0-7.09,2.39-7.09,7.26C24.78,375.75,24.78,395.19,24.78,414.62z
+                                M487.17,414.74c0.01,0,0.01,0,0.02,0c0-19.54,0-39.09,0-58.63c0-4.56-2.46-7.05-7-7.05c-19.22-0.01-38.45-0.01-57.67,0
+                                c-4.31,0-7.14,2.8-7.14,7.06c0,38.87,0,84.75,0,123.62c0,4.55,2.47,7.08,6.98,7.08c19.33,0,38.66,0,57.99,0
+                                c4.49,0,6.82-2.31,6.82-6.77C487.18,460.62,487.17,434.18,487.17,414.74z M256.04,210.02c0,0.01,0,0.02,0,0.02
+                                c31.06,0,62.13-0.05,93.19,0.08c3.41,0.01,5.72-1.38,6.85-4.09c1.19-2.84-0.34-5.33-2.81-7.1c-0.52-0.37-1.05-0.72-1.59-1.05
+                                c-30.33-18.2-60.67-36.4-91.01-54.59c-3.12-1.87-6.21-1.86-9.33,0.04c-4.73,2.88-9.47,5.74-14.22,8.59
+                                c-25.59,15.34-51.21,30.63-76.74,46.07c-1.85,1.12-3.87,3.05-4.44,5c-1.12,3.88,2.01,7.03,6.28,7.03
+                                C193.49,210.03,224.77,210.02,256.04,210.02z M156.42,384.72c0-29.57,0-59.14,0-88.71c0-4.51-2.25-6.73-6.8-6.74
+                                c-9.07,0-18.15,0-27.22,0c-4.28,0-6.84,2.56-6.84,6.85c-0.01,59.03-0.02,125.06-0.03,184.09c0,3.83,2.71,6.59,6.49,6.6
+                                c9.18,0.02,18.36,0.01,27.54,0c4.65,0,6.86-2.28,6.86-7.04C156.42,450.43,156.42,414.07,156.42,384.72z M396.36,384.46
+                                c-0.01,0-0.03,0-0.04,0c0-29.46,0-58.91,0-88.37c0-4.4-2.42-6.81-6.81-6.81c-9.29,0-18.57-0.01-27.86,0
+                                c-3.57,0.01-6.09,2.56-6.09,6.17c-0.01,59.34-0.01,125.68,0,185.02c0,3.79,2.51,6.34,6.27,6.35c9.29,0.02,18.57,0.01,27.86,0
+                                c4.1,0,6.68-2.6,6.68-6.67C396.36,450.58,396.36,414.02,396.36,384.46z M276.25,384.84c0-29.79,0-59.58,0-89.37
+                                c0-3.69-2.42-6.19-6.01-6.2c-9.5-0.02-19.01-0.02-28.51,0c-3.56,0.01-6.02,2.55-6.02,6.21c-0.01,59.36-0.02,125.73-0.02,185.09
+                                c0,3.75,2.55,6.23,6.37,6.24c9.08,0.01,18.15,0.01,27.23,0c4.75,0,6.96-2.19,6.96-6.9C276.25,450.56,276.25,414.2,276.25,384.84z
+                                M216.56,414.6c-0.01,0-0.01,0-0.02,0c0-19.54,0-39.07,0-58.61c0-4.02-2.89-6.92-6.92-6.93c-9.18-0.01-18.36-0.02-27.54,0
+                                c-3.69,0.01-6.53,2.91-6.53,6.61c-0.01,39.29-0.01,85.57,0,124.86c0,3.7,2.61,6.27,6.38,6.28c9.29,0.02,18.58,0.01,27.86,0
+                                c4.27,0,6.78-2.6,6.78-6.93C216.56,460.46,216.56,434.03,216.56,414.6z M295.42,414.26c0,19.65,0,46.29,0,65.94
+                                c0,3.93,2.59,6.62,6.41,6.63c9.4,0.02,18.79,0.02,28.19,0c3.91-0.01,6.42-2.6,6.42-6.58c0-39.08,0-85.15,0-124.23
+                                c0-4.14-2.74-6.94-6.85-6.95c-8.97-0.02-17.94-0.01-26.91,0c-4.51,0-7.26,2.75-7.26,7.22
+                                C295.42,375.61,295.42,394.93,295.42,414.26z M60.22,329.9c10.02,0,20.05,0.01,30.07-0.01c3.38-0.01,6.23-2.81,6.24-6.18
+                                c0.03-9.38,0.03-18.77,0-28.15c-0.01-3.6-2.78-6.28-6.43-6.28c-19.73-0.01-39.46-0.01-59.19,0c-3.56,0-6.11,2.56-6.12,6.14
+                                c-0.02,9.38-0.02,18.77,0,28.15c0.01,3.72,2.59,6.31,6.31,6.32C40.81,329.91,50.51,329.9,60.22,329.9z M451.64,289.27
+                                c-9.92,0-19.84-0.01-29.77,0c-3.63,0-6.47,2.72-6.48,6.25c-0.03,9.39-0.03,18.78,0,28.17c0.01,3.39,2.83,6.19,6.24,6.19
+                                c19.84,0.02,39.69,0.02,59.53,0c3.33,0,6.01-2.65,6.02-5.96c0.03-9.5,0.02-18.99,0-28.49c-0.01-3.6-2.55-6.16-6.1-6.17
+                                C471.27,289.26,461.45,289.27,451.64,289.27z M300.92,58.07c9.82,0,19.64,0.02,29.46-0.01c3.3-0.01,6.04-2.71,6.05-5.97
+                                c0.03-9.5,0.03-19,0.01-28.5c-0.01-3.5-2.65-6.13-6.2-6.14c-19.53-0.02-39.07-0.02-58.6,0c-3.33,0-6.15,2.89-6.15,6.28
+                                c0,9.39,0.02,18.79,0.07,28.18c0.02,3.43,2.78,6.14,6.22,6.14C281.49,58.08,291.21,58.07,300.92,58.07z M316.18,289.27
+                                c-4.91,0-9.82-0.02-14.74,0.01c-3.2,0.02-6,2.82-6.01,6.04c-0.03,9.5-0.03,19.01,0,28.51c0.01,3.2,2.83,6.03,6.03,6.05
+                                c9.61,0.03,19.22,0.03,28.83,0c3.48-0.01,6.13-2.72,6.14-6.22c0.02-9.4,0.02-18.79,0-28.19c-0.01-3.52-2.65-6.17-6.16-6.19
+                                C325.58,289.25,320.88,289.27,316.18,289.27z M196.24,289.27c-4.91,0-9.82-0.03-14.74,0.01c-3.28,0.02-5.94,2.73-5.95,6.05
+                                c-0.02,9.5-0.02,19.01,0,28.51c0.01,3.29,2.7,6.02,5.98,6.04c9.61,0.03,19.22,0.03,28.83,0c3.44-0.01,6.17-2.77,6.18-6.23
+                                c0.02-9.4,0.02-18.79,0-28.19c-0.01-3.43-2.78-6.17-6.21-6.19C205.64,289.25,200.94,289.27,196.24,289.27z"/>
+                        </g>
+                        </svg>
+                                </span>
+                                2026 оны төсвийн тухай хуулийн төсөл
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/unified-budget" data-toggle="tooltip" data-placement="right" title="Unified Budget"
+                                data-nav-target="#unified-budget">
+                                <span>
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  fill="#c7c7c7"  x="0px" y="0px"
+                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+               <g>
+                   <path d="M448,64H64C46.3,64,32,78.3,32,96v320c0,17.7,14.3,32,32,32h384c17.7,0,32-14.3,32-32V96C480,78.3,465.7,64,448,64z
+                        M448,128v64H64v-64H448z M64,416V224h384v192H64z"/>
+                   <rect x="80" y="240" width="64" height="16"/>
+                   <rect x="80" y="272" width="64" height="16"/>
+                   <rect x="80" y="304" width="64" height="16"/>
+                   <rect x="80" y="336" width="64" height="16"/>
+                   <rect x="160" y="240" width="64" height="16"/>
+                   <rect x="160" y="272" width="64" height="16"/>
+                   <rect x="160" y="304" width="64" height="16"/>
+                   <rect x="160" y="336" width="64" height="16"/>
+                   <rect x="240" y="240" width="64" height="16"/>
+                   <rect x="240" y="272" width="64" height="16"/>
+                   <rect x="240" y="304" width="64" height="16"/>
+                   <rect x="240" y="336" width="64" height="16"/>
+                   <rect x="320" y="240" width="64" height="16"/>
+                   <rect x="320" y="272" width="64" height="16"/>
+                   <rect x="320" y="304" width="64" height="16"/>
+                   <rect x="320" y="336" width="64" height="16"/>
+                   <circle cx="96" cy="152" r="8"/>
+                   <circle cx="128" cy="152" r="8"/>
+                   <circle cx="160" cy="152" r="8"/>
+               </g>
+               </svg>
+                                </span>
+                                Нэгдсэн төсвийн тухай танилцуулга 
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/general-goals" data-toggle="tooltip" data-placement="right" title="General Goals"
+                                data-nav-target="#general-goals">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#c7c7c7" class="bi bi-bullseye" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                        <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+                                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
+                                        <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                    </svg>
+                                </span>
+                                Ерөнхий зорилго 
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/financial-sources" data-toggle="tooltip" data-placement="right" title="Financial Sources"
+                                data-nav-target="#financial-sources">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#c7c7c7" class="bi bi-pie-chart" viewBox="0 0 16 16">
+                                        <path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018M14.982 8.5H8.207l4.79 4.79A7.001 7.001 0 0 0 14.982 8.5M8.207 8.5v6.482A7.001 7.001 0 0 0 12.997 8.5zM7.5 14.982V8.207l-4.79 4.79A7.001 7.001 0 0 0 7.5 14.982M1.018 8.5h6.482L2.71 13.29A7.001 7.001 0 0 0 1.018 8.5"/>
+                                    </svg>
+                                </span>
+                                Санхүүжилтийн эх үүсвэр 
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/legacy/sector-financing" data-toggle="tooltip" data-placement="right" title="Sector Financing"
+                                data-nav-target="#sector-financing">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#c7c7c7" class="bi bi-buildings" viewBox="0 0 16 16">
+                                        <path d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022M6 8.694 1 10.36V15h5zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5z"/>
+                                        <path d="M2 11h1v1H2zm2 0h1v1H4zm-2 2h1v1H2zm2 0h1v1H4zm4-4h1v1H8zm2 0h1v1h-1zm-2 2h1v1H8zm2 0h1v1h-1zm2-2h1v1h-1zm0 2h1v1h-1zM8 7h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zM8 5h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zm0-2h1v1h-1z"/>
+                                    </svg>
+                                </span>
+                                Гол салбаруудын санхүүжилт 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navigation" *ngIf="menuType == 'education'">
+                <div class="navigation-menu-tab">
+                    <ul>
+                        <li>
+                            <a routerLink="/education" [queryParams]="{subType: 1}" data-toggle="tooltip"
+                                data-placement="right" title="Ecommerce" data-nav-target="#ecommerce">
+                                <span>
+                                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-1.svg" alt="">
+                                </span>
+
+
+                                Төсвийн тухай үндсэн ойлголт
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/education" [queryParams]="{subType: 2}" data-toggle="tooltip"
+                                data-placement="right" title="Analytics" data-nav-target="#analytics">
+                                <span>
+                                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-2.svg" alt="">
+                                </span>
+                                Иргэдийн төсвийн тухай
+                            </a>
+                        </li>
+                        <!-- <li>
+                <a routerLink="/education" [queryParams]="{subType: 3}" data-toggle="tooltip" data-placement="right" title="Projects"
+                   data-nav-target="#projects">
+                   <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/20-2.svg" alt="">
+                    Төсвийн талаар судалгааны ажил
+                </a>
+            </li>
+            <li>
+                <a routerLink="/education" [queryParams]="{subType: 4}" data-toggle="tooltip"
+                   data-placement="right" title="Apps" data-nav-target="#apps">
+                   <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/22-1.svg" alt="">
+                   Төсөвтэй xолбоотой ярилцлага
+                </a>
+            </li>    -->
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="navigation" *ngIf="menuType == 'opendata'">
+                <div class="navigation-menu-tab">
+                    <ul>
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                                data-nav-target="#ecommerce">
+                                <i-feather name="monitor" class="someclass"></i-feather>
+                                Төсвийн тоон мэдээллийн сан
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="opendata_search">
+                        <mat-selection-list #shoes>
+                            <mat-list-option *ngFor="let shoe of typesOfShoes">
+                                {{shoe}}
+                            </mat-list-option>
+                        </mat-selection-list>
+                    </div>
+                    <div class="search_bottom">
+                        <button>Хайх</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="navigation" *ngIf="menuType == 'statement-search'">
+                <div class="navigation-menu-tab">
+                    <ul>
+                        <li>
+                            <a routerLink="/statement" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                                data-nav-target="#ecommerce">
+                                <span>
+                                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-2.svg" alt="">
+                                </span>
+                                Төсвийн зарлагын мэдээлэл
+                            </a>
+
+                        </li>
+                        <li>
+                            <a routerLink="/statement-data" data-toggle="tooltip" data-placement="right"
+                                title="Ecommerce" data-nav-target="#ecommerce">
+                                <span>
+                                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-1.svg" alt="">
+                                </span>
+                                Төсвийн зарлагын мэдээллийн цэс
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- <div class="filter-graph">
+        <div class="download-list">
+            <span (click)="chartType='bar'">
+                <img src="../../assets/image/charts/bar_chart.svg" />
+            </span>
+            <span (click)="chartType='column'">
+                <img src="../../assets/image/charts/column_chart.svg" />
+            </span>
+            <span (click)="chartType='pie'">
+                <img src="../../assets/image/charts/pie_chart.svg" />
+            </span>
+            <span (click)="chartType='tree'">
+                <img src="../../assets/image/charts/tree_map_chart.svg" />
+            </span>
+            <span (click)="chartType='table'">
+                <img src="../../assets/image/table.png" />
+            </span>
+        </div>
+        <div class="download">
+            <button style="color: rgb(40, 198, 111);">Да��а харах</button>
+        </div> 
+    </div> -->
+            </div>
+
+        <router-outlet></router-outlet>
+    </div>
+</div>

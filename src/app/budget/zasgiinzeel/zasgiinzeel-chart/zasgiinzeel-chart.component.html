@@ -1,0 +1,33 @@
+<div class="pie_chart center" style="text-align:center; width: {{width}}px;"  *ngIf="isDataLoaded">
+    <apx-chart
+      [series]="chartOptions.series"
+      [labels]="chartOptions.labels"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+      [legend]="chartOptions.legend"
+      [plotOptions]="chartOptions.plotOptions"
+      [colors]="chartOptions.colors"
+      [stroke]="chartOptions.stroke"
+      [tooltip]="chartOptions.tooltip"
+    ></apx-chart>
+    <div class="chart_text">
+      <img class="m_l" src="../../../assets/image/budget/main/small_m.svg" />
+      <div *ngIf="params['category']=='APPROVED'">
+        <span class="tops">{{title}}</span>
+        <h4>{{sum | number}}</h4>
+        <div class="terbum">тэрбум төгрөг</div>
+      </div>
+      <div *ngIf="params['category']!='APPROVED'">
+        <span class="tops1">{{title}}</span>
+        <h4>{{sum | number}}</h4>
+        <div class="terbum">тэрбум төгрөг</div>
+      </div>
+      <div *ngIf="params['category']!='APPROVED'" class="process">
+        Өмнөх оноос<br> <b style="color:#505054">{{process}}%
+          <i-feather name="arrow-down" class="down-icon" style="color: #505054;" *ngIf="params['category']!='APPROVED' && process < 0"></i-feather>
+          <i-feather name="arrow-up" class="down-icon" style="color: #505054;" *ngIf="params['category']!='APPROVED' && process >= 0"></i-feather>    
+          </b><br/>
+      </div> 
+    </div>
+  </div>

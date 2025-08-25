@@ -1,0 +1,142 @@
+
+.budget-main-invest{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    // box-shadow: 3px 3px 12px 0px #d2d2d2;
+    min-height: 700px;
+    // background-image: url("/../../../../assets/image/bg/concept.PNG");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    &.investment{
+        position: relative;
+        background-size: 100%;
+        margin-bottom: 20px;
+    }    
+    .title{
+        h3{
+            padding-top: 20px;
+            padding-bottom: 45px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0081ff;
+            text-transform: uppercase;
+        }
+        img{
+            width: 100%;
+        }
+        
+    }
+    .total{
+        text-align: center;
+        width: 780px;
+        top: 100px;
+        height: 260px;
+        left: 120px;
+        border-radius: 15px;
+        position: relative;
+        color: #fff;
+        background-color: #28c66f;
+        transform: skewX(-20deg);
+    }
+    .tugrug{
+        img{
+            position: absolute;
+            bottom: 0;
+            right: 200px;
+        }
+    }
+    
+}
+.budget-content .budget-top .trapezoid{
+    width: 200px;
+}
+
+.main-description{
+    padding: 30px 30px;
+    p{
+        width: 40%;
+        float: right;
+        text-align: left;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+.budget-block>h3 {
+    color: #0081ff;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.title {
+    h3 {
+        color: #0081ff;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+
+@media screen and (max-width: 1366px) {
+    .budget-content .budget-top {
+        display: table;
+        width: 100%;
+        z-index: 1;
+    }
+    .budget-main-invest{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        // box-shadow: 3px 3px 12px 0px #d2d2d2;
+        min-height: 700px;
+        // background-image: url("/../../../../assets/image/bg/concept.PNG");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: 0;
+        &.investment{
+            position: relative;
+            background-size: 100%;
+            margin-bottom: 20px;
+        }    
+        .title{
+            h3{
+                padding-top: 20px;
+                padding-bottom: 45px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0081ff;
+                text-transform: uppercase;
+            }
+            img{
+                width: 100%;
+            }
+            
+        }
+        .total{
+            text-align: center;
+            width: 780px;
+            top: 100px;
+            height: 260px;
+            left: 120px;
+            border-radius: 15px;
+            position: relative;
+            color: #fff;
+            background-color: #28c66f;
+            transform: skewX(-20deg);
+        }
+        .tugrug{
+            img{
+                position: absolute;
+                bottom: 0;
+                right: 200px;
+            }
+        }
+        
+    }
+}

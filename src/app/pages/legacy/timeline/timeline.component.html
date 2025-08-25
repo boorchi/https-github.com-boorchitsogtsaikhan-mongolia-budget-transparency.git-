@@ -1,0 +1,74 @@
+<app-menu [menuType]="'legacy'"></app-menu>
+<div class="legacy-content">
+    <div class="timeline budget-main">
+        <div class="title">
+            <h3>Төсвийн цаглабар</h3>
+        </div>
+        <div class="top-content" *ngIf="sub_active > -1 && data[active].sub[sub_active]?.top">
+            {{data[active].sub[sub_active]?.top}}
+            <div class="right-img">
+                <img src="../../../../assets/image/crop/salbar70000_70300.png" />
+            </div>
+        </div>
+        
+        <div class="timeline-content">
+            <div class="top_line">
+                <div class="inline">
+                    <ng-container  *ngFor='let count of top_step;' >
+                        <span class="top_step" [ngClass]="{'active': count === sub_index}">
+                            <b class="top_date" *ngIf="count === sub_index">
+                                {{top_text}}
+                            </b>
+                        </span>
+                    </ng-container>
+                    <!-- <span class="top_step active"></span> -->
+                </div>
+            </div>
+            <div class="bottom_line">
+                <div class="inline" #inline>
+                    <ng-container  *ngFor='let item of data; let i = index' >
+                        <ng-container  *ngIf='i!=active' >
+                            <span class="dot" *ngFor='let item of getDots(i, "first");'></span>
+                            <div class="step" (click)="show(i)">
+                                <span style="background-color: {{colors[i]}};"></span>
+                                <div class="content">
+                                    <h3 style="color: {{colors[i]}};">{{item.index}}</h3>
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </div>
+                            <span class="dot" *ngFor='let item of getDots(i, "last");'></span>
+                        </ng-container>
+                        <ng-container  *ngIf='i==active' >
+                            <div class="active-step">
+                            <ng-container  *ngFor='let sub of item.sub; let j = index' >                            
+                                    <span class="dot" *ngFor='let item of getSubDots(i, j, "first");'></span>
+                                    <div class="step active" (click)="showSub($event, j)">
+                                        <div class="sub-content">
+                                            <h3 style="color: {{colors[i]}};">{{sub.date}}</h3>
+                                            <p>{{sub.sub_title}}</p>
+                                        </div>
+                                        <span style="background-color: {{colors[i]}};"><i-feather name="chevron-right" class="step-icon"></i-feather></span></div>
+                                    <span class="dot" *ngFor='let item of getSubDots(i, j, "last");'></span>                                
+                                
+                            </ng-container>
+                            <div class="content">
+                                <h3 style="color: {{colors[i]}};">{{item.index}}</h3>
+                                <p>{{item.title}}</p>
+                            </div>
+                        </div>
+                        </ng-container>
+                    </ng-container>               
+                </div>
+            </div>
+        </div>
+        <div class="bottom-content"  *ngIf="active > -1 && data[active].bottom"  style="border-color: {{colors[active]}};">
+            {{data[active].bottom}}
+            <div class="left-img" style="background-color: {{colors[active]}};">
+                <img src="../../../../assets/image/crop/salbar70000_70207.png" />
+            </div>
+        </div>
+    </div>
+   
+</div>
+<app-footer></app-footer>
+

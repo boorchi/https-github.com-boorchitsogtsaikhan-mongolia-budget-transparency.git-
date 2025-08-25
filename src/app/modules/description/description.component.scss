@@ -1,0 +1,24 @@
+.description{
+    .block-container{
+        background-color: #fff;
+        min-height: 150px;
+        text-align: left;
+        color: #505054;
+        display: table;
+        width: 100%;
+        img{
+        }
+        .image{
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            text-align: center;
+            display: inline-block;
+            background: rgb(40, 198, 111);
+            border-radius: 50%;
+            float: left;
+            margin-right: 20px;
+        }
+    }
+}

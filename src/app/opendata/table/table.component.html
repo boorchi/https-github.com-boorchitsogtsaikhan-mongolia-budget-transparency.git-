@@ -1,0 +1,110 @@
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th>Он</th> -->
+        <th style="text-align: left;" width="35%">{{typeName}}
+           </th>    
+        <ng-container *ngIf="type==1">
+            <th width="10%">
+                Улсын төсөв
+            </th>            
+            <th width="10%">
+                Орон нутгийн төсөв
+            </th>
+            <th width="10%">
+                ЭМД сангийн төсөв
+            </th>
+            <th width="10%">
+                НД сангийн төсөв
+            </th>
+        </ng-container>              
+        <th>Төлөвлөгөө</th>
+        <th>Гүйцэтгэл</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+        <ng-container *ngFor='let item of mainData; let i = index'>
+            <tr>
+                <!-- <td>{{item.year}}</td> -->
+                <td style="text-align: left; cursor: pointer; background: {{color}};"><a class="name" (click)="loadDataTable(item[1])">{{item[1].name}}
+
+                    <fa-icon [icon]="faAngleUp" class="up-menu" *ngIf="!item[1]['show']"></fa-icon>
+                    <fa-icon [icon]="faAngleDown" class="down-menu" *ngIf="item[1]['show']" ></fa-icon>
+                </a></td>                    
+                <ng-container *ngIf="type==1">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </ng-container>  
+                <td>{{item[1].planned | number}}</td>
+                <td>{{item[1].execute | number}}</td>                        
+            </tr>  
+            <ng-container *ngIf="item[1]['show']">
+                <ng-container *ngFor='let item_child of item[1]["data"]; let i = index'>
+                    <tr>
+                        <!-- <td>{{item.year}}</td> -->
+                        <td style="text-align: left; cursor: pointer;padding-left: 40px; background: {{color}};">
+                            <a class="name"  (click)="loadDataTable(item_child[1])">{{item_child[1].name}}
+                                <fa-icon [icon]="faAngleUp" class="up-menu" *ngIf="!item_child[1]['show']"></fa-icon>
+                                <fa-icon [icon]="faAngleDown" class="down-menu" *ngIf="item_child[1]['show']" ></fa-icon>
+                            </a></td>                    
+                        <ng-container *ngIf="type==1">
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </ng-container>
+                        <td>{{item_child[1].planned | number}}</td>
+                        <td>{{item_child[1].execute | number}}</td>                        
+                    </tr>  
+                    <ng-container *ngIf="item_child[1]['show']">
+                        <ng-container *ngFor='let item_child2 of item_child[1]["data"]; let i = index'>
+                            <tr>
+                                <!-- <td>{{item.year}}</td> -->
+                                <td style="text-align: left; cursor: pointer;padding-left: 70px; background: {{color}};">
+                                    <a class="name"  (click)="loadDataTable(item_child2[1])">{{item_child2[1].name}}
+                                        <fa-icon [icon]="faAngleUp" class="up-menu" *ngIf="!item_child2[1]['show']"></fa-icon>
+                                        <fa-icon [icon]="faAngleDown" class="down-menu" *ngIf="item_child2[1]['show']" ></fa-icon>
+                                    </a></td>      
+                                <ng-container *ngIf="type==1">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </ng-container>      
+                                <td>{{item_child2[1].planned | number}}</td>
+                                <td>{{item_child2[1].execute | number}}</td>        
+                            </tr>  
+                            <ng-container *ngIf="item_child2[1]['show']">
+                                <ng-container *ngFor='let item_child3 of item_child2[1]["data"]; let i = index'>
+                                    <tr>
+                                        <!-- <td>{{item.year}}</td> -->
+                                        <td style="text-align: left; cursor: pointer;padding-left: 100px; background: {{color}};">
+                                            <a class="name"  (click)="loadDataTable(item_child3[1])">{{item_child3[1].name}}
+                                                <fa-icon [icon]="faAngleUp" class="up-menu" *ngIf="!item_child3[1]['show']"></fa-icon>
+                                                <fa-icon [icon]="faAngleDown" class="down-menu" *ngIf="item_child3[1]['show']" ></fa-icon>
+                                            </a></td>                    
+                                         
+                                        <ng-container *ngIf="type==1">
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                        </ng-container>   
+                                        <td>{{item_child3[1].planned | number}}</td>
+                                        <td>{{item_child3[1].execute | number}}</td>                    
+                                    </tr>  
+                                </ng-container>                              
+                            </ng-container>  
+                        </ng-container>                              
+                    </ng-container>  
+                </ng-container>                              
+            </ng-container>   
+        </ng-container>  
+               
+    </tbody>
+  </table>

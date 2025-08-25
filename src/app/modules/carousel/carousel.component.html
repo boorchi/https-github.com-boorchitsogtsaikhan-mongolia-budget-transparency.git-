@@ -1,0 +1,154 @@
+<div class="carousel">
+<owl-carousel-o [options]="customOptions1" *ngIf="slideData&&slideData.type==1">   
+    <ng-template  carouselSlide *ngFor='let slide of slideData.datas'>
+            <div class="slide">
+                <h4>{{slide.text}}</h4>
+                <div class="budget1">{{slide.value}}</div>
+                <hr/>
+                <p *ngFor='let sub of getDescription(slide.description)'>{{sub}}</p>
+            </div>         
+    </ng-template>
+</owl-carousel-o>
+
+<owl-carousel-o [options]="customOptions2" *ngIf="slideData&&slideData.type==2">
+    
+    <ng-template  carouselSlide *ngFor='let slide of slideData.datas'>                  
+            <div class="slide" >
+                <h4>{{slide[0]}}</h4>
+                <ul class="scrollbar" id="style-1">
+                    <li *ngFor='let sub of slide[1]'>{{sub.description}}</li>
+                </ul>                
+            </div>
+    </ng-template>
+</owl-carousel-o>
+
+
+<owl-carousel-o [options]="customOptions3" *ngIf="slideData&&slideData.type==3" class="owl-main">   
+    <ng-template  carouselSlide *ngFor='let slide of slideData.datas'>
+            <div class="slide1">
+                <h4 style="color: #ffc705">{{slide.name}}</h4>
+                <div class="budget">{{slide.text}}</div>
+            </div>         
+    </ng-template>
+</owl-carousel-o>
+
+
+<owl-carousel-o [options]="customOptions4" *ngIf="slideData&&slideData.type==4" class="owl-main">   
+    <ng-template  carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+            <div class="slide4">
+                <!-- <h4 style="color: #ffc705">{{slide.name}}</h4> -->
+                <div class="img" style="background: {{colors[i]}}; border-radius: 50%;height: 70px;margin: auto;width: 70px;">
+                    <img src="../../../assets/image/icons/new/{{i}}.svg" alt="">
+                </div>
+                <div class="name">{{slide.name}}</div>
+                <div class="number" style="color: {{colors[i]}};">{{slide.number}}</div>
+            </div>         
+    </ng-template>
+</owl-carousel-o>
+
+<div class="slide5" *ngIf="slideData&&slideData.type==5">
+    <owl-carousel-o [options]="customOptions5" *ngIf="slideData&&slideData.type==5" class="owl-main">   
+        <ng-template carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+                <div class="slide-concept">
+                    <div class="number">{{slide.number}}</div>
+                    <div class="name">{{slide.name}}</div>
+                </div>         
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+<div class="slide6" *ngIf="slideData&&slideData.type==6">
+    <owl-carousel-o [options]="customOptions6" *ngIf="slideData&&slideData.type==6" class="owl-main">   
+        <ng-template carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+                <div class="slide-concept1">
+                    <div class="number">{{slide.number}}</div>
+                    <div class="name">{{slide.name}}</div>
+                </div>         
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+<div class="slide7" *ngIf="slideData&&slideData.type==7">
+    <owl-carousel-o [options]="customOptions7" *ngIf="slideData&&slideData.type==7" class="owl-main">   
+        <ng-template carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+                <div class="slide-concept1">
+                    <div class="ded-ded-left">
+                        <span>
+                            {{slide.codeName}}
+                        </span>
+                    </div>
+                    <div class="ded-ded-right">
+                        <span class="ded-process">
+                            <div class="row">
+                                <div class="col-md-6 left"><b>{{slide.approvedValue}}</b><br>тэрбум</div>
+                                <div *ngIf="checkType()" class="col-md-6 right" style="padding-right: 30px;"><b>Гүйцэтгэл</b><br>{{slide.percent}}%
+                                </div>
+                                <div *ngIf="!checkType()" class="col-md-6 right" style="padding-right: 30px;"><b>Өмнөх <br>оноос {{slide.percent}}%</b>
+                                    <i-feather name="arrow-down" class="down-icon-w" style="position: absolute;top: 7px;color: #fff;" *ngIf="slide.percent < 0"></i-feather>
+                                    <i-feather name="arrow-up" class="down-icon-w" style="position: absolute;top: 7px;color: #ffffff;" *ngIf="slide.percent >= 0"></i-feather> 
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <p class="ptag">{{slide.name}}</p>
+                </div>         
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+<div class="slide8" *ngIf="slideData&&slideData.type==8">
+    <owl-carousel-o [options]="customOptions8" *ngIf="slideData&&slideData.type==8" class="owl-main">   
+        <ng-template carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+            <div class="number">
+                {{slide.number}}
+            </div>
+            <div class="img">
+                <img src="../../../assets/image/new/shinechlel/{{slide.year}}.{{slide.name}}.jpg" alt="">
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+<div class="slide9" *ngIf="slideData&&slideData.type==9">
+    <owl-carousel-o [options]="customOptions9" *ngIf="slideData&&slideData.type==9" class="owl-main">   
+        <ng-template carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="../../../assets/image/budget/other.png"/> 
+                    <div class="block-other">
+                        <h3>ХҮРЭЭЛЭН БУЙ ОРЧИН ХАМГААЛАЛ</h3>
+                        <div class="budget">
+                            {{getNumber(slide.budget) | number}}<br>
+                           
+                        </div>
+                        <h6>тэрбум төгрөг</h6>
+                    </div>
+                </div>
+                <div class="col-md-6 purpose">
+                    <h4>Зорилго</h4>
+                    <p>{{slide.purpose}}</p>
+                    <h4>Авах арга хэмжээ</h4>
+                    <ul>
+                        <li *ngFor='let info of getList(slide.events); let i = index'>
+                            {{info}}
+                        </li>
+                    </ul>
+                </div>
+            </div>       
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+<div class="slide10" *ngIf="slideData&&slideData.type==10">
+    <owl-carousel-o [options]="customOptions10" *ngIf="slideData&&slideData.type==10" class="owl-main" (changed)="changed($event)">   
+        <ng-template carouselSlide *ngFor='let slide of slideData.datas; let i = index'>
+                <div class="slide-content">
+                    <h3>{{slide.name}}</h3>
+                    <p>  
+                        {{slide.content}}
+                    </p>
+                </div>         
+        </ng-template>
+    </owl-carousel-o>
+</div>
+</div>

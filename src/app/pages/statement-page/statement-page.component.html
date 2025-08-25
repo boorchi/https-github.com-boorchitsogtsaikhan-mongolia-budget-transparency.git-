@@ -1,0 +1,96 @@
+<!-- <div class="budget-outlet">
+    <div  class="budget-body">
+        <div class="budget-content">
+            <div class="budget-main zarlaga">      
+                <div class="title-hd center"><b>Засвартай байна. Тун удахгүй...</b></div> 
+                <div class="no_data_search">                  
+                    <div class="image">
+                        <img src="../../assets/image/404.png" />                
+                    </div>
+                </div>
+            </div>   
+        </div> 
+    </div> 
+</div>  -->
+<div class="budget-outlet">
+    <app-menu [menuType]="'statement-search'"></app-menu>
+        <div class="budget-body">
+        <div class="budget-content">
+            <div class="title-hd center"><b>Төсвийн зарлагын мэдээллийн сан</b>
+        
+            </div>
+        </div>
+        <div class="budget-block top-content">
+            <div class="block-container">
+                <p>
+                    Төсвийн үр ашгийг дээшлүүлэхэд олон нийтийн хяналт, оролцоог нэмэгдүүлэх зорилгоор
+Сангийн яамны зүгээс төсвийн зарлагын гүйлгээний мэдээллийг ил тод болгож байна.
+Зарлагын гүйлгээний хайлтын системээс төсвийн байгууллагын худалдан авсан бараа,
+ажил, үйлчилгээ, тэдгээрийг нийлүүлсэн иргэд, аж ахуйн нэгж байгууллагын гүйлгээний
+мэдээллийг цаг тухайд нь танилцах боломжтой. Харин  хувь хүний нууцын мэдээлэлд
+хамаарах цалин, хөлс, нэмэгдэл урамшил, нийгмийн даатгалд төлөх шимтгэл болон
+худалдан авалттай холбоогүй бусад мэдээллүүд багтаагүй болно.</p>
+            </div>
+        </div>
+
+        <div class="budget-block top-image">
+            <img src="../../../assets/image/bg_boost.jpg" />
+            <div class="bignumber">
+                <span class="date">{{stat["min"]}} - {{stat["max"]}} хүртэлх мэдээлэл дээр үндэслэн гаргасан тоо болно.</span>
+                <h2 class="color-2 p1">
+                    <span>мөнгөн дүн</span>
+                    <br>
+                    <span _ngcontent-hrd-c260="" class="arrow-hr"><i _ngcontent-hrd-c260="" class="arrow down" style="border-color: #38647f;"></i></span>
+                    <br>
+                    <br>
+                    {{stat["total"] | number}}
+                    <br>
+                    <span>тэрбум</span>
+
+                </h2>
+                <h2 class="color-2 p2">
+                    <span>Гүйлгээний тоо</span>
+                    <br>
+                    <span _ngcontent-hrd-c260="" class="arrow-hr"><i _ngcontent-hrd-c260="" class="arrow down" style="border-color: #38647f;"></i></span>
+                    <br>
+                    <br>
+                    {{stat["count"] | number}}
+                    <br>
+                    <span>ширхэг</span>
+
+                </h2>
+                <h2 class="color-1 p3">{{stat["org"] | number}}
+                    <br>
+                    <br>
+                    <span>Төсвийн байгууллага</span>
+                </h2>
+                <h2 class="color-1 p4">{{stat["allUser"] | number}}
+                    <br>
+                    <br>
+                    <span>Аанб, иргэн</span>
+                </h2>
+            </div>
+        </div>
+        <div class="title-hd" style="padding: 30px 30px 0px 30px; margin-bottom: -70px;"><b>{{title}}</b>
+        
+        </div>
+        <div class="budget-content"> 
+            <div class="budget-top">
+                <div class="trapezoid">            
+                   
+                        <span>Гүйлгээний тоо</span>
+                        <label class="switch">
+                            <input type="checkbox"  [checked]="budgetType" (change)="changeType()">
+                            <span class="slider round"></span>
+                          </label>
+                        <span>Мөнгөн дүн</span>
+               
+                </div>
+            </div>
+            <div class="budget-main1 zarlaga" style="padding-top: 50px;" *ngIf="isLoad">   
+                <statement-charts [chartType]="chartType" [labels]="labels" [series]="series" [colors]="colors"></statement-charts>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

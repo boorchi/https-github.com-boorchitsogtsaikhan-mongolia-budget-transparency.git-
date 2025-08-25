@@ -1,0 +1,17 @@
+<div class="pie_chart center"  *ngIf="isDataLoaded" style="width: 100%; max-width: 1200px;">
+    <div id="chart">
+            <apx-chart
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [labels]="chartOptions.labels"
+              [responsive]="chartOptions.responsive"
+              [colors]="chartOptions.colors"
+              [dataLabels]="chartOptions.dataLabels"
+              [tooltip]="chartOptions.tooltip"
+              [plotOptions]="chartOptions.plotOptions"
+              [xaxis]="chartOptions.xaxis"
+              [stroke]="chartOptions.stroke"
+            ></apx-chart>
+    </div>
+</div>
+ 

@@ -1,0 +1,23 @@
+<div class="base_number" style="width: {{width}};">
+    <span *ngIf="showHelp" class="help"  style="background-color: {{color}};">?</span>
+    <br/>
+    <span *ngIf="text1">{{text1}}</span>
+    <h4 *ngIf="baseNumber != null" style="color: {{color}};">{{baseNumber | number}}</h4>
+    <span *ngIf="text2">{{text2}}</span>
+    <!-- <span class="arrow-hr"><i class="arrow down"  style="border-color: #505054;"></i></span> -->
+    <div *ngIf="prefValue != null" class="process" style="width: 100%;">
+
+        
+        <ng-container *ngIf="checkType()">
+            <div style="padding-top: 8px;">
+            Гүйцэтгэл <b style="display: inline-block; color: {{color}};">{{percent}}%</b><br/>
+            <b style="color: {{color}};">{{prefValue | number}}</b> тэрбум</div>
+        </ng-container>
+        <div style="padding-top: 8px;" *ngIf="!checkType()">
+            Өмнөх оноос <br><b style="display: inline-block; color: {{color}};">{{befPercent}}%
+                <i-feather name="arrow-down" class="down-icon" style="color: #505054;" *ngIf="!checkType() && befPercent < 0"></i-feather>
+                <i-feather name="arrow-up" class="down-icon" style="color: #505054;" *ngIf="!checkType() && befPercent >= 0"></i-feather>    
+                </b><br/>
+        </div>
+    </div>
+</div>

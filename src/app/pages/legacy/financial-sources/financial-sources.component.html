@@ -1,0 +1,169 @@
+<app-menu [menuType]="'legacy'"></app-menu>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="financial-sources-container">
+      
+      <!-- Page Header -->
+      <div class="page-header text-center mb-5">
+        <div class="header-icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" 
+               class="bi bi-pie-chart" viewBox="0 0 16 16">
+            <path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018M14.982 8.5H8.207l4.79 4.79A7.001 7.001 0 0 0 14.982 8.5M8.207 8.5v6.482A7.001 7.001 0 0 0 12.997 8.5zM7.5 14.982V8.207l-4.79 4.79A7.001 7.001 0 0 0 7.5 14.982M1.018 8.5h6.482L2.71 13.29A7.001 7.001 0 0 0 1.018 8.5"/>
+          </svg>
+        </div>
+        <h1 class="page-title">Санхүүжилтийн эх үүсвэр</h1>
+        <p class="page-subtitle">2025 оны төсвийн орлогын бүтэц ба эх үүсвэр</p>
+      </div>
+
+      <!-- Backend Status -->
+      <div class="backend-status-section mb-4" *ngIf="!loading">
+        <div class="alert" [ngClass]="backendConnected ? 'alert-success' : 'alert-warning'">
+          <div class="d-flex align-items-center justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" 
+                 [ngClass]="backendConnected ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'" 
+                 class="me-2" viewBox="0 0 16 16">
+              <path *ngIf="backendConnected" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              <path *ngIf="!backendConnected" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <span *ngIf="backendConnected">Backend серверт амжилттай холбогдсон - Бодит өгөгдөл харуулж байна</span>
+            <span *ngIf="!backendConnected">Backend сервертэй холбогдож чадсангүй - Анхны өгөгдлийг ашиглаж байна</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div class="loading-section text-center" *ngIf="loading">
+        <div class="spinner-container mb-4">
+          <div class="loading-spinner"></div>
+        </div>
+        <h4 class="loading-text">Санхүүгийн өгөгдөл ачаалж байна...</h4>
+        <p class="loading-subtitle">Backend серверээс орлогын мэдээлэл татаж байна</p>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="content-grid" *ngIf="!loading">
+        
+        <!-- Circle Diagram Section -->
+        <div class="diagram-section">
+          <div class="diagram-container">
+            <h3 class="section-title mb-4">Орлогын бүтэц</h3>
+            
+            <!-- SVG Circle Chart -->
+            <div class="circle-chart-wrapper">
+              <svg class="circle-chart" width="300" height="300" viewBox="0 0 300 300">
+                <!-- Background circle -->
+                <circle cx="150" cy="150" r="120" fill="none" stroke="#e5e7eb" stroke-width="3" />
+                
+                <!-- Data segments using paths -->
+                <g *ngFor="let item of financialData; let i = index">
+                  <path 
+                    [attr.d]="getSegmentPath(i)"
+                    [attr.fill]="item.color"
+                    [attr.stroke]="item.color"
+                    stroke-width="2"
+                    [class.animate]="animationComplete"
+                    [style.animation-delay]="(i * 200) + 'ms'"
+                    class="chart-segment">
+                  </path>
+                </g>
+                
+                <!-- Center circle -->
+                <circle cx="150" cy="150" r="80" fill="white" stroke="#e5e7eb" stroke-width="2" />
+                
+                <!-- Center text -->
+                <text x="150" y="140" text-anchor="middle" class="center-title">Нийт орлого</text>
+                <text x="150" y="165" text-anchor="middle" class="center-value">100%</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend and Details Section -->
+        <div class="details-section">
+          <h3 class="section-title mb-4">Дэлгэрэнгүй мэдээлэл</h3>
+          
+          <div class="legend-container">
+            <div class="legend-item" 
+                 *ngFor="let item of financialData; let i = index"
+                 [style.animation-delay]="(i * 150 + 800) + 'ms'"
+                 [class.animate]="animationComplete">
+              
+              <div class="legend-header">
+                <div class="legend-color" [style.background-color]="item.color">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" 
+                       class="legend-icon" viewBox="0 0 16 16">
+                    <path [attr.d]="getFinancialIcon(item.name)"></path>
+                  </svg>
+                </div>
+                <div class="legend-info">
+                  <h4 class="legend-title">{{ item.name }}</h4>
+                  <span class="legend-percentage">{{ getPercentage(item.value) }}%</span>
+                  <div class="legend-amount">{{ item.amount }}</div>
+                </div>
+              </div>
+              
+              <p class="legend-description">{{ item.description }}</p>
+              
+              <!-- Progress bar -->
+              <div class="progress-container">
+                <div class="progress-bar">
+                  <div class="progress-fill" 
+                       [style.width]="getPercentage(item.value) + '%'"
+                       [style.background-color]="item.color"
+                       [class.animate]="animationComplete"
+                       [style.animation-delay]="(i * 150 + 1200) + 'ms'">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="summary-section mt-5">
+        <h3 class="section-title text-center mb-4">Гол мэдээллүүд</h3>
+        
+        <div class="summary-cards">
+          <div class="summary-card" 
+               *ngFor="let item of financialData; let i = index"
+               [style.animation-delay]="(i * 100 + 1500) + 'ms'"
+               [class.animate]="animationComplete">
+            <div class="card-icon" [style.color]="item.color">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" 
+                   viewBox="0 0 16 16">
+                <path [attr.d]="getFinancialIcon(item.name)"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <div class="card-value">{{ getPercentage(item.value) }}%</div>
+              <div class="card-amount">{{ item.amount }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="info-section mt-5">
+        <div class="info-card">
+          <div class="info-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" 
+                 class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+            </svg>
+            <h4>Тайлбар</h4>
+          </div>
+          <p class="info-text">
+            Санхүүжилтийн эх үүсвэр нь төрийн орлогын гол бүрэлдэхүүн хэсгүүдийг харуулж байна. 
+            Татварын орлого хамгийн том хувийг эзэлж, улмаар татварын бус орлого, тогтворжуулалтын сан үндэсний баялгийн сан 
+            зэрэг орлогын эх үүсвэрүүд дагалддаг.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

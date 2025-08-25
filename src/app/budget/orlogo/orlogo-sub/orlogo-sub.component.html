@@ -1,0 +1,53 @@
+<div class="orlogo-sub" >
+
+    <mat-grid-list [cols]="breakpoint" rowHeight="180px" gutterSize="20px">
+      <ng-container *ngFor="let tile of datas; let i = index">
+        <mat-grid-tile
+            *ngIf="tile.approvedValue > 0"
+            [colspan]="1"
+            [rowspan]="1"            
+            [style.color]="'#fff'">
+            <div class="item">
+              <div class="main">
+                <div class="front" style="background-color: {{colors[i]}};">
+                  <div class="row">
+                    <div class="col-5">
+                      <h5>{{tile.codeName}}</h5>
+                    </div>
+                    <div class="col-7">          
+                      <div class="special-text">
+                        <div class="currency" style="color: {{colors[i]}};">
+                          {{tile.approvedValue | number}}
+                        </div>
+                        <div class="cur-text">
+                            тэрбум төгрөг
+                        </div>
+                        <span class="arrow-hr"><i class="arrow down"  style="border-color: {{colors[i]}};"></i></span>
+                        <ng-container *ngIf="checkType()">
+                            <div class="cur-desc">
+                              <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[i]}};">{{tile.percent}}%</b></div>
+                              <div class="cur-desc-number"><b style="color: {{colors[i]}};">{{tile.perfoValue | number}}</b> тэрбум ₮</div>                                
+                            </div>
+                        </ng-container>
+                        <div *ngIf="!checkType()" class="process" style="width: 100%;">
+                            Өмнөх оноос<br/> <b>{{tile.percent}}%
+                                <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="params['category']!='APPROVED' && getPercent3Level(tile) < 0"></i-feather>
+                                <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="params['category']!='APPROVED' && getPercent3Level(tile) >= 0"></i-feather>    
+                                </b><br/>
+                        </div>
+                        
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="back" style="background-color: {{colors[i]}};">
+                  <h1>{{tile.codeName}}</h1>
+                  <p>{{tile.description}}</p>              
+                </div>
+              </div>
+            </div>
+        </mat-grid-tile>
+      </ng-container>
+
+      </mat-grid-list>
+</div>

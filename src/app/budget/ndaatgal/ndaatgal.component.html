@@ -1,0 +1,161 @@
+
+    <div class="budget-content">
+        <div class="budget-top">
+            <div class="trapezoid">
+                <module-year-change></module-year-change>
+            </div>
+        </div>
+        <div *ngIf="isMain" class="budget-main orlogo">
+            <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+            <div class="title">
+                <h3>Нийгмийн даатгалын сан</h3>
+                <div class="chart-text row justify-content-md-center">
+                    <div class="orlogo" (click)="orlogoClick()" (mouseover)="orlogo()" >
+                        <div>
+                            <img *ngIf="isZarlaga"  src="../../../assets/image/icons/ndrightgg.png" width="100">
+                            <img *ngIf="isMainChart"  src="../../../assets/image/icons/ndright.png" width="100"><br>
+                            <span *ngIf="isZarlaga" style="font-weight: bold;">нийт орлого</span>
+                            <span *ngIf="isMainChart" style="font-weight: bold; color: #0081ff">нийт орлого</span>
+                        </div>
+                        <div class="ndleft">
+                            <img *ngIf="isMainChart" src="../../../assets/image/icons/right.png">
+                        </div>
+                    </div>
+                        <div *ngIf="isMainChart">
+                            <div class="chart-container"  *ngIf="isDataLoaded">
+                                <img class="mainImg" src="../../../assets/image/ndaatgal.PNG">
+                                <app-nchart [colors]="['#28c66f']" [legend]="isLegend" [sub]="0" [legend]="false" [title]="'Нийт орлого'" [sum]="sum" [process]="process" [values]="orlogoValues" [names]="orlogoNames" [befpercentChart]="percentChartOrlogo" [percentChart]="percentChart" [prefValueChart] = "prefValueChart"></app-nchart>
+                            </div>
+                        </div>
+                    
+                        <div *ngIf="isZarlaga">
+                            <div class="chart-container"   *ngIf="isDataLoaded">
+                                <img class="mainImg" src="../../../assets/image/ndaatgal.PNG">
+                                <app-nchart [colors]="['#ea5455']" [legend]="isLegend" [sub]="1" [legend]="false" [title]="'Нийт зарлага'" [sum]="sumZarlaga" [process]="process" [values]="zarlagaValues" [names]="zarlagaNames" [befpercentChart]="percentChartZar" [percentChart]="percentChartZarlaga" [prefValueChart] = "prefValueChartZarlaga"></app-nchart>
+                            </div>
+                        </div>
+
+                    <div class="zarlaga" (click)="zarlagaClick()" (mouseover)="zarlaga()">
+                        <div class="ndright">
+                            <img *ngIf="isZarlaga" src="../../../assets/image/icons/left.png">
+                        </div>
+                        <div>
+                            <img  *ngIf="isZarlaga" src="../../../assets/image/icons/ndleft.png" width="100">
+                            <img  *ngIf="isMainChart" src="../../../assets/image/icons/ndleftgg.png" width="100"><br>
+                            <span *ngIf="isZarlaga" style="font-weight: bold; color: #0081ff;">нийт зарлага</span>
+                            <span *ngIf="isMainChart" style="font-weight: bold;">нийт зарлага</span>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>        
+        <div *ngIf="isMainSub" class="budget-main orlogo">
+            <div class="title">
+                <h3>Нийгмийн даатгалын сан</h3>
+                <div class="chart-text row  justify-content-md-center">
+                    <div class="orlogo" >
+                        <div>
+                            <img *ngIf="isZarlaga"  src="../../../assets/image/icons/ndrightgg.png" width="100">
+                            <img *ngIf="isMainSub"  src="../../../assets/image/icons/ndright.png" width="100"><br>
+                            <span *ngIf="isZarlaga" style="font-weight: bold;">нийт орлого</span>
+                            <span *ngIf="isMainSub" style="font-weight: bold; color: #0081ff">нийт орлого</span>
+                        </div>
+                        <div class="ndleft">
+                            <img *ngIf="isMainSub" src="../../../assets/image/icons/right.png">
+                        </div>
+                    </div>
+                
+                    <div *ngIf="isTypeOrlogo">
+                        <div class="chart-container"  *ngIf="isInDataLoaded">
+                            <app-nchart [colors]="['#28c66f' ,'#ea5455' , '#018ffb', '#b755ea','#6639b6','#795448']" [legend]="isLegend" [title]="'Нийт орлого'" [sum]="sumSub" [process]="process" [values]="orlogoTypeValues" [befpercentChart]="percentChartOrlogo" [names]="orlogoTypeNames" [percentChart]="percentChartSub" [prefValueChart] = "prefValueChartSub"></app-nchart>
+                        </div>
+                    </div>
+
+                    <div class="zarlaga" (click)="zarlagaClick()">
+                        <img src="../../../assets/image/icons/ndleftgg.png" width="100"><br>
+                        <span style="font-weight: bold;">нийт зарлага</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="backbtn" (click) ="orlogo()">
+                    <img src="../../../assets/image/back.png" />
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isZarlagaMain" class="budget-main zarlaga">
+            <!-- <img class="main" src="../../../assets/image/budget/ndaatgal/banner_bg.png" /> -->
+            <img class="bottom" src="../../../assets/image/budget/ndaatgal/banner_pic1.png" />
+            <img class="bottom_icon" src="../../../assets/image/icons/Main/6_nDaatgal.svg"/>
+            <div class="title">
+                <h3>Нийгмийн даатгалын сан нийт зарлага</h3>
+            </div>
+            <div class="number" id="number">
+                <span>
+                    нийт зарлага
+                </span>
+                <div class="curr" *ngIf="appValueTotal">
+                    {{appValueTotal | number}}
+                </div>
+                <p>
+                    тэрбум төгрөг
+                </p>
+            </div>
+            <span class="process" *ngIf="prefValueTotal">
+                Гүйцэтгэл <b  style="color: #fff" >
+                {{percentChartZarlaga}}%<br/>
+                {{prefValueTotal | number}}
+                
+            </b> тэрбум
+            </span>
+            <span class="process" *ngIf="params['category']!='APPROVED'">
+                Өмнөх оноос <b  style="color: #fff" >
+                {{percentChartZar}}% </b>
+            </span>
+
+            <div *ngFor='let salbar of zarlagaSalbar; let i = index' class="zarlaga-item"
+            (click)="showSalbar(i, salbar.level)"
+            style="background: {{colors[i]}};{{ndaatgalPos[i]}}{{widths[i]}}">
+                <div class="content">
+                    <div>
+                        <span><img _ngcontent-xhr-c151="" src="../../../assets/image/budget/ndaatgal/nd_{{salbar.level}}.svg" alt="">{{salbar.calcPercent}}%</span>
+                        <p>{{salbar.levelName}}</p>
+                    </div>
+                    <div class="animate-show">
+                        <span>
+                            {{salbar.approvedValue| number}} тэрбум ₮
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="backbtn" (click) ="orlogo()">
+                    <img src="../../../assets/image/back.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isZarlagaMain" class="budget-content main-block">
+        <h3>{{zarlagaSalbarName?.levelName}}</h3>
+            <div class="row">
+                <div class="col-md-4"  *ngFor='let salbar of zarlagaBySalbar; let i = index'>
+                    <module-grid-img [process]="salbar.percent" [code]="salbar.code" [type]="'nd_' + salbar.level" [colorCode]="i" [percent]="salbar.calcPercent" [name]="salbar.codeName" [processBudget]="salbar.perfoValue" [process]="salbar.percent" [budget]="salbar.approvedValue" [toggle]="toggle"></module-grid-img>
+                </div>
+            </div>
+    </div>
+    <module-description [description]="description"></module-description>
+    <div class="main-description">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <a href="http://www.ndaatgal.mn/v1/" target="_blank" rel="noopener noreferrer">
+                            <img src="../../../assets/image/desc.PNG" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

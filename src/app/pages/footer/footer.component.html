@@ -1,0 +1,62 @@
+<div class="layout layout-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="../../assets/image/icons/mn-logo-rectangle-with-border.svg" width="200px" style="padding-bottom: 15px;"/>
+                <!--<img src="../../assets/image/icons/union.jpg" width="78px" style="padding-bottom: 15px; float: left;"/> <div style="font-size: 11px;padding-top: 18px;padding-left: 90px;font-weight: 600;color: #003399;">Funded by<br> the European Union</div>
+                <img src="../../assets/image/icons/world.png" width="250px" style="padding-bottom: 15px;"/>-->
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="block" *ngFor='let add of address'>
+                            <div class="icon"><i-feather name="map-pin" class="someclass"></i-feather></div>
+                            <div class="content">
+                                <span>Хаяг:</span>
+                                 <p>{{add.address}}</p>
+                            </div>
+                        </div>
+                        <div class="block" *ngFor='let add of contacts'>
+                            <div class="icon"><i-feather name="phone" class="someclass"></i-feather></div>
+                            <div class="content">
+                                <span>Холбоо барих:</span>
+                                 <p>Утас: {{add.name}}<br/>
+                                    Цахим шуудан: {{add.description}}<br/></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="block">
+                            <div class="icon"><i-feather name="Map" class="someclass"></i-feather></div>
+                            <div class="content">
+                                <span>Холбоос</span>
+                                <div class="links">
+                                    <p *ngFor='let link of links'>
+                                        {{link.name}}:<br/>
+                                        <a href="{{link.url}}">{{link.url}}</a>
+                                    </p>                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="block">
+                            <div class="icon-social"><a href="youtube.com"><i-feather name="Youtube" class="someclass" style="width: 20px; height: 20px;"></i-feather></a></div>
+                            <div class="icon-social"><a href="facebook.com"><i-feather name="Facebook" class="someclass"  style="width: 20px; height: 20px;"></i-feather></a></div>
+                            <div class="icon-social"><a href="instagram.com"><i-feather name="Instagram" class="someclass"  style="width: 20px; height: 20px;"></i-feather></a></div>
+                            <div class="icon-social"><a href="twitter.com"><i-feather name="Twitter" class="someclass"  style="width: 20px; height: 20px;"></i-feather></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row footerhr" >
+        <div class="col-md-12">
+            Монгол Улсын Сангийн яам © 2025 он
+        </div>
+    </div>
+</div>

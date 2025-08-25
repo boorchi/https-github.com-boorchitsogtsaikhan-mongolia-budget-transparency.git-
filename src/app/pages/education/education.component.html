@@ -1,0 +1,60 @@
+<div class="budget-outlet">
+<module-menu [menuType]="'education'"></module-menu>
+<div  class="budget-body">
+
+<div class="video-content"  *ngIf="showType == 1" >
+    <div  [innerHTML]="title" class="title-hd center"></div>
+    <p class="center desc">
+        Улсын төсвийг энгийн, ойлгомжтой тайлбарласан “Иргэдийн төсөв-2018” номыг Сангийн яамнаас анх удаа боловсруулан гаргасныг урьд мэдээлж байсан. Тэгвэл энэ удаа бид тус номоос хэсэгчлэн видео цувралаар хүргэхээр шийдлээ. Өнөөдөр төсөв гэж юу болох? Төсвийн орлого, төсвийн зарлага гэж юу вэ? Төсвийн тэнцэл, төсвийн ашиг, төсвийн алдагдал гэж юу болох? зэрэг олон асуултынхаа хариултыг олж аваарай. Улсын төсвийн талаар мэдлэгээ сайжруулснаар иргэн та төсөвт тавих хяналт, оролцоогоо нэмэгдүүлж чадах юм
+        check  
+    </p>
+    <div class="video-item">
+        <div class="row">
+            <div class="col-md-8">
+                <iframe *ngIf="trustedDashboardUrl" width="100%" height="100%" [src]="trustedDashboardUrl" frameborder="0"></iframe>
+            </div>
+            <div class="col-md-4 news-scroll">
+                <div class="top-news" *ngFor='let new of newsVideo; let i = index' (click)="showVid(i, new)">
+                    <div class="row video" >
+                        <div class="col-md-4 imgs">
+                            <img [src]="new.url | safe" width="100%" height="90px"  alt="">
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="title">{{new.name | slice:0:53 }}</div>
+                            <span>{{new.publishDate}}</span>
+                            <p>{{removeTags(new.description) | slice:0:20 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="news-content">
+    <div class="title-hd center"><b>Иргэдийн төсвийн тухай</b>
+        
+    </div>
+    <p class="desc center">
+        Сангийн яамны санаачилгаар төсвийн  ил тод байдлыг нэмэгдүүлэх, иргэдийн төсвийн тухай мэдлэг мэдээллийг тэлэхийг зорилгоо болгон сүүлийн жилүүдэд иргэн бүрд ойлгомжтой байдлаар “Иргэдийн төсөв” товхимол болон төсвийн гүйцэтгэлийн мэдээг цахим хэлбэрээр бэлтгэн хүргэж байгаа билээ.
+
+Монгол Улсын Засгийн газар, Сангийн яам төсөв, санхүү, нийгмийн харилцааны бүхий л хуулийн хүрээнд ямар зорилтыг шийдвэрлэж ямар үр дүнд хүрэх чиглэлээр боловсруулж Улсын Их Хуралд өргөн барьсан 2020 оны төсвийн төслийг иргэн танд хүргэх зорилгоор энэхүү товхимлыг бэлтгэн танилцуулж байна.
+
+Энэхүү товхимолтой танилцсанаар Иргэн Та ирэх онд улс орны эдийн засгийн чадавх хэрхэн сайжрах, төсвийн орлогын шинэчлэлийн бодлогыг хэрэгжүүлснээр орлого хэрхэн тогтвортой өсөх, нийгмийн суурь үйлчилгээний чанар, хүртээмж, иргэдийн бодит орлого хэрхэн нэмэгдэх, улс орны хөгжил ямар түвшинд хүрэх чиглэлээр бодит мэдээллийг авна гэ��эгт итгэлтэй байна.
+    </p>
+        <div class="row">
+            <div class="col-md-3"  *ngFor='let new of newsImg; let i = index' >
+                <div class="news-item">
+                    <a routerLink="/news" class="newslink" (click)="showNews(i, new)">
+                        <img  [src]="(fileUrl + new.imageUrl) | safe"/>
+                        <div class="tit">{{new.name | slice:0:70}} ...</div>
+                        <!-- <p>{{removeTags(new.description) | slice:0:200 }}...</p> -->
+                    </a>
+                    <span>{{new.publishDate}}</span>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+
+<app-footer></app-footer>

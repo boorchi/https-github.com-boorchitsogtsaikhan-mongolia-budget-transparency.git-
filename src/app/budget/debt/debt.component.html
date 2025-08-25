@@ -1,0 +1,142 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <div class="title">
+            <h3>засгийн газрын өрийн удирдлагын 2019-2020 оны стратеги</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="debt-img">
+                    <img src="../../assets/image/suld.png" />
+                </div>
+            </div>
+            
+            <div class="col-md-6" style="vertical-align:middle;
+            display: table-cell;">
+                <div class="debt-text center">
+                    <span>
+                        Монгол Улсын 2020 оны
+                        нэгдсэн төсвийн
+                        тэнцвэржүүлсэн тэнцэл нь
+                        -2,074.7 тэрбум төгрөг
+                        байгаагаас гадаад зээлийн
+                        ашиглалтын 1,196.3 тэрбум
+                        төгрөг нь эх үүсвэртэй
+                        алдагдал юм. Мөн Засгийн
+                        газрын тусгай сангийн тухай
+                        хуулийн дагуу төсвийн
+                        тогтворжуулалтын сангаас
+                        нийт 478.8 тэрбум төгрөгийг
+                        төсвийн алдагдлыг нөхөхөд
+                        ашиглахаар тусгасан
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="debt-img">
+                    <img src="../../assets/image/man.PNG" />
+                </div>
+            </div>
+        </div>
+        <div class="slod1">
+            <module-carousel [slideData]="slideData"></module-carousel>
+        </div>
+    </div>
+</div>
+<module-description [description]="description"></module-description>
+<div class="budget-block">
+    <h3>Нийт өр</h3>
+    <div class="block-container">
+        <div id="chartContainer" style="height: 370px; "></div>
+    </div>
+</div>
+
+<div class="budget-block">
+    <h3>Нийт төлбөр</h3>
+    <div class="block-container">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="chartContainer2" style="height: 370px;"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="item-debts">
+                    <h3 *ngIf="selectedyear">{{selectedyear}} оны {{selectedname}}</h3>
+                    <h3 *ngIf="!selectedyear">НИЙТ ТӨЛБӨРИЙН ДЭЛГЭРЭНГҮЙГ график ДЭЭР дарж харна УУ</h3>
+                    <div *ngFor='let detail of debtDeitalList; let i = index' class="row">
+                        <div class="item-debt">
+                            <div class="item-debt-text">
+                                <span>{{detail.codeName}}</span>
+                            </div>
+                            <div class="item-debt-number">
+                                <div class="tugrug"  style="color: {{colors[i]}}">{{detail.perfoValue}}</div>
+                                <span>тэрбум төгрөг</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+     <div class="budget-block">
+        <h3>Өрийн үзүүлэлт</h3>
+        <div class="block-container">
+            <div class="row">
+                <div class="col-md-6"  *ngIf="isIndex1Loaded">
+                    <budget-charts [chartType]="'multi'" [series]="paymentIndex1" [labels]="paymentIndex1Years" [title]="'Хүүгийн зардлын төсөвт үзүүлэх дарамт'"></budget-charts>
+                </div>
+                <div class="col-md-6"  *ngIf="isIndex2Loaded">
+                    <budget-charts [chartType]="'multi-line'" [series]="paymentIndex2" [labels]="paymentIndex2Years" [title]="'Засгийн газрын өрийн эдийн засагт үзүүлэх дарамт:
+                    Засгийн газрын өрийн өнөөгийн үнэ цэнээрх үлдэгдлийн ДНБ-д эзлэх хувь 
+                    '"></budget-charts>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+        
+<div class="budget-block">
+    <div class="header">
+        <h3>Ирэх онуудад төлөгдөх арилжааны нөхцөлтэй<br> томоохон гадаад төлбөрийн мэдээлэл</h3>
+    </div>
+    <div class="row  bond-outer">
+       
+        <div *ngFor='let bnd of bond; let i = index' class="col-md-6">
+            <div class="debt-bond" [ngClass]="{'revert': (i + 1) % 4 == 0 || (i + 4) % 4 == 0}">
+                <div class="debt-bond-item">
+                    <h4>{{bnd.name}}</h4>
+                    <div class="row">
+                        <div class="col-md-4 left">
+                            <div>
+                            <span class="amdol">{{bnd.bondValue | number}}</span>
+                            <p>сая ам.доллар</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 left">
+                          <div>
+                              <img src="../../assets/image/date.png" class="reverse" width="40">
+                            <p><span>Купон</span> <br/>
+                                {{bnd.coupon}}%</p>
+                                </div>
+                        </div>
+                        <div class="col-md-5 left">
+                            <div>
+                                <img src="../../assets/image/coupon.PNG" width="25"> 
+                                <p><span>Эргэн төлөгдөх огноо</span>
+                            {{bnd.date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="chartContainer" style="height: 370px;"></div> -->
+</div>

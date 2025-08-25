@@ -1,0 +1,337 @@
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+</div>
+<ng-container *ngIf="menuType == 'main'">
+    <div class="budget-content">
+        <div class="budget-main-type">
+            <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+            <div class="title">
+                <h3>Нэгдсэн төсвийн нийт зарлага</h3>
+                <div class="chart-text row justify-content-md-center">
+                    <div class="orlogo" (click)="ezaClick()"  (mouseover)="orlogo()" >
+                        <div>
+                            <img *ngIf="isSalbar"  src="../../../assets/image/orlogo.PNG" width="100">
+                            <img *ngIf="isEza"  src="../../../assets/image/orlogo white.PNG" width="100"><br>
+                            <span *ngIf="isSalbar" style="font-weight: bold;">эдийн засгийн
+                                ангиллаар харах</span>                            
+                            <span *ngIf="isEza" style="font-weight: bold; color: #0081ff">эдийн засгийн
+                                ангиллаар харах</span>
+                        </div>
+                        <div class="ndleft">
+                            <img *ngIf="isEza" src="../../../assets/image/icons/right.png">
+                        </div>
+                    </div>    
+                   
+                    <div class="chart-container1" *ngIf="showChart">
+                        <ulsiintusuv-charts [sub]="0" [colors]="['#ea5455']" [legend]="false" [isZarlaga]="isZarlaga" [title]="'Нийт Зарлага'" 
+                        [sum]="zarlagaTotal[params['category']]['approvedValue']" 
+                        [prefValue]="zarlagaTotal[params['category']]['perfoValue']" 
+                        [percent]="zarlagaTotal[params['category']]['percent']"     
+                        [befPercent]="zarlagaTotal[params['category']]['percent']"                    
+                        [values]="[zarlagaTotal[params['category']]['approvedValue']]" 
+                        [names]="['Нийт зарлага']"></ulsiintusuv-charts>
+                    </div>
+                                                       
+                    <div class="zarlaga" (mouseover)="salbar()" (click)="changeType('salbar')" >
+                        <div class="ndright">
+                            <img *ngIf="isSalbar" src="../../../assets/image/icons/left.png">
+                        </div>
+                        <div>
+                            <img *ngIf="isSalbar" src="../../../assets/image/zarlaga.PNG" width="100">
+                            <img *ngIf="isEza" src="../../../assets/image/zarlaga dark.PNG" width="100"><br>
+                            <span *ngIf="isSalbar" style="font-weight: bold; color: #0081ff;">Cалбараар харах</span>
+                            <span *ngIf="isEza" style="font-weight: bold;">Cалбараар харах</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>        
+</div>
+<module-description [description]="description"></module-description>
+<div class="budget-content main-block" *ngIf="ezaDatas.length > 0">  
+    <h3>Эдийн засгийн ангиллаар</h3>
+        <div class="block-container">
+                <div class="grid">
+                <!-- <div id="ezaChart" style="height: 370px; width: 100%;"></div> -->
+                <!-- <ng-container  *ngFor='let salbar of ezaDatas; let i = index'>
+                    <div class="col-md-4" >
+                        <module-grid-img [toggle]="params.category" [code]="salbar.code" [type]="'salbar' + salbar.level" [colorCode]="i" [processBudget]="salbar.perfoValue" [process]="(salbar.perfoValue / salbar.approvedValue).toFixed(2)" [name]="salbar.levelName" [budget]="salbar.approvedValue"></module-grid-img>
+                    </div> 
+                </ng-container>  -->
+                <mat-grid-list [cols]="breakpoint" rowHeight="180px" gutterSize="20px">
+                    <mat-grid-tile
+                        *ngFor='let salbar of ezaDatas; let i = index'
+                        [colspan]="1"
+                        [rowspan]="1"            
+                        [style.background]="ezacolors[i]"
+                        [style.color]="'#fff'"
+                        [style.border-radius]="'10px'" style="border: 1px solid #ccc;">
+                        <div class="item" (click)="showEzaLevel(salbar)">
+                            <div class="row">
+                                <div class="col-5">
+                                <h5>{{salbar.levelName}}</h5>
+                                </div>
+                                <div class="col-7">          
+                                    <div class="special-text">
+                                        <div class="currency" style="color: {{ezacolors[i]}};">
+                                        {{salbar.approvedValue | number}}
+                                        </div>
+                                        <div class="cur-text">
+                                            тэрбум төгрөг
+                                        </div>
+                                        <span class="arrow-hr"><i class="arrow down"  style="border-color: {{ezacolors[i]}};"></i></span>
+                                        <ng-container *ngIf="params['category']=='APPROVED'">
+                                            <div class="cur-desc">
+                                                <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{ezacolors[i]}};">{{(salbar.perfoValue / salbar.approvedValue * 100).toFixed(2)}}%</b> </div>
+                                                <div class="cur-desc-number"><b style="color: {{ezacolors[i]}};">{{salbar.perfoValue | number}}</b> тэрбум ₮</div>                                
+                                            </div>
+                                        </ng-container>
+                                        <div *ngIf="params['category']!='APPROVED'" class="process" style="width: 100%;">
+                                            {{getType()}} <b>{{getPercentEza(salbar)}}%
+                                                <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="!checkType() && getPercentEza(salbar) < 0"></i-feather>
+                                                <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="!checkType() && getPercentEza(salbar) >= 0"></i-feather>    
+                                                </b><br/>
+                                        </div>
+                                        <div class="downArrowZar bounce">
+                                            <i-feather name="chevron-down" class="down-icon"></i-feather>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                  </mat-grid-list>  
+            </div>
+        </div>
+</div>
+<div class="budget-content main-block" *ngIf="ezaLevelDatas.length > 0">  
+    <h3>{{currentEza['levelName']}}</h3>
+        <div class="block-container">
+                <div class="grid">
+                <!-- <div id="ezaChart" style="height: 370px; width: 100%;"></div> -->
+                <!-- <ng-container  *ngFor='let salbar of ezaDatas; let i = index'>
+                    <div class="col-md-4" >
+                        <module-grid-img [toggle]="params.category" [code]="salbar.code" [type]="'salbar' + salbar.level" [colorCode]="i" [processBudget]="salbar.perfoValue" [process]="(salbar.perfoValue / salbar.approvedValue).toFixed(2)" [name]="salbar.levelName" [budget]="salbar.approvedValue"></module-grid-img>
+                    </div> 
+                </ng-container>  -->
+                <mat-grid-list [cols]="breakpoint" rowHeight="180px" gutterSize="20px">
+                    <mat-grid-tile
+                        *ngFor='let item of ezaLevelDatas; let i = index'
+                        [colspan]="1"
+                        [rowspan]="1"            
+                        [style.color]="'#fff'">
+                        <div class="item">
+                            <div class="main">
+                                <div class="front" style="background-color: {{colors[i]}};">
+                                    
+                          <div class="row">
+                            <div class="col-5">
+                              <h5>{{item.codeName}}</h5>
+                            </div>
+                            <div class="col-7">          
+                              <div class="special-text">
+                                <div class="currency" style="color: {{colors[i]}};">
+                                  {{item.approvedValue | number}}
+                                </div>
+                                <div class="cur-text">
+                                    тэрбум төгрөг
+                                </div>
+                                <span class="arrow-hr"><i class="arrow down"  style="border-color: {{colors[i]}};"></i></span>
+                                <ng-container *ngIf="params['category']=='APPROVED'">
+                                    <div class="cur-desc">
+                                        <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[i]}};">{{(item.perfoValue / item.approvedValue * 100).toFixed(2)}}%</b> </div>
+                                        <div class="cur-desc-number"><b style="color: {{colors[i]}};">{{item.perfoValue | number}}</b> тэрбум ₮</div>                                
+                                    </div>
+                                </ng-container>
+                                <div *ngIf="params['category']!='APPROVED'" class="process" style="width: 100%;">
+                                    Өмнөх оноос <b>{{getPercentEzaLevel(item)}}%
+                                        <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="params['category']!='APPROVED' && getPercentEzaLevel(item) < 0"></i-feather>
+                                        <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="params['category']!='APPROVED' && getPercentEzaLevel(item) >= 0"></i-feather>    
+                                        </b><br/>
+                                </div>
+                            </div>
+                            </div>
+                            
+                          </div>
+                          </div>
+                            <div class="back" style="background-color: {{colors[i]}};">
+                                <h1>{{item.codeName}}</h1>
+                                <p>{{item.description}}</p>              
+                              </div>
+                         </div>
+                        </div>
+                      
+                    </mat-grid-tile>
+                  </mat-grid-list>  
+            </div>
+        </div>
+</div>
+</ng-container>
+<ng-container *ngIf="menuType == 'salbar'">
+    <div class="budget-content">
+    <div class="budget-main1 zarlaga">      
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <img class="main" src="../../../assets/image/bg/1.png" />
+        <div class="number">
+            <span>
+                нийт зарлага
+            </span>
+            <div class="curr">
+                {{zarlagaTotal[params['category']]['approvedValue'] | number}}
+            </div>
+            <p>
+                тэрбум төгрөг
+            </p>
+        </div>
+        <span class="process">
+            <ng-container *ngIf="params['category']=='APPROVED'">
+                Гүйцэтгэл <b  style="color: #fff">{{zarlagaTotal[params['category']]['percent']}}%<br>
+                    {{zarlagaTotal[params['category']]['perfoValue'] | number}}
+                </b>тэрбум
+            </ng-container>
+            <div *ngIf="params['category']!='APPROVED'">
+            Өмнөх оноос <br><b style="color:#fff">{{zarlagaTotal[params['category']]['percent']}}%
+                <i-feather name="arrow-down" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && zarlagaTotal[params['category']]['percent'] < 0"></i-feather>
+                <i-feather name="arrow-up" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && zarlagaTotal[params['category']]['percent'] >= 0"></i-feather>    
+                </b><br/>
+            </div>
+        </span>
+
+        <div class="title">
+            <h3>Нэгдсэн төсвийн нийт зарлага салбараар</h3>
+        </div>
+        <div *ngFor='let salbar of zarlagaSalbar; let i = index' class="zarlaga-item" 
+        (click)="showSalbar(i, salbar.type)"
+        style="background: {{colors[i]}};{{salbarPos[i]}}{{widths[i]}}">
+            <div class="content">
+                <div>
+            <span><img src="../../../assets/image/budget/zarlaga/salbar_icon_{{salbar.type}}.svg" alt="">{{salbar.calcPercent}}%</span>
+            <div class="animate-show">
+                <span>
+                    {{salbar.approvedValue | number}} тэрбум төгрөг
+                </span>
+                <div *ngIf="params.category === 'SUBMITTED'">өмнөх оноос <b> &nbsp;{{salbar.percent}}%
+                    <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="salbar.percent < 0"></i-feather>
+                    <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="salbar.percent >= 0"></i-feather>    
+                    </b>
+                </div>
+            </div>
+            <p>{{salbar.typeName}}</p></div>
+        </div></div>       
+    </div>
+    <div>
+        <div class="backbtn" (click)="menuType='main'">
+            <img src="../../../assets/image/back.png" />
+        </div>
+    </div> 
+    </div>
+<module-description [description]="description"></module-description>
+<div class="budget-content main-block" *ngIf="zarlagaBySalbar.length > 0">
+    <h3>{{zarlagaSalbarName?.typeName}} чиглэлээр дараах хөтөлбөр, арга хэмжээг санхүүжүүлэхээр төлөвлөсөн</h3>
+        <div class="row">
+            <ng-container  *ngFor='let salbar of zarlagaBySalbar; let i = index'>
+                <div class="col-md-{{breakpoint1}}"  *ngIf="salbar.approvedValue > 0">
+                    <module-grid-img [process]="salbar.percent" [toggle]="params.category" [code]="salbar.code" [type]="'salbar' + salbar.type" [colorCode]="i" [percent]="salbar.calcPercent" [name]="salbar.codeName" [budget]="salbar.approvedValue"></module-grid-img>
+                </div> 
+            </ng-container>             
+        </div>
+</div>
+<div class="budget-block feature" *ngIf="zarlagaBySalbarInfo.length > 0">
+    <h3>Төсвийн онцлог {{params.year}}  онд</h3>
+    <div class="block-container">        
+        <img src="../../../assets/image/icons/Duruud/Bagsh.png"/>
+        <ul>
+            <li *ngFor='let info of featureData; let i = index'>
+                {{info.text}}
+            </li>
+        </ul>
+    </div>
+    
+</div>
+<div class="budget-block event" *ngIf="zarlagaBySalbarInfo.length > 0 && slideData1.datas.length > 0">
+    <h3>Онцлог хөтөлбөр арга хэмжээ</h3>
+    <div class="block-container">
+        <module-carousel [slideData]="slideData1"></module-carousel>
+    </div>
+</div>
+<div class="budget-block" *ngIf="zarlagaBySalbarOther.length > 0">
+    <h3>Тогтвортой хөгжлийн сантай уялдсан төсөв</h3>
+    <div class="block-container main-other">     
+        <module-carousel [slideData]="slideData"></module-carousel>
+        <!-- <div class="row" *ngFor='let other of zarlagaBySalbarOther; let i = index'>
+            <div class="col-md-6">
+                <img src="../../../assets/image/budget/other.png"/>
+                <div class="block-other">
+                    <h3>{{zarlagaSalbarName?.typeName}}</h3>
+                    <div class="budget">
+                        {{other.budget}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 purpose" >
+                <h4>Зорилго</h4>
+                <p>{{other.purpose}}</p>
+                <h4>Авах арга хэмжээ</h4>
+                <ul>
+                    <li *ngFor='let info of getList(other.events); let i = index'>
+                        {{info}}
+                    </li>
+                </ul>
+            </div>
+        </div>    -->
+    </div>
+</div>
+<div class="budget-block niigem" *ngIf="zarlagaSalbarName && zarlagaSalbarName.type === '71900'">
+    <h3>Нийгмийн бүлэгт чиглэсэн төсөв</h3>
+    <div class="block-container">
+        <div class="row">
+            <div class="col-md-2 "  *ngFor='let dur of durList; let i = index'>
+                <div class="dur" (click)="getNiigmiinhamgaalal(dur.code, dur.text)"  [ngClass]="{'active':dur.code == activeDur}">
+                    <span>{{dur.text}}</span>
+                    <img class="not" src="../../../assets/image/budget/zarlaga/niigmiin_hamgaalal/{{dur.code}}_s.png"/>
+                    <img class="selected" src="../../../assets/image/budget/zarlaga/niigmiin_hamgaalal/{{dur.code}}.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="budget-block event" *ngIf="niigmiinHamgaalal.length > 0">
+    <h3>{{activeDurText}}</h3>
+    <div class="block-container">
+        <module-carousel [slideData]="slideData"></module-carousel>
+    </div>
+</div>
+
+<div class="budget-block" *ngIf="niigmiinHamgaalalChild.length>0">
+    <h3>хүүхэд</h3>
+    <div class="range-slider"><ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider></div>
+
+    <div class="childDatas">
+        <div class="row">
+            <ng-container *ngFor='let child of niigmiinHamgaalalChild; let i = index'>
+                    <div class="col-md-{{breakpoint1}}" [ngClass]="{'active':child.min >= value && child.max <= highValue}">
+                        <div class="item" >
+                            <span class="childImage" style="background: {{colors[i]}}">
+                                <img src="../../../assets/image/budget/zarlaga/Huuhed/H_{{i+1}}.svg"/>
+                            </span>                            
+                            <p>{{child.text}}</p></div>
+                    </div>
+              </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="budget-block" *ngIf="zarlagaByDedButets.length > 0">
+    <h3>Улсын төсөвт хэрэгжих дэд бүтцийн арга хэмжээнүүд</h3>
+    <div class="block-container">
+    </div>
+</div>
+
+</ng-container>

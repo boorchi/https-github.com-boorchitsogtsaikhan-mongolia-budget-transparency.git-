@@ -1,0 +1,21 @@
+<div class="budget-outlet"  style="min-height: 500px;">
+    <module-menu [menuType]="'survey'"  [activeMenu]="'survey'"></module-menu>
+    <div class="budget-body">
+        <div class="container">
+            <h4 class="title center">{{survey.name}}</h4>
+            <div class="center desc">
+                <div [innerHTML]="survey.description"></div>
+            </div>
+                <div class="col-md-12" style="text-align:center">
+                <div class="survey" style="margin: 0px auto; display: inline;" *ngIf="iframe">
+                    <div [innerHTML]="iframe"></div>
+                </div>
+                
+            </div>
+
+            </div>
+
+        </div>
+
+    </div>
+<app-footer></app-footer>

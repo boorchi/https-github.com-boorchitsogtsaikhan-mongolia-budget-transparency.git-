@@ -1,0 +1,9 @@
+td:first-child a{
+    color: #fff;
+}
+td:first-child a fa-icon{
+    float: right
+}
+td:first-child{
+    border-color: #fff;
+}

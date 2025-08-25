@@ -1,0 +1,79 @@
+
+.budget-main-invest{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 12px 0px #d2d2d2;
+    min-height: 700px;
+    background-image: url("/../../../../assets/image/bg/concept.PNG");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    &.investment{
+        position: relative;
+        background-size: 100%;
+        margin-bottom: 20px;
+    }    
+    .title{
+        h3{
+            padding-top: 20px;
+            padding-bottom: 45px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0081ff;
+            text-transform: uppercase;
+        }
+        img{
+            width: 100%;
+        }
+        
+    }
+    .tugrug{
+        img{
+            position: absolute;
+            margin: auto;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+       
+    }
+    .db-item{
+        color: #fff;
+        position: absolute;
+        border-radius: 10px;
+        padding: 15px;
+        p{
+            font-size: 15px;
+        }
+    }
+    
+}
+
+.main-description{
+    padding: 30px 30px;
+    p{
+        width: 40%;
+        float: right;
+        text-align: left;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+.budget-block>h3 {
+    color: #0081ff;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.title {
+    h3 {
+        color: #0081ff;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}

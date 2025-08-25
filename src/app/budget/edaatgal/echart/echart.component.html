@@ -1,0 +1,28 @@
+<div class="pie_chart center" style="text-align:center; width: {{width}}px;" *ngIf="isDataLoaded">
+    <apx-chart
+      [series]="chartOptions.series"
+      [labels]="chartOptions.labels"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+      [legend]="chartOptions.legend"
+      [plotOptions]="chartOptions.plotOptions"
+      [colors]="chartOptions.colors"
+      [stroke]="chartOptions.stroke"
+      [dataLabels]="chartOptions.dataLabels"
+      [tooltip]="chartOptions.tooltip"
+    ></apx-chart>
+    <div class="chart_text">
+      <img class="m_l" src="../../../assets/image/budget/main/small_m.svg" />
+    
+      <app-simple-number class="orlogo"
+                        [text1]="title"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="sum"     
+                        [color]="colors[0]"
+                        [percent]="percentChart"
+                        [befPercent]="befpercentChart"
+                        [prefValue]="prefValueChart"              
+                    ></app-simple-number>
+    </div>
+  </div>

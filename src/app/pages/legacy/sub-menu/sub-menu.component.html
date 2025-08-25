@@ -1,0 +1,33 @@
+<div class="sub-menu" *ngIf="isOpendata!='boost'">
+    <input type="text" class="search" placeholder="Хайх үгээ оруулна уу"/>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <div class="sidebar-submenu">
+        <ul>
+        <mat-tree-node *matTreeNodeDef="let node" class="sidebar-dropdown-a" matTreeNodePadding>
+          <button class="btn-tag" (click)="logNode(node)" [ngClass]="{ 'background-highlight': activeNode === node }"><li>{{node.name}}</li></button>
+        </mat-tree-node>
+      </ul>
+      </div>
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" class="sidebar-dropdown" matTreeNodePadding >
+          <button mat-icon-button matTreeNodeToggle class="legalbtn"
+                  [attr.aria-label]="'toggle ' + node.name">
+                  <span>{{node.name}} оны төсөв </span>
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                  </mat-icon>
+          </button>
+        </mat-tree-node>
+    </mat-tree>
+</div>
+<div class="sub-menu" *ngIf="isOpendata">
+  <mat-tree [dataSource]="dataSourceBoost" [treeControl]="treeControl">
+    <div class="sidebar-submenu">
+      <ul>
+      <mat-tree-node *matTreeNodeDef="let node" class="sidebar-dropdown-a" matTreeNodePadding>
+        <button class="btn-tag" (click)="boostNode(node)" [ngClass]="{ 'background-highlight': activeNode === node }"><li>{{node.name}} оны гүйцэтгэл</li></button>
+      </mat-tree-node>
+    </ul>
+    </div>
+      
+  </mat-tree>
+</div>

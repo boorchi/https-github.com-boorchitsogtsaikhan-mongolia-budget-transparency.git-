@@ -1,0 +1,111 @@
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">
+            <module-year-change></module-year-change>
+        </div>
+    </div>
+    <div class="budget-main1">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <div class="title">
+            <h3>Засгийн газрын гадаад зээл тусламж</h3>
+            <div class="earth">
+                <div class="chart-container" style="padding-top: 50px;"  *ngIf="isDataLoaded">
+                    <zasgiinzeel-chart [sub]="0" [title]="'Нийт зээл, тусламж'" [sum]="sum" [process]="percentChartSub" [values]="zeeltuslamjValues"  [names]="zeelTuslamjNames"></zasgiinzeel-chart>
+                </div>
+            </div>
+            <div *ngFor='let zeelTuslamj of zeelTuslamjList; let i = index' class="zarlaga-item" (click)="showSalbar(i, zeelTuslamj.type)"
+                style="{{zasgiinZeelPos[i]}}{{widths[i]}}background:{{colors[i]}}">
+                <div class="content">
+                    <div>
+                        <span><img _ngcontent-xhr-c151="" src="../../../assets/image/budget/zeeliintuslamj/{{zeelTuslamj.type}}.png" alt="">{{zeelTuslamj.calcPercent}}%</span>
+                        <!-- <div class="guits">Гүйцэтгэл {{zeelTuslamj.percent}}%</div> -->
+                        <p>{{zeelTuslamj.sumValue| number}} тэрбум</p>
+                        <!-- {{salbar.level}} -->
+                    </div>
+                    <div class="animate-show">
+                        <span>{{zeelTuslamj.typeName}}
+                            
+                        </span>
+                    </div>
+                </div>    
+                <!-- <div class="content">
+                    <span style="line-height: 20px;">
+                        <img _ngcontent-xhr-c151="" class="{{zeelTuslamj.type}}" src="../../../assets/image/budget/zeeliintuslamj/{{zeelTuslamj.type}}.png" alt="">
+                        <div>{{zeelTuslamj.sumValue}}
+                            <span style="font-size: 13px;">
+                                тэрбум
+                            </span> 
+                        </div>
+                    </span>
+                    <div class="perc">
+                        {{zeelTuslamj.calcPercent}}%
+                    </div>
+                    <div class="animate-show">
+                        <span>
+                            {{zeelTuslamj.typeName}}
+                        </span>
+                    </div>
+                </div> -->
+            </div>  
+        </div>
+    </div>
+</div>
+<module-description [description]="description"></module-description>
+<div class="budget-block" *ngIf="zeelTuslamjName">
+    <h3>{{zeelTuslamjName?.typeName}}</h3>
+        <app-zasgiinzeel-sub [description]="zeelTuslamjName?.description" [ass]="zeelTuslamjName?.assistanceValue" [loan]="zeelTuslamjName?.loanValue"></app-zasgiinzeel-sub>
+</div>
+
+<div class="budget-block">
+    <h3>Засгийн газрын нийт зээл, тусламж хөгжлийн түнш байгууллага, улс орнуудаар</h3>
+    <div class="block-container">
+        <div class="container" style="padding-top: 50px;">
+            <div class="col-md-12">
+                <div style="padding-bottom:20px">
+                    <div class="zell">
+                        <span class="" style="background: rgb(255, 159, 67) !important; color: rgb(255, 159, 67); height: 12px; width: 12px; left: 0px; top: 5px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px; float:left"></span><p>Зээл</p>
+                    </div>
+                    <div class="tuslamj">
+                        <span class=""style="background: rgb(40, 198, 111) !important; color: rgb(40, 198, 111); height: 12px; width: 12px; left: 0px; top: 5px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px;float:left"></span><p>Тусламж</p>
+                    </div>
+                </div>
+                <div class="row" *ngFor='let zeelCat of zeelTuslamjCatList; let i = index' >
+                    <div class="wrapper">
+                        <div class="item11">
+                            <div class="vertical-center"><img src="../../../assets/image/budget/zeeliintuslamj/tuslamj/{{i}}.svg" alt=""></div>
+                        </div>
+                        <div class="item12">
+                            <div class="vertical-center"><span>{{zeelCat.name}}</span></div>
+                        </div>
+                        <div class="item1">
+                            <span>{{zeelCat.total}}</span>
+                            <p>тэрбум</p>
+                        </div>
+                        <div class="item2" style="min-width: 100px;max-width: 800px;width: {{zeelCat.assProjectCount*3}}0px" *ngIf="zeelCat.assProjectCount > 0" [ngClass]="{'full': zeelCat.loanProjectCount <= 0}">{{zeelCat.assProjectCount}} төсөл</div>
+                        <div class="item3" style="min-width: 100px;max-width: 800px;width: {{zeelCat.loanProjectCount*3}}0px" *ngIf="zeelCat.loanProjectCount > 0" [ngClass]="{'full': zeelCat.assProjectCount <= 0}">{{zeelCat.loanProjectCount}} төсөл</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+                <!-- <p>Үзүүлж буй үйлчилгээний тухай дэлгэрэнгүй
+                    мэдээллийг эрүүл мэндийн даатгалын сангийн
+                    цахим хуудаснаас аваарай.</p>     -->
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://odamis.mof.gov.mn/login" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

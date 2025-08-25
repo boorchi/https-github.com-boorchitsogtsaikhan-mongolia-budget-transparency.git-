@@ -1,0 +1,55 @@
+<div class="budget-outlet"  style="min-height: 500px;">
+    <module-menu [menuType]="'survey'" [activeMenu]="'discussions'"></module-menu>
+    <div class="budget-body">
+        <div class="container">
+            <h4 class="title center">{{discussion.name}}</h4>
+            <div class="center desc">
+                <div [innerHTML]="discussion.description"></div>
+            </div>
+            
+            <div class="col-md-12" >
+                <div class="survey" style="margin: 0px auto; display: inline;" *ngIf="iframe">
+                    <iframe [src]="iframe" width="100%" height="600px"></iframe>
+                </div>
+                    <h4>Ирсэн санал</h4>
+                    <div class="comments" >
+                        <div class="row" style="max-height: 800px; overflow-y: auto">
+                            <div class="col-lg-12">
+                                <div class="long-item" *ngFor='let comment of comments; let i = index'>
+                                    <div class="content row"  >
+                                        <div class="col-md-12">
+                                            <div class="tags">
+                                                <span class="badge badge-success" style="margin-right: 10px;"><b>{{comment.name}}</b></span>  
+                                                <span class="badge badge-light">огноо: <b>{{comment.createDate}}</b></span>                              
+                                            </div>
+                                            <p>{{comment.comment}}</p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <hr>
+                    <h4>Санал хүсэлт оруулах :</h4>
+
+                    <form style="text-align: left">
+                        <label for="name">Нэр :</label> <input type="text" name="name" value=""
+                            class="form-control form-control-lg" size="50" [(ngModel)]="commentData.name"><br>
+                        <label for="email">Имэйл :</label> <input type="text" name="email"
+                            class="form-control form-control-lg" value="" size="50" [(ngModel)]="commentData.email"><br>
+
+                        <label for="comment">Санал:</label><br>
+                        <textarea name="comment" cols="70" class="form-control form-control-lg" rows="5" [(ngModel)]="commentData.comment"></textarea><br>
+
+
+                        <br><input type="button" name="submit" value="Илгээх" (click)="sendComment()">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<app-footer></app-footer>

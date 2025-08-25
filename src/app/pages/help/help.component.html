@@ -1,0 +1,24 @@
+<div class="dictionary" >
+    <i-feather name="book" class="icon" (click)="toggleMenu()"></i-feather>
+</div>
+
+<div class="dic-content" [@slideInOut]="menuState" >
+    <div class="dic-head">
+        <i-feather name="x" class="dic-close" (click)="toggleMenu()"></i-feather>
+        <h5>
+            <i-feather name="book" class="icon" (click)="toggleMenu()"></i-feather>
+            Нэр томьёоны тайлбар
+        </h5>
+        <input type="text" class="search-dic" [(ngModel)]="search" (ngModelChange)="getDetailJob()"/>
+    </div>
+    <div class="div-body" *ngIf="!showDetail">        
+        <ul>
+            <li *ngFor='let dic of dics'> <a (click)="select(dic)">{{dic.shortName}}</a> </li>
+        </ul>        
+    </div>
+    <div class="div-body description" *ngIf="showDetail">        
+        <h3>{{dic["longName"]}}</h3>  
+        <p>{{dic["description"]}}</p>     
+    </div>
+    
+</div>

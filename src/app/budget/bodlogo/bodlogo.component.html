@@ -1,0 +1,39 @@
+
+<div class="budget-content">   
+	<div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change [showSelect]="0"></module-year-change>
+        </div>
+    </div>    
+    <div class="budget-main1 zarlaga">        
+        <div class="title">
+            <h3>Төсвийн бодлого</h3>
+        </div><br><br>
+        <div class="bodlogo">
+			<div class="row">
+				<div class="col-md-3">
+					<img class="arrow" src="../../../assets/image/Arrow.svg"/>
+				</div>
+				<div class="col-md-3">
+					<img class="arrow" src="../../../assets/image/tsahim.PNG"/>
+				</div>
+				<div class="col-md-3">
+					<img class="arrow" src="../../../assets/image/iltod.PNG"/>
+				</div>
+				<div class="col-md-3">
+					<img class="arrow1" src="../../../assets/image/urashig.PNG"/>
+				</div>
+			</div>
+			
+			<div class="lines">
+				<div class="line" *ngFor='let bodlogo of bodlogoList; let i = index'>
+					<div class="lcol1" style="background-color: {{getColor(i)}};"><div><span>{{bodlogo.name}}</span></div></div>
+					<div class="lcenter"></div>
+					<div class="mid-line"></div>
+					<div class="mid"></div>
+					<div class="lcol2"><div><span>{{bodlogo.description}}</span></div></div>
+				</div>				
+			</div>
+		</div>
+    </div>
+</div>

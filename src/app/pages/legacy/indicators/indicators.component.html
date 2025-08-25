@@ -1,0 +1,419 @@
+<app-menu [menuType]="'legacy'"></app-menu>
+<div class="main-content">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-content" [class.fade-in]="titleVisible">
+                        <div class="hero-icon">
+                            <i class="fas fa-chart-bar fa-4x text-white"></i>
+                        </div>
+                        <h1 class="hero-title">Төсвийн гол үзүүлэлтүүд</h1>
+                        <p class="hero-subtitle">
+                            {{budgetStats.currentYear}} оны {{budgetStats.currentQuarter}}-р улирлын төсвийн гүйцэтгэлийн тайлан
+                        </p>
+                        <div class="hero-stats d-flex justify-content-center gap-4 flex-wrap mt-4">
+                            <div class="stat-item">
+                                <div class="stat-value text-success">{{budgetStats.executionRate}}%</div>
+                                <div class="stat-label">Гүйцэтгэл</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value text-info">{{budgetStats.currentQuarter}}Q</div>
+                                <div class="stat-label">Улирал</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value text-warning">{{budgetStats.currentYear}}</div>
+                                <div class="stat-label">Он</div>
+                            </div>
+                        </div>
+                        <div class="text-white-50 mt-3" *ngIf="budgetStats.lastUpdated">
+                            <i class="fas fa-clock me-1"></i> Сүүлийн шинэчлэл: {{budgetStats.lastUpdated}}
+                        </div>
+                        <div class="text-info mt-2" *ngIf="dataLoading">
+                            <i class="fas fa-spinner fa-spin me-2"></i> Мэдээлэл ачаалж байна...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5">
+
+        <!-- Premium Infographic Dashboard -->
+        <div class="dashboard-section mb-5">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <h3 class="dashboard-title">
+                                <i class="fas fa-chart-pie me-3"></i>
+                                {{budgetStats.currentYear}} оны Засгийн газрын төсвийн дэлгэрэнгүй мэдээлэл
+                            </h3>
+                            <div class="dashboard-subtitle">
+                                Нэгдсэн төсвийн орлого зарлагын харьцуулалт ({{params.category === 'APPROVED' ? 'Батлагдсан' : 'Ирүүлсэн'}} төсөв)
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Stats Row -->
+                        <div class="quick-stats-row">
+                            <div class="quick-stat revenue-stat">
+                                <div class="stat-content">
+                                    <div class="stat-label">Нийт орлого</div>
+                                    <div class="stat-value">{{budgetData.revenue.billionAmount || '0.0'}} тэрбум₮</div>
+                                    <div class="stat-change" [class.positive]="Number(budgetData.revenue.percent) >= 0" [class.negative]="Number(budgetData.revenue.percent) < 0">
+                                        {{budgetData.revenue.percent || '0.00'}}% гүйцэтгэл
+                                    </div>
+                                    <!-- Debug info -->
+                                    <small class="text-muted" style="font-size: 10px;">
+                                        Raw: {{budgetData.revenue.amount | number}} MNT
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-stat expense-stat">
+                                <div class="stat-content">
+                                    <div class="stat-label">Нийт зарлага</div>
+                                    <div class="stat-value">{{budgetData.expenditure.billionAmount || '0.0'}} тэрбум₮</div>
+                                    <div class="stat-change" [class.positive]="Number(budgetData.expenditure.percent) >= 0" [class.negative]="Number(budgetData.expenditure.percent) < 0">
+                                        {{budgetData.expenditure.percent || '0.00'}}% гүйцэтгэл
+                                    </div>
+                                    <!-- Debug info -->
+                                    <small class="text-muted" style="font-size: 10px;">
+                                        Raw: {{budgetData.expenditure.amount | number}} MNT
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-stat balance-stat">
+                                <div class="stat-content">
+                                    <div class="stat-label">Тэнцэл</div>
+                                    <div class="stat-value" [class.text-success]="budgetData.balance.amount >= 0" [class.text-danger]="budgetData.balance.amount < 0">
+                                        {{budgetData.balance.amount >= 0 ? '+' : '-'}}{{budgetData.balance.billionAmount}} тэрбум₮
+                                    </div>
+                                    <div class="stat-change" [class.negative]="budgetData.balance.amount < 0" [class.positive]="budgetData.balance.amount >= 0">
+                                        {{budgetData.balance.amount >= 0 ? 'Илүүдэл' : 'Алдагдал'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Visual Progress Bar -->
+                        <div class="budget-visualization">
+                            <div class="budget-progress-container">
+                                <div class="budget-labels">
+                                    <span class="revenue-label">Орлого {{budgetStats.revenuePercentage}}%</span>
+                                    <span class="expense-label">Зарлага {{budgetStats.expenditurePercentage}}%</span>
+                                </div>
+                                <div class="modern-progress-bar">
+                                    <div class="progress-segment revenue-segment" [style.width.%]="budgetStats.revenuePercentage">
+                                        <div class="progress-shine"></div>
+                                    </div>
+                                    <div class="progress-segment expense-segment" [style.width.%]="budgetStats.expenditurePercentage">
+                                        <div class="progress-shine"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Info Footer -->
+                        <div class="dashboard-footer">
+                            <div class="footer-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="footer-text">
+                                Дээрх үзүүлэлтүүд {{budgetStats.currentYear}} оны төсвийн гүйцэтгэлийн бодит мэдээлэл болно
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Budget Indicators -->
+        <div class="indicators-section">
+            <div class="row justify-content-center g-4">
+                
+                <!-- Revenue Indicator Card -->
+                <div class="col-xl-5 col-lg-6">
+                    <div class="premium-indicator-card revenue-card" [class.slide-in]="indicatorsVisible[0]">
+                        <div class="card-ribbon revenue-ribbon">
+                            <span>Орлого</span>
+                        </div>
+                        <div class="card-header-modern">
+                            <div class="revenue-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="header-content">
+                                <h5 class="card-title-modern">
+                                    Нэгдсэн төсвийн тэнцвэржүүлсэн орлого
+                                </h5>
+                                <div class="card-subtitle-modern">
+                                    Улсын төсвийн орлогын нэгдсэн мэдээлэл
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body-modern">
+                            <div class="amount-display" *ngIf="!editMode">
+                                <div class="primary-amount">
+                                    {{formatNumber(budgetData.revenue.amount)}}
+                                    <span class="currency-label">төгрөг</span>
+                                </div>
+                                <div class="secondary-amount">
+                                    {{formatBillionNumber(Number(budgetData.revenue.billionAmount))}} тэрбум төгрөг
+                                </div>
+                            </div>
+                            
+                            <div class="edit-mode-container" *ngIf="editMode">
+                                <div class="form-group-modern">
+                                    <label>Орлогын дүн</label>
+                                    <input 
+                                        type="number" 
+                                        class="form-control-modern" 
+                                        [(ngModel)]="budgetData.revenue.amount">
+                                </div>
+                            </div>
+                            
+                            <div class="description-section" *ngIf="!editMode">
+                                <p class="description-text-modern">{{budgetData.revenue.description}}</p>
+                            </div>
+                            
+                            <div class="edit-description" *ngIf="editMode">
+                                <div class="form-group-modern">
+                                    <label>Тайлбар</label>
+                                    <textarea 
+                                        class="form-control-modern" 
+                                        rows="3"
+                                        [(ngModel)]="budgetData.revenue.description"></textarea>
+                                </div>
+                                <div class="form-group-modern">
+                                    <label>Тэрбум төгрөгөөр</label>
+                                    <input 
+                                        type="number" 
+                                        step="0.1"
+                                        class="form-control-modern" 
+                                        [(ngModel)]="budgetData.revenue.billionAmount">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expenditure Indicator Card -->
+                <div class="col-xl-5 col-lg-6">
+                    <div class="premium-indicator-card expenditure-card" [class.slide-in]="indicatorsVisible[1]">
+                        <div class="card-ribbon expenditure-ribbon">
+                            <span>Зарлага</span>
+                        </div>
+                        <div class="card-header-modern">
+                            <div class="expenditure-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="header-content">
+                                <h5 class="card-title-modern">
+                                    Нэгдсэн төсвийн зарлага
+                                </h5>
+                                <div class="card-subtitle-modern">
+                                    Улсын төсвийн зарлагын нэгдсэн мэдээлэл
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body-modern">
+                            <div class="amount-display" *ngIf="!editMode">
+                                <div class="primary-amount">
+                                    {{formatNumber(budgetData.expenditure.amount)}}
+                                    <span class="currency-label">төгрөг</span>
+                                </div>
+                                <div class="secondary-amount">
+                                    {{formatBillionNumber(Number(budgetData.expenditure.billionAmount))}} тэрбум төгрөг
+                                    <span class="performance-badge">{{budgetData.expenditure.percentage}}% гүйцэтгэл</span>
+                                </div>
+                            </div>
+                            
+                            <div class="edit-mode-container" *ngIf="editMode">
+                                <div class="form-group-modern">
+                                    <label>Зарлагын дүн</label>
+                                    <input 
+                                        type="number" 
+                                        class="form-control-modern" 
+                                        [(ngModel)]="budgetData.expenditure.amount">
+                                </div>
+                            </div>
+                            
+                            <div class="description-section" *ngIf="!editMode">
+                                <p class="description-text-modern">{{budgetData.expenditure.description}}</p>
+                            </div>
+                            
+                            <div class="edit-description" *ngIf="editMode">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <div class="form-group-modern">
+                                            <label>Тайлбар</label>
+                                            <textarea 
+                                                class="form-control-modern" 
+                                                rows="3"
+                                                [(ngModel)]="budgetData.expenditure.description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group-modern">
+                                            <label>Тэрбум төгрөгөөр</label>
+                                            <input 
+                                                type="number" 
+                                                step="0.1"
+                                                class="form-control-modern" 
+                                                [(ngModel)]="budgetData.expenditure.billionAmount">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group-modern">
+                                            <label>Гүйцэтгэлийн хувь</label>
+                                            <input 
+                                                type="number" 
+                                                class="form-control-modern" 
+                                                [(ngModel)]="budgetData.expenditure.percentage">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Balance Indicator Card -->
+                <div class="col-xl-10 col-lg-12">
+                    <div class="premium-indicator-card balance-card balance-full-width" [class.slide-in]="indicatorsVisible[2]">
+                        <div class="card-ribbon balance-ribbon" [class.deficit-ribbon]="budgetData.balance.amount < 0">
+                            <span>{{budgetData.balance.amount < 0 ? 'Алдагдал' : 'Тэнцэл'}}</span>
+                        </div>
+                        <div class="card-header-modern">
+                            <div class="balance-icon" [class.deficit-icon]="budgetData.balance.amount < 0">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="header-content">
+                                <h5 class="card-title-modern">
+                                    Нэгдсэн төсвийн тэнцэл
+                                </h5>
+                                <div class="card-subtitle-modern">
+                                    Орлого зарлагын ялгавар ба төсвийн тэнцэл
+                                </div>
+                            </div>
+                            <div class="balance-status-indicator" [class.deficit-status]="budgetData.balance.amount < 0">
+                                <i class="fas" [class.fa-arrow-down]="budgetData.balance.amount < 0" [class.fa-arrow-up]="budgetData.balance.amount >= 0"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body-modern">
+                            <div class="balance-amount-display" *ngIf="!editMode">
+                                <div class="primary-amount" [class.deficit-amount]="budgetData.balance.amount < 0">
+                                    {{formatNumber(budgetData.balance.amount)}}
+                                    <span class="currency-label">төгрөг</span>
+                                </div>
+                                <div class="secondary-amount">
+                                    {{formatBillionNumber(Number(budgetData.balance.billionAmount))}} тэрбум төгрөг
+                                    <span class="deficit-indicator" *ngIf="budgetData.balance.amount < 0">
+                                        алдагдал
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="edit-mode-container" *ngIf="editMode">
+                                <div class="form-group-modern">
+                                    <label>Тэнцлийн дүн</label>
+                                    <input 
+                                        type="number" 
+                                        class="form-control-modern" 
+                                        [(ngModel)]="budgetData.balance.amount">
+                                </div>
+                            </div>
+                            
+                            <div class="description-section" *ngIf="!editMode">
+                                <p class="description-text-modern">{{budgetData.balance.description}}</p>
+                            </div>
+                            
+                            <div class="edit-description" *ngIf="editMode">
+                                <div class="form-group-modern">
+                                    <label>Тайлбар</label>
+                                    <textarea 
+                                        class="form-control-modern" 
+                                        rows="3"
+                                        [(ngModel)]="budgetData.balance.description"></textarea>
+                                </div>
+                                <div class="form-group-modern">
+                                    <label>Тэрбум төгрөгөөр</label>
+                                    <input 
+                                        type="number" 
+                                        step="0.1"
+                                        class="form-control-modern" 
+                                        [(ngModel)]="budgetData.balance.billionAmount">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Action Cards Section -->
+        <div class="action-cards-section mt-5">
+            <div class="row justify-content-center g-4">
+                
+                <!-- Excel Download Card -->
+                <div class="col-xl-5 col-lg-6">
+                    <div class="action-card excel-card">
+                        <div class="action-card-header">
+                            <div class="excel-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <div class="action-content">
+                                <h5 class="action-title">Төсвийн төслийн тоо</h5>
+                                <p class="action-description">
+                                    Дэлгэрэнгүй тоон мэдээлэл Excel форматаар
+                                </p>
+                            </div>
+                        </div>
+                        <div class="action-card-body">
+                            <a href="assets/files/budget_projects.xlsx" download class="action-btn excel-btn">
+                                <i class="fas fa-download me-2"></i>
+                                Excel файл татах
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infographic Card -->
+                <div class="col-xl-5 col-lg-6">
+                    <div class="action-card infographic-card">
+                        <div class="action-card-header">
+                            <div class="infographic-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="action-content">
+                                <h5 class="action-title">Инфографик зураг</h5>
+                                <p class="action-description">
+                                    {{budgetStats.currentYear}} оны төсвийн визуал мэдээлэл
+                                </p>
+                            </div>
+                        </div>
+                        <div class="action-card-body">
+                            <div class="infographic-preview">
+                                <img src="assets/images/budget_2025_gov_infographic.png" 
+                                     alt="{{budgetStats.currentYear}} оны Засгийн газрын төсвийн инфографик" 
+                                     class="infographic-thumbnail">
+                                <div class="preview-overlay">
+                                    <i class="fas fa-expand fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+

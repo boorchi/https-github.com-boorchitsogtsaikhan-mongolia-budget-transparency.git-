@@ -1,0 +1,316 @@
+<div class="navigation" *ngIf="menuType == 'opendata'" [class.toggled]="!showMenu">
+    <a class="icon nav-toggle" (click)="showMenu=!showMenu">
+        <i-feather name="arrow-left" class="arrow" style="color: #fff;" *ngIf="showMenu"></i-feather> 
+        <i-feather name="arrow-right" class="arrow" style="color: #fff;" *ngIf="!showMenu"></i-feather> 
+    </a>
+    <div class="navigation-menu-tab">
+        <ul>
+            <li>
+                <a [routerLink]="['/opendata']" [queryParams]="{subType: 'boost'}" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                   data-nav-target="#ecommerce">
+                   <span>
+                        <img src="../../../assets/image/icons/pages/20-2.svg" alt="">
+                   </span>
+                   Мэдээлэл хайх
+                </a>
+            </li>  
+            <li>
+                <a [routerLink]="['/opendata']" [queryParams]="{subType: 'month'}" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                data-nav-target="#ecommerce">
+                    <span>
+                        <img src="../../../assets/image/icons/pages/22-2.svg" alt="">
+                    </span>
+                    Сарын мэдээ
+                </a>
+            </li>               
+        </ul>      
+    </div>    
+</div>
+
+<div class="navigation" *ngIf="menuType == 'boost'" [class.toggled]="!showMenu">
+    <a class="icon nav-toggle" (click)="showMenu=!showMenu">
+        <i-feather name="arrow-left" class="arrow" style="color: #fff;" *ngIf="showMenu"></i-feather> 
+        <i-feather name="arrow-right" class="arrow" style="color: #fff;" *ngIf="!showMenu"></i-feather> 
+    </a>
+    <div class="navigation-menu-tab">
+        <ul>
+            <li>
+                <a [routerLink]="['/opendata']" [queryParams]="{subType: 'boost'}" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                   data-nav-target="#ecommerce">
+                   <span>
+                        <img src="../../../assets/image/icons/pages/20-2.svg" alt="">
+                   </span>
+                   Мэдээлэл хайх
+                </a>
+            </li>  
+            <li>
+                <a [routerLink]="['/opendata']" [queryParams]="{subType: 'month'}" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                data-nav-target="#ecommerce">
+                    <span>
+                        <img src="../../../assets/image/icons/pages/22-2.svg" alt="">
+                    </span>
+                    Сарын мэдээ
+                </a>
+            </li>                         
+        </ul>  
+        <div class="statement-search">
+            <!-- <mat-selection-list *ngIf="!filter">
+                <mat-list-option *ngFor="let item of searchList" (click)="date(item.id)" selected="true">
+                  {{item.name}}
+                </mat-list-option>
+            </mat-selection-list> -->
+            <div class="filter" >           
+                <span>Огноо</span>
+                <select [(ngModel)]="selectedYear">
+                    <option>2020</option> 
+                    <option>2019</option> 
+                    <option>2018</option> 
+                </select>
+                <span>Төсвийн төрөл</span>
+                <select>
+                    <option>сонгох</option> 
+                </select>       
+                
+                <span>ТЕЗ</span>
+                <select [(ngModel)]="selectedTez">
+                    <option *ngFor="let tez of tezlist" value="{{tez.code}}">{{tez.name}}</option> 
+                </select>
+                <span>Сум дүүрэг</span>
+                <select>
+                    <option>сонгох</option> 
+                </select> 
+                <span>Эдийн засгийн ангилал L1</span>
+                <select>
+                    <option>сонгох</option> 
+                </select> 
+                <span>Эдийн засгийн ангилал L2</span>
+                <select>
+                    <option>сонгох</option> 
+                </select> 
+                <span>Эдийн засгийн ангилал L3</span>
+                <select>
+                    <option>сонгох</option> 
+                </select> 
+                <span>Эдийн засгийн ангилал L4</span>
+                <select>
+                    <option>сонгох</option> 
+                </select> 
+           
+            </div>
+        </div>
+        <div class="chartList">
+            <div class="">
+                <div class="col-md-3 tree_chart" (click)="chartType='table'" [class.active]="chartType === 'table'">
+                    <img src="../../../assets/image/charts/tree_map_chart.svg"/>
+                </div>
+                <div class="col-md-3 bar_chart" (click)="chartType='bar'" [class.active]="chartType === 'bar'">
+                    <img src="../../../assets/image/charts/bar_chart.svg"/>
+                </div>
+                <div class="col-md-3 column_chart" (click)="chartType='column'" [class.active]="chartType === 'column'">
+                    <img src="../../../assets/image/charts/column_chart.svg"/>
+                </div>
+                <div class="col-md-3 pie_chart" (click)="chartType='pie'" [class.active]="chartType === 'pie'">
+                    <img src="../../../assets/image/charts/pie_chart.svg"/>
+                </div> 
+            </div>           
+        </div>
+        <div class="search_bottom">
+            <button (click)="boostSearch()">Хайх</button>
+        </div>    
+    </div>    
+</div>
+
+<div class="navigation" *ngIf="menuType == 'statement-search'" [class.toggled]="!showMenu">
+    <a class="icon nav-toggle" (click)="showMenu=!showMenu">
+        <i-feather name="arrow-left" class="arrow" style="color: #fff;" *ngIf="showMenu"></i-feather> 
+        <i-feather name="arrow-right" class="arrow" style="color: #fff;" *ngIf="!showMenu"></i-feather> 
+    </a>
+    <div class="navigation-menu-tab">
+        <ul>
+            <li>
+                <a routerLink="/statement" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                   data-nav-target="#ecommerce">
+                   <span>
+                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-2.svg" alt="">
+                   </span>
+                   Төсвийн зарлагын мэдээлэл
+                </a>
+                <!-- <a routerLink="/statement">
+                   <i-feather name="monitor" class="someclass"></i-feather>
+                    Төсвийн зарлагын мэдээлэл
+                </a> -->
+            </li>
+            <li>
+                <a routerLink="/statement-data" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                   data-nav-target="#ecommerce">
+                   <span>
+                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-1.svg" alt="">
+                   </span>
+                   Төсвийн зарлагын мэдээллийн цэс
+                </a>
+                <!-- <a routerLink="/statement-data">
+                   <i-feather name="monitor" class="someclass"></i-feather>
+                    Төсвийн зарлагын мэдээллийн сан
+                </a> -->
+            </li>
+            
+              
+               
+        </ul>
+        <div class="statement-search">
+            <!-- <mat-selection-list *ngIf="!filter">
+                <mat-list-option *ngFor="let item of searchList" (click)="date(item.id)" selected="true">
+                  {{item.name}}
+                </mat-list-option>
+            </mat-selection-list> -->
+            <div class="filter" >
+                <!-- *ngIf="filter" -->
+               
+                <div class="form-group">
+                    <span>Эхлэх</span>
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" required
+                           name="dp" [(ngModel)]="date_start" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                        <i-feather name="calendar" class="someclass"></i-feather>
+                      </button>
+                    </div>
+                    
+                  </div>
+                  <div  class="alert alert-danger" *ngIf="!form.valid_start">
+                    Эхлэх огноо заавал сонгоно уу!
+                   </div>
+                </div>               
+               
+                <div class="form-group">
+                    <span>Дуусах</span>
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" required
+                           name="dpend" [(ngModel)]="date_end" ngbDatepicker #d1="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
+                        <i-feather name="calendar" class="someclass"></i-feather>
+                      </button>
+                    </div>
+                  </div>
+                  <div  class="alert alert-danger" *ngIf="!form.valid_end">
+                    Дуусах огноо заавал сонгоно уу!
+                   </div>
+                  </div>
+                <span>Төсвийн ерөнхийлөн захирагч</span>
+                <select class="form-control" [(ngModel)]="selectedTez"  (change)="onChange($event.target.value)">
+                    <option value="">Сонгох</option>
+                    <option *ngFor="let tez of tezlist" value="{{tez.code}}">{{tez.name}}</option> 
+                </select>
+                <div  class="alert alert-danger" *ngIf="!form.valid_tez">
+                    Төсвийн ерөнхийлөн захирагч заавал сонгоно уу!
+                </div>
+                <span>Төсвийн байгууллага</span>
+                <select class="form-control" [(ngModel)]="orgName">
+                    <option value="">Сонгох</option>
+                    <option *ngFor="let org of orglist" value="{{org.name}}">{{org.name}}</option> 
+                </select>
+                <div  class="alert alert-danger" *ngIf="!form.valid_org">
+                    Байгууллага заавал сонгоно уу!
+                </div>
+                <span>Үйлчилгээний төрөл</span>
+                <select class="form-control" [(ngModel)]="type">
+                    <option value="">Сонгох</option>
+                    <option *ngFor="let eza of ezalist" value="{{eza.code}}">{{eza.name}}</option> 
+                </select>
+                <span>Бэлтгэн нийлүүлэгч /регистр/</span>
+                <input placeholder="Бэлтгэн нийлүүлэгч ..." class="form-control" type="text" [(ngModel)]="toOrg"/>                
+                <mat-selection-list #shoes [(ngModel)]="selectedOptions">
+                    <mat-list-option *ngFor="let amount of amounts" [value]="amount.value">
+                      {{amount.name}}
+                    </mat-list-option>
+                </mat-selection-list>
+            
+            </div>
+        </div>
+        <div class="search_bottom">
+            <button (click)="searchStatement()">Хайх</button>
+        </div>
+    </div>
+    
+
+</div>
+<div class="navigation" *ngIf="menuType == 'education'" [class.toggled]="!showMenu">
+    <a class="icon nav-toggle" (click)="showMenu=!showMenu">
+        <i-feather name="arrow-left" class="arrow" style="color: #fff;" *ngIf="showMenu"></i-feather> 
+        <i-feather name="arrow-right" class="arrow" style="color: #fff;" *ngIf="!showMenu"></i-feather> 
+    </a>
+    <div class="navigation-menu-tab">
+        <ul>
+            <li>
+                <a routerLink="/education" [queryParams]="{subType: 1}" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                   data-nav-target="#ecommerce">
+                   <span>
+                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-1.svg" alt="">
+                   </span>
+                   
+                   
+                    Төсвийн тухай үндсэн ойлголт
+                </a>
+            </li>
+            <li>
+                <a routerLink="/education" [queryParams]="{subType: 2}" data-toggle="tooltip" data-placement="right" title="Analytics"
+                   data-nav-target="#analytics">
+                   <span>
+                   <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-2.svg" alt="">
+                </span>
+                    Иргэдийн төсвийн тухай
+                </a>
+            </li>
+            <!-- <li>
+                <a routerLink="/education" [queryParams]="{subType: 3}" data-toggle="tooltip" data-placement="right" title="Projects"
+                   data-nav-target="#projects">
+                   <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/20-2.svg" alt="">
+                    Төсвийн талаар судалгааны ажил
+                </a>
+            </li>
+            <li>
+                <a routerLink="/education" [queryParams]="{subType: 4}" data-toggle="tooltip"
+                   data-placement="right" title="Apps" data-nav-target="#apps">
+                   <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/22-1.svg" alt="">
+                   Төсөвтэй xолбоотой ярилцлага
+                </a>
+            </li>    -->
+               
+        </ul>
+    </div>
+    
+</div>
+
+<div class="navigation" *ngIf="menuType == 'survey'" [class.toggled]="!showMenu">
+    <a class="icon nav-toggle" (click)="showMenu=!showMenu">
+        <i-feather name="arrow-left" class="arrow" style="color: #fff;" *ngIf="showMenu"></i-feather> 
+        <i-feather name="arrow-right" class="arrow" style="color: #fff;" *ngIf="!showMenu"></i-feather> 
+    </a>
+    <div class="navigation-menu-tab" *ngIf="showMenu">
+        <ul>
+            <li>
+                <a routerLink="/cp" data-toggle="tooltip" data-placement="right" title="Ecommerce"
+                   data-nav-target="#ecommerce"  [class.active]="activeMenu == 'survey'">
+                   <span>
+                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-1.svg" alt="">
+                   </span>
+                   
+                   
+                    Санал асуулга
+                </a>
+            </li>
+            <li>
+                <a routerLink="/cp/discussions" data-toggle="tooltip" data-placement="right" title="Analytics"
+                   data-nav-target="#analytics" [class.active]="activeMenu == 'discussions'">
+                   <span>
+                    <img _ngcontent-xhr-c151="" src="../../../assets/image/icons/pages/17-2.svg" alt="">
+                    </span>
+                    Хэлэлцүүлэг
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+</div>

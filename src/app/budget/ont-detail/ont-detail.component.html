@@ -1,0 +1,227 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main-invest investment">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: </div>
+        <div class="title">
+            <h3>УЛС, ОРОН НУТГИЙН ТӨСВИЙН ХАРИЛЦАА</h3>
+        </div>
+        
+        <div class="de-item-main" style="">
+            <div class="content">
+                <div>
+                    <img src="../../../assets/image/1.svg" alt=""><br>
+                    <span>улсын төсөв</span>
+                </div>
+            </div>
+        </div>
+        <div class="de-item-main1" style="">
+            <div class="content">
+                <div>
+                    <img src="../../../assets/image/2.svg" alt=""><br>
+                    <span>орон нутгийн
+                        төсөв</span>
+                    <p>нийслэл - 9 дүүрэг<br>
+                        21 аймаг - 330 сум</p>
+                </div>
+            </div>
+        </div>
+        <div (click)="show(datas[2])" (click)="down()" class="de-item-c" style="cursor: pointer; left: 0;bottom: 440px;right: 0;margin: auto;">
+            <div class="content">
+                <div>
+                    <div class="number">
+                        <span>
+                            ТУСГАЙ
+ЗОРИУЛАЛТЫН
+ШИЛЖҮҮЛЭГ
+                        </span>
+                        <div class="curr">
+                            {{datas[2]["value"] | number}}
+                        </div>
+                        <p>
+                            тэрбум төгрөг
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="downArrowOnt bounce ont" (click)="down()">
+                <i-feather name="chevron-down" class="down-icon-w"></i-feather>
+            </div>
+        </div>
+        <div (click)="show(datas[3])" (click)="down()" class="de-item-c1" style="cursor: pointer; left: 0;bottom: 90px;right: 0;margin: auto;">
+            <div class="content">
+                <div>
+                    <div class="number">
+                        <span>
+                            Орон нутгийн
+                            хөгжлийн сан
+                        </span>
+                        <div class="curr">
+                            {{datas[3]["value"] | number}}
+                        </div>
+                        <p>
+                            тэрбум төгрөг
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="downArrowOnt bounce ont" (click)="down()">
+                <i-feather name="chevron-down" class="down-icon-w"></i-feather>
+            </div>
+        </div>
+
+        <div class="de-item-t">
+            <div class="content">
+                <div>
+                    <div class="items-s">
+                        <div class="left">
+                            <span>ТӨВЛӨРҮҮЛЭХ ОРЛОГО</span> 
+                        </div>
+                        <div class="right">
+                            <div class="curr nh">
+                                {{datas[1]["value"]}}
+                            </div>
+                            <p class="nh">
+                                тэрбум төгрөг
+                            </p>
+                            <div class="curr hover">
+                                {{datas[1]["perfoValue"]}}
+                            </div>
+                            <p class="hover">
+                                Гүйцэтгэл
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="de-item-t1">
+            <div class="content">
+                <div>
+                    <div class="items-s">
+                        <div class="left">
+                            <span>САНХҮҮГИЙН
+                                ДЭМЖЛЭГ</span> 
+                        </div>
+                        <div class="right">
+                            <div class="curr nh">
+                                {{datas[0]["value"]}}
+                            </div>
+                            <p class="nh">
+                                тэрбум төгрөг
+                            </p>
+                            <div class="curr hover">
+                                {{datas[0]["perfoValue"]}}
+                            </div>
+                            <p class="hover">
+                                Гүйцэтгэл
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="top">
+            <img src="../../../assets/image/Arrow/top.PNG" alt="">
+        </span>
+        <span class="yellow">
+            <img src="../../../assets/image/Arrow/yellow.png" alt="">
+        </span>
+        <span class="blue">
+            <img src="../../../assets/image/Arrow/blue.png" alt="">
+        </span>
+        <span class="bottom">
+            <img src="../../../assets/image/Arrow/bttom.PNG" alt="">
+        </span>
+    </div>
+</div>
+
+<module-description [description]="description"></module-description>
+
+<div class="budget-block" style="margin-top: 0px;">
+    <h3 style="margin: 0px" class="title">{{data["typeName"]}}</h3>
+    <div class="row">
+        <div class="col-md-{{breakpoint}}" *ngFor='let item of details; let i = index'>
+            <div class="special-col">
+                <div class="special-item">
+                    <div class="special-img" style="background-image: url(../../../assets/image/bg/salbar_bg_{{i}}.svg)">
+                        <div class="percentage">
+                            {{item.calcPercent}}%
+                        </div>
+                        <div class="title">
+                            {{item.codeName}}
+                        </div> 
+                        <!-- <div class="bottom-img">
+                            <img src="../../../assets/image/crop/salbar71800_71801.png"/>
+                        </div> -->
+                    </div>         
+                    <div class="special-text">
+                        <div class="currency" style="color: {{colors[i]}};">
+                            {{item.approvedValue}}
+                        </div>
+            
+                        
+                        <div class="cur-text">
+                            тэрбум төгрөг
+                        </div>
+                        <span class="arrow-hr"><i class="arrow down"  style="border-color: {{colors[i]}};"></i></span>
+                        <div >
+                            <div class="cur-desc">
+                                <div *ngIf="params['category']=='APPROVED'">
+                                    <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[i]}};">{{item.percent}}%</b></div>
+                                    <div class="cur-desc-number"><b style="color: {{colors[i]}};">{{item.perfoValue}}</b> тэрбум ₮</div> 
+                                </div>
+                                <div *ngIf="params['category']!='APPROVED'">
+                                    <div class="cur-desc-text" style="position: relative;">Өмнөх оноос <b style="color: {{colors[i]}};">{{item["percent"]}}%
+                                    <i-feather name="arrow-down" class="down-icon-w" style="position: absolute;top: 0px;color: #505054;" *ngIf="item['percent'] < 0"></i-feather>
+                                    <i-feather name="arrow-up" class="down-icon-w" style="position: absolute;top: 0px;color: #505054;" *ngIf="item['percent'] >= 0"></i-feather> </b>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <!-- <ng-template #other_content>
+                            <div class="cur-desc-text">Өмнөх оноос <b style="color: {{colors[i]}};">{{item.percent}}%</b>
+                                <i-feather name="arrow-down" class="down-icon" style="color: #333;"></i-feather> -->
+                                <!-- <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="process >= 0"></i-feather>  -->
+                            <!-- </div>
+                        </ng-template> -->
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<!-- 
+<div class="budget-block" >
+    <h3>төвлөрүүлэх орлого</h3>
+    <div class="block-container">
+        <div class="desc">
+            <span class="image"><img src="../../../assets/image/icons/Duruud/Turiin_alban_haagch_2.png"></span><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodoviverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <budget-charts [sub]="1" [isOrlogo]="isOrlogo" [title]="'Тэнцвэржүүлсэн орлого'" [sum]="sum" [values]="orlogoSub1Values" [names]="orlogoSub1Names"></budget-charts>
+    </div>
+</div> -->
+
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://mof.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

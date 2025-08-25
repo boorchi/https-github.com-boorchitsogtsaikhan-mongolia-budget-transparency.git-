@@ -1,0 +1,124 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main-invest investment">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: </div>
+        <div class="title">
+            <h3>ХӨРӨНГӨ ОРУУЛАЛТ</h3>
+        </div>
+        <div class="total">
+            <div class="number">
+                <span>
+                    нийт зарлага
+                </span>
+                <div class="curr">
+                    {{zarlagaTotal['approvedValue'] | number}}
+                </div>
+                <p>
+                    тэрбум төгрөг
+                </p>
+            </div>
+            <span class="process">
+                <ng-container *ngIf="params['category']=='APPROVED'">
+                    Гүйцэтгэл <b  style="color: #fff">
+                        {{(zarlagaTotal['perfoValue'] / zarlagaTotal['approvedValue'] * 100).toFixed(2)}}%
+                         </b><br/>{{zarlagaTotal['perfoValue'] | number }} тэрбум
+                </ng-container>
+                <div *ngIf="params['category']!='APPROVED'">
+                Өмнөх оноос<br> <b style="color:#fff">{{percentTotal}}%
+                    <i-feather name="arrow-down" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && percentTotal < 0"></i-feather>
+                    <i-feather name="arrow-up" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && percentTotal >= 0"></i-feather>    
+                    </b><br/>
+                </div>
+            </span>
+            
+        </div>       
+        <div class="invest-block">
+            <div *ngIf="isNull">
+                Тухайн онд харуулах өгөгдөл байхгүй байна..
+            </div>
+            <div *ngFor='let item of datas; let i = index' class="invest-item" style="background: {{colors[i]}}; left: {{100 + (i * 250)}}px; bottom: 80px;">
+                <div class="content">
+                    <div>
+                        <span><img src="../../../assets/image/budget/main/{{item['code']}}.svg" alt="">{{item["approvedValue"] | number}}
+                        <br/> тэрбум
+                        </span>
+                        <p>{{item["codeName"]}}</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+    
+    
+</div>
+<module-description [description]="description"></module-description>
+
+<div class="budget-block" style="margin-top: 0px;">
+    <h3 style="margin: 0px" class="title">улсын төсвийн хөрөнгө оруулалт</h3>
+    <div class="block-container">
+        <div class="row">
+                <div class="col-md-3 ">
+                    <div class="invest-main sub">
+                        <img src="../../../../assets/image/Barilgachin1.PNG">
+                        <div class="number">
+                           
+                            <div class="curr">
+                                {{ulsiinTusuv | number}}
+                            </div>
+                            <p>
+                                тэрбум төгрөг
+                            </p>
+                            <hr>
+                            <span class="process">Гүйцэтгэл <b  style="color: #fff">
+                                {{percent}}%
+                            </b><br/>{{perfoValue}} тэрбум</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-9">
+                    <div class="invest-table sub">
+                        <div class="title">
+                            <h3>нийт {{total | number}} төсөл арга хэмжээг хэрэгжүүлнэ</h3>
+                        </div>
+                        <div style=" padding-top: 30px;width: 90%; margin: auto;">
+                            <module-carousel [slideData]="slideData"></module-carousel>
+                        </div>
+                        <div class="title">
+                            <h3>Монгол улсын төсвийн хөрөнгөөр {{year}} онд санхүүжүүлэх
+                                төсөл, арга хэмжээ, барилга  байгууламж</h3>
+                                <table>
+                                    <tr *ngFor='let item of loList; let i = index'>
+                                        <td>{{item.codeName}}</td>
+                                        <td>{{item.eventCount}} төсөл</td>
+                                        <td>{{item.budget}} тэрбум</td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://publicinvestment.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,319 @@
+<div class="budget-dashboard">
+  <!-- Header -->
+  <div class="dashboard-header">
+    <h1>
+      <i class="fas fa-chart-line"></i>
+      Төсвийн мэдээллийн самбар
+    </h1>
+    <p class="subtitle">NestJS Backend системээс авсан өгөгдөл</p>
+  </div>
+
+  <!-- Connection Status -->
+  <div class="connection-status" [ngClass]="backendConnected ? 'connected' : 'disconnected'">
+    <i class="fas" [ngClass]="backendConnected ? 'fa-wifi' : 'fa-exclamation-triangle'"></i>
+    <span *ngIf="backendConnected">Backend серверт амжилттай холбогдсон</span>
+    <span *ngIf="!backendConnected">Backend сервертэй холбогдож чадсангүй. Анхны өгөгдлийг ашиглаж байна.</span>
+  </div>
+
+  <div *ngIf="!backendConnected" class="no-backend-message">
+    <div class="alert alert-warning">
+      <i class="fas fa-info-circle"></i>
+      <strong>Backend сервер ажиллахгүй байна.</strong><br>
+      Backend серверийг эхлүүлнэ үү: <code>cd websan-backend && npm start</code>
+    </div>
+  </div>
+
+  <div *ngIf="backendConnected">
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Өгөгдөл ачаалж байна...</p>
+    </div>
+
+    <div *ngIf="!loading">
+      <!-- Dashboard Statistics -->
+      <div *ngIf="dashboardStats" class="stats-container">
+        <div class="stats-grid">
+          <!-- Revenue Card -->
+          <div class="stat-card revenue-card">
+            <div class="stat-icon">
+              <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="stat-content">
+              <h3>{{ formatCurrency(getTotalRevenue()) }}</h3>
+              <p>Орлого</p>
+            </div>
+          </div>
+
+          <!-- Expenditure Card -->
+          <div class="stat-card expenditure-card">
+            <div class="stat-icon">
+              <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="stat-content">
+              <h3>{{ formatCurrency(getTotalExpenditure()) }}</h3>
+              <p>Зарлага</p>
+            </div>
+          </div>
+
+          <!-- Total Budget Card -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="stat-content">
+              <h3>{{ formatCurrency(dashboardStats.totalBudget) }}</h3>
+              <p>Нийт төсөв</p>
+            </div>
+          </div>
+
+          <!-- Records Card -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-list"></i>
+            </div>
+            <div class="stat-content">
+              <h3>{{ dashboardStats.totalRecords }}</h3>
+              <p>Төсвийн бичлэг</p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="dashboardStats.lastUpdate" class="last-update">
+          <i class="fas fa-clock"></i>
+          Сүүлийн шинэчлэл: {{ dashboardStats.lastUpdate | date:'yyyy/MM/dd HH:mm' }}
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-container">
+        <h2>Шүүлтүүр</h2>
+        
+        <div class="filters-row">
+          <!-- Year Filter -->
+          <div class="filter-group">
+            <label for="year-select">Он:</label>
+            <select id="year-select" [(ngModel)]="selectedYear" (change)="onYearChange(selectedYear)">
+              <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="filter-group">
+            <label for="category-select">Категори:</label>
+            <select id="category-select" [(ngModel)]="selectedCategory" (change)="onCategoryChange(selectedCategory)">
+              <option value="">Бүгд</option>
+              <option *ngFor="let category of availableCategories" [value]="category.key">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Ministry Filter -->
+          <div class="filter-group">
+            <label for="ministry-select">Яам:</label>
+            <select id="ministry-select" [(ngModel)]="selectedMinistry" (change)="onMinistryChange(selectedMinistry)">
+              <option value="">Бүгд</option>
+              <option *ngFor="let ministry of getUniqueMinistries()" [value]="ministry">
+                {{ ministry }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Clear Filters Button -->
+          <div class="filter-group">
+            <button class="btn btn-secondary" (click)="clearFilters()">
+              <i class="fas fa-times"></i>
+              Цэвэрлэх
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicators Section - Only show if backend is connected and has data -->
+      <div *ngIf="shouldShowIndicators()" class="indicators-container">
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-chart-line"></i>
+            Эдийн засгийн үзүүлэлтүүд
+          </h2>
+          
+          <!-- Indicator Category Filter -->
+          <div class="indicator-filter">
+            <label for="indicator-category-select">Категори:</label>
+            <select id="indicator-category-select" [(ngModel)]="selectedIndicatorCategory" (change)="onIndicatorCategoryChange(selectedIndicatorCategory)">
+              <option value="">Бүгд</option>
+              <option *ngFor="let category of availableIndicatorCategories" [value]="category.key">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div *ngIf="indicatorsData.length === 0" class="no-data">
+          <i class="fas fa-chart-bar"></i>
+          <p>Үзүүлэлтийн өгөгдөл олдсонгүй.</p>
+        </div>
+
+        <div *ngIf="indicatorsData.length > 0">
+          <!-- Indicators Grid -->
+          <div class="indicators-grid">
+            <div *ngFor="let indicator of indicatorsData; trackBy: trackIndicatorByFn" 
+                 class="indicator-card"
+                 [ngClass]="getIndicatorStatusClass(indicator.status)">
+              
+              <div class="indicator-header">
+                <div class="indicator-icon">
+                  {{ getIndicatorStatusIcon(indicator.status) }}
+                </div>
+                <div class="indicator-category">
+                  {{ getIndicatorCategoryDisplayName(indicator.category) }}
+                </div>
+              </div>
+
+              <div class="indicator-content">
+                <h3 class="indicator-name">{{ indicator.name }}</h3>
+                
+                <div class="indicator-value">
+                  <span class="current-value">{{ indicator.value }}</span>
+                  <span class="unit">{{ indicator.unit }}</span>
+                </div>
+
+                <div *ngIf="indicator.previousValue && indicator.changePercentage" class="indicator-change">
+                  <span class="previous-value">
+                    Өмнөх: {{ indicator.previousValue }} {{ indicator.unit }}
+                  </span>
+                  <span class="change-percentage" 
+                        [ngClass]="indicator.changePercentage > 0 ? 'positive' : 'negative'">
+                    {{ indicator.changePercentage > 0 ? '+' : '' }}{{ indicator.changePercentage }}%
+                  </span>
+                </div>
+
+                <div *ngIf="indicator.description" class="indicator-description">
+                  {{ indicator.description }}
+                </div>
+
+                <div class="indicator-meta">
+                  <span class="indicator-year">{{ indicator.year }} он</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicators by Category -->
+          <div *ngIf="!selectedIndicatorCategory" class="indicators-by-category">
+            <h3>Категориор ангилсан үзүүлэлтүүд</h3>
+            
+            <div *ngFor="let categoryGroup of getIndicatorsByCategory()" class="category-group">
+              <h4 class="category-title">
+                <i class="fas fa-folder"></i>
+                {{ categoryGroup.name }}
+                <span class="count">({{ categoryGroup.indicators.length }})</span>
+              </h4>
+              
+              <div class="category-indicators">
+                <div *ngFor="let indicator of categoryGroup.indicators" class="mini-indicator">
+                  <div class="mini-indicator-name">{{ indicator.name }}</div>
+                  <div class="mini-indicator-value">
+                    {{ indicator.value }} {{ indicator.unit }}
+                    <span *ngIf="indicator.changePercentage" 
+                          class="mini-change" 
+                          [ngClass]="indicator.changePercentage > 0 ? 'positive' : 'negative'">
+                      {{ indicator.changePercentage > 0 ? '↗' : '↘' }} {{ Math.abs(indicator.changePercentage) }}%
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget Data Overview -->
+      <div class="budget-overview">
+        <div class="overview-header">
+          <h2>Төсвийн тойм</h2>
+          <div class="total-budget">
+            <span class="label">Нийт дүн:</span>
+            <span class="amount">{{ formatCurrency(getTotalBudget()) }}</span>
+          </div>
+        </div>
+
+        <!-- Budget by Category Chart -->
+        <div class="chart-container">
+          <h3>Категориор ангилсан</h3>
+          <div class="category-bars">
+            <div *ngFor="let item of getBudgetByCategory()" class="category-bar-item">
+              <div class="category-info">
+                <span class="category-name">{{ item.name }}</span>
+                <span class="category-amount">{{ formatCurrency(item.total) }}</span>
+                <span class="category-percentage">({{ getPercentageOfTotal(item.total) }}%)</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="getPercentageOfTotal(item.total)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Budget by Ministry Chart -->
+        <div class="chart-container">
+          <h3>Яамаар ангилсан</h3>
+          <div class="ministry-bars">
+            <div *ngFor="let item of getBudgetByMinistry()" class="ministry-bar-item">
+              <div class="ministry-info">
+                <span class="ministry-name">{{ item.name }}</span>
+                <span class="ministry-amount">{{ formatCurrency(item.total) }}</span>
+                <span class="ministry-percentage">({{ getPercentageOfTotal(item.total) }}%)</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="getPercentageOfTotal(item.total)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget Data Table -->
+      <div class="budget-table-container">
+        <h2>Төсвийн мэдээлэл</h2>
+        
+        <div *ngIf="budgetData.length === 0" class="no-data">
+          <i class="fas fa-inbox"></i>
+          <p>Шүүлтэд тохирох өгөгдөл олдсонгүй.</p>
+        </div>
+
+        <div *ngIf="budgetData.length > 0" class="table-responsive">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Яам</th>
+                <th>Хэлтэс</th>
+                <th>Он</th>
+                <th>Категори</th>
+                <th>Төрөл</th>
+                <th>Дүн</th>
+                <th>Тайлбар</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of budgetData; trackBy: trackByFn">
+                <td>{{ item.ministry }}</td>
+                <td>{{ item.department }}</td>
+                <td>{{ item.year }}</td>
+                <td>
+                  <span class="category-tag" [attr.data-category]="item.category">
+                    {{ backendService.getCategoryDisplayName(item.category) }}
+                  </span>
+                </td>
+                <td>{{ item.type }}</td>
+                <td class="amount">{{ formatCurrency(item.amount) }}</td>
+                <td class="description">{{ item.description || '-' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

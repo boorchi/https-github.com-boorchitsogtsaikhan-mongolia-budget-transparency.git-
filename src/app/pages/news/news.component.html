@@ -1,0 +1,50 @@
+<div class="budget-outlet">
+<module-menu [menuType]="'education'"></module-menu>
+<div  class="budget-body">
+<div class="news-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                
+                <div class="col-md-9">
+                    <div class="news-item">
+                        <div class="title">
+                            {{name}}<br>
+                        </div>
+                       
+                         <div class="img"><img [src]="fileUrl + imageUrl"/></div>
+                        
+                       
+                       
+                        <div [innerHTML]="description"></div>
+                        <!-- [innerHTML] -->
+                        <a href="{{url.includes('http')?url:fileUrl + url}}" target="_blank">Файл харах</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="news_menu">
+                        <div *ngFor='let new of newsImg; let i = index' (click)="showVid(i, new)">
+                            <div class="row">
+                                <div class="new_img">
+                                    <img [src]="fileUrl + new.imageUrl"/>
+                                </div>
+                                <div class="new_text">
+                                    <span>{{new.name}}</span>
+                                    <p>{{new.publishDate}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+</div>
+</div>
+<app-footer></app-footer>
+

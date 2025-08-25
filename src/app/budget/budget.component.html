@@ -1,0 +1,8 @@
+<div class="budget-outlet">
+    <app-budget-menu [menu]="'oronnutag'"></app-budget-menu>
+    <div [@routeAnimations]="prepareRoute(outlet)" class="budget-body" style="width: 100%; overflow: hidden;">
+        <router-outlet  #outlet="outlet"></router-outlet>    
+    </div> 
+    
+</div>
+<app-budget-footer></app-budget-footer>

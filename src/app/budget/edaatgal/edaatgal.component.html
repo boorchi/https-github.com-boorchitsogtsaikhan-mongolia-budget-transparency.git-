@@ -1,0 +1,163 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">
+            <module-year-change></module-year-change>
+        </div>
+    </div>
+    <div *ngIf="isMain" class="budget-main orlogo">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <div class="title">
+            <h3>Эрүүл мэндийн даатгалын сан</h3>
+            <div class="chart-text row justify-content-md-center">
+                <div class="orlogo" (mouseover)="orlogoHover()" (click) ="orlogo()">
+                    <div>
+                        <img *ngIf="isZarlaga" src="../../../assets/image/icons/ndrightgg.png" width="100">
+                        <img *ngIf="isMainChart" src="../../../assets/image/icons/ndright.png" width="100"><br>
+                        <span *ngIf="isZarlaga" style="font-weight: bold;">нийт орлого</span>
+                        <span *ngIf="isMainChart" style="font-weight: bold; color: #0081ff">нийт орлого</span>
+                    </div>
+                    <div class="ndleft">
+                        <img *ngIf="isMainChart" src="../../../assets/image/icons/right.png">
+                    </div>
+                </div>
+
+                    <div *ngIf="isMainChart">
+                        <div class="chart-container"  *ngIf="isDataLoaded">
+                            <img class="mainImg" src="../../../assets/image/EMend.png">
+                            <app-echart [colors]="['#28c66f']" [sub]="0" [title]="'Нийт орлого'" [legend]="false" [sum]="sum" [process]="process" [values]="orlogoValues" [names]="orlogoNames" [percentChart]="percentChart" [befpercentChart]="percentChartOrlogo" [prefValueChart] = "prefValueChart"></app-echart>
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="isZarlaga">
+                        <div class="chart-container"   *ngIf="isDataLoaded">
+                            <img class="mainImg" src="../../../assets/image/EMend.png">
+                            <app-echart [colors]="['#ea5455']" [sub]="1" [title]="'Нийт зарлага'" [legend]="false" [sum]="sumZarlaga" [process]="process" [values]="zarlagaValues" [names]="zarlagaNames" [percentChart]="percentChartZarlaga" [befpercentChart]="percentChartZarlaga1" [prefValueChart] = "prefValueChartZarlaga"></app-echart>
+                        </div>
+                    </div>
+
+                <div class="zarlaga" (click)="zarlaga()" (mouseover)="zarlagaHover()">
+                    <div class="ndright">
+                        <img *ngIf="isZarlaga" src="../../../assets/image/icons/left.png">
+                    </div>
+                    <div>
+                        <img  *ngIf="isZarlaga" src="../../../assets/image/icons/ndleft.png" width="100">
+                        <img  *ngIf="isMainChart" src="../../../assets/image/icons/ndleftgg.png" width="100"><br>
+                        <span *ngIf="isZarlaga" style="font-weight: bold; color: #0081ff;">нийт зарлага</span>
+                        <span *ngIf="isMainChart" style="font-weight: bold;">нийт зарлага</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isMainSub" class="budget-main orlogo">
+        <div class="title">
+            <h3>Эрүүл мэндийн даатгалын сан</h3>
+            <div class="chart-text row  justify-content-md-center">
+                <div class="orlogo" >
+                    <div>
+                        <img *ngIf="isZarlaga" src="../../../assets/image/icons/ndrightgg.png" width="100">
+                        <img *ngIf="isMainSub" src="../../../assets/image/icons/ndright.png" width="100"><br>
+                        <span *ngIf="isZarlaga" style="font-weight: bold;">нийт орлого</span>
+                        <span *ngIf="isMainSub" style="font-weight: bold; color: #0081ff">нийт орлого</span>
+                    </div>
+                    <div class="ndleft">
+                        <img *ngIf="isMainChart" src="../../../assets/image/icons/right.png">
+                    </div>
+                        
+                </div>
+            
+                <div *ngIf="isTypeOrlogo">
+                    <div class="chart-container"  *ngIf="isInDataLoaded">
+                        <app-echart [colors]="['#28c66f' ,'#ea5455' , '#018ffb', '#b755ea','#6639b6','#795448']" [legend]="true" [title]="'Нийт орлого'" [sum]="sumSub" [process]="process" [values]="orlogoTypeValues" [names]="orlogoTypeNames" [befpercentChart]="percentChartOrlogo"  [percentChart]="percentChartSub" [prefValueChart] = "prefValueChartSub"></app-echart>
+                    </div>
+                </div>
+
+                <div class="zarlaga" (click)="zarlaga()">
+                    <img src="../../../assets/image/icons/ndleftgg.png" width="100"><br>
+                    <span style="font-weight: bold;">нийт зарлага</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="backbtn" (click) ="orlogoHover()">
+                <img src="../../../assets/image/back.png" />
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isZarlagaMain" class="budget-main zarlaga">
+        <img class="bottom" src="../../../assets/image/banner_pic44.png" />
+        <img class="bottom_icon" src="../../../assets/image/icons/Main/7_eDaatgal_white.svg"/>
+        
+        <div class="number">
+            <span>
+                нийт зарлага
+            </span>
+            <div class="curr">
+                {{appValueTotal | number}}
+            </div>
+            <p>
+                тэрбум төгрөг
+            </p>
+        </div>
+        <span class="process">
+            <ng-container *ngIf="params['category']=='APPROVED'">
+                Гүйцэтгэл <b  style="color: #fff">
+                    {{percentChartZarlaga}}%
+                     </b><br/>{{prefValueTotal | number }} тэрбум
+            </ng-container>
+            <div *ngIf="params['category']!='APPROVED'">
+            Өмнөх оноос<br> <b style="color:#fff">{{percentChartZarlaga1}}%
+                <i-feather name="arrow-down" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && percentChartZarlaga1 < 0"></i-feather>
+                <i-feather name="arrow-up" class="down-icon" style="color: #fff;" *ngIf="params['category']!='APPROVED' && percentChartZarlaga1 >= 0"></i-feather>    
+                </b><br/>
+            </div>
+        </span>
+        
+        <div class="title">
+            <h3>Эрүүл мэндийн даатгалын сан нийт зарлага</h3>
+        </div>
+        <div *ngFor='let salbar of zarlagaSalbar; let i = index' class="zarlaga-item"
+            style="background: {{colors[i]}};{{edaatgalPos[i]}}{{widths[i]}}">
+            <div class="content">
+                <div>
+                    <span><img _ngcontent-xhr-c151="" src="../../../assets/image/budget/edaatgal/nd_{{salbar.level}}.svg" alt="">{{salbar.calcPercent}}%</span>
+                    
+                    <div>{{getType()}} <br> {{salbar.percent}}%
+                        <i-feather name="arrow-down" class="down-icon" style="width: 16px;height: 16px;color: #fff;" *ngIf="params['category']!='APPROVED' && salbar.percent < 0"></i-feather>
+                        <i-feather name="arrow-up" class="down-icon" style="width: 16px;height: 16px;color: #fff;" *ngIf="params['category']!='APPROVED' && salbar.percent >= 0"></i-feather>   
+                    </div>
+                    
+                    <p>{{salbar.approvedValue| number}} тэрбум</p>
+                    <!-- {{salbar.level}} -->
+                </div>
+                <div class="animate-show">
+                    <span>{{salbar.levelName}}
+                        
+                    </span>
+                </div>
+            </div>    
+        </div>
+        <div>
+            <div class="backbtn" (click) ="orlogo()">
+                <img src="../../../assets/image/back.png" />
+            </div>
+        </div>
+    </div>
+</div>
+<module-description [description]="description"></module-description>
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://www.emd.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

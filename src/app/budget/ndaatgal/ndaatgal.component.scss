@@ -1,0 +1,1573 @@
+.budget-main{
+    padding: 30px 0px;
+    text-align: center;
+    background-size: cover;
+    height: 750px;
+    &.zarlaga{
+        position: relative;
+        // background-size: 100%;
+        margin-bottom: 20px;
+        .title {
+            h3 {
+                color: #0081ff;
+                font-size: 20px;
+                font-weight: 700;
+            }
+            .chart-text{
+                text-align: center !important;
+                color: #fff;
+                .orlogo{
+                    padding-top: 120px;
+                    width:300px;
+                    img{
+                        padding:20px;
+                        width: 100px !important;
+                    }
+                }
+                .zarlaga{
+                    padding-top: 120px;
+                    width:300px;
+                    img{
+                        padding:20px;
+                        width: 100px !important;
+                    }
+                }
+            }
+        }
+        img.main{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        img.bottom{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: 0px auto;
+        }
+        img.bottom_icon{
+            width: 90px;
+            position: absolute;
+            bottom: 40px;
+            left: 0px;
+            right: 470px;
+            margin: 0px auto;
+        }
+        
+        .number{
+            text-align: center;
+            width: 180px;
+            position: absolute;
+            bottom: 10px ;
+            left: 0px;
+            right: 0;
+            margin: 0px auto;
+            color: #fff;
+            span{
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            .curr{
+                text-align: center;
+                font-size: 45px !important;
+                font-weight: 700;
+                font-size: large;
+            }
+            p {
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+        .process{
+            text-align: center;
+            font-weight: 600;
+            width: 180px;
+            position: absolute;
+            bottom: 50px ;
+            left: 0px;
+            right: -480px;
+            margin: 0px auto;
+            color: #fff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+        }
+        h3{
+            width: 450px;
+            margin: 0px auto;
+        }
+        .zarlaga-item{
+            font-size: 12px;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            div.content{
+                color: #fff;
+                &:hover {
+                    .animate-show{
+                        visibility: visible;
+                        left: calc(50% - 100px);
+                        z-index: 999;
+                    }
+                }
+    
+                .animate-show {
+                    position: absolute;
+                    color: #505054;
+                    width: 180px;
+                    font-weight: 600;
+                    background: #fff;  
+                    border-radius: 30px;
+                    text-transform: none;
+                    border: 2px solid #505054;              
+                    line-height: 30px;
+                    text-align: center;
+                    visibility: hidden;
+                    top: calc(100% + 20px);
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: 100%;
+                        left: 50%;
+                        margin-left: -8px;
+                        width: 0; height: 0;
+                        border-bottom: 8px solid #505054;
+                        border-right: 8px solid transparent;
+                        border-left: 8px solid transparent;
+                    }
+                    span{
+                        font-size: 14px;
+                        padding: 10px;                 
+                        margin: auto;
+                        text-align: center;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        vertical-align: middle;
+                    }
+                }           
+                img{
+                    width: 30px;
+                    margin-right: 10px;
+                }
+                span{
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+                p{
+                    margin-top: 10px;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 120%;
+                    vertical-align: middle;
+                }
+                padding: 15px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                margin: auto;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.orlogo{
+    position: relative;
+}
+.budget-main{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 12px 0px #d2d2d2;
+    .title{
+        
+        h3{
+            padding-top: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0081ff;
+        }
+        .chart-text{
+            padding-top: 100px;
+            text-align: center;
+            color: #9a9a9a;
+            .orlogo{
+                position: relative;
+                cursor: pointer;
+                padding-top: 170px;
+                width:300px;
+                .ndleft{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    width: 20px;
+                    img{
+                        width: 20px;
+                    }
+                }
+                
+            }
+            .zarlaga{
+                cursor: pointer;
+                position: relative;
+                padding-top: 170px;
+                width:300px;
+                .ndright{
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    width: 30px;
+                    img{
+                        width: 20px;
+                    }
+                }
+            }
+            img{
+                width: 70px;
+                padding-bottom: 30px;
+                // padding-left: 70px;
+            }
+            
+        }
+        
+    }
+
+    .chart-container{
+        position: relative;
+        img{
+            width: 100px !important;
+            z-index: 2;
+            left: 40%;
+            top: -20px;
+            position: absolute;
+        }
+    }
+    
+    
+}
+.main-block{
+    margin-top: 20px;
+}
+.range-slider{
+    width: 300px;
+    margin: 0px auto;
+}
+
+.backbtn {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+.main-description{
+    padding: 30px 30px;
+    p{
+        width: 40%;
+        float: right;
+        text-align: left;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1680px) {
+    .budget-main{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .title{
+            
+            h3{
+                padding-top: 20px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0081ff;
+            }
+            .chart-text{
+                padding-left: 10px;
+                padding-top: 100px;
+                text-align: center;
+                color: #9a9a9a;
+                .orlogo{
+                    position: relative;
+                    cursor: pointer;
+                    padding-top: 170px;
+                    width:200px;
+                    .ndleft{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                    
+                }
+                .zarlaga{
+                    cursor: pointer;
+                    position: relative;
+                    padding-top: 170px;
+                    width:200px;
+                    .ndright{
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                }
+                img{
+                    width: 70px;
+                    padding-bottom: 30px;
+                    // padding-left: 70px;
+                }
+                
+            }
+            
+        }
+    
+        .chart-container{
+            position: relative;
+            img{
+                width: 100px !important;
+                z-index: 2;
+                left: 40%;
+                top: -20px;
+                position: absolute;
+            }
+        }
+    }
+    .backbtn {
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        bottom: 20px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    .budget-main{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .title{
+            
+            h3{
+                padding-top: 20px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0081ff;
+            }
+            .chart-text{
+                padding-left: 10px;
+                padding-top: 100px;
+                text-align: center;
+                color: #9a9a9a;
+                .orlogo{
+                    position: relative;
+                    cursor: pointer;
+                    padding-top: 100px;
+                    width:200px;
+                    .ndleft{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                    
+                }
+                .zarlaga{
+                    cursor: pointer;
+                    position: relative;
+                    padding-top: 100px;
+                    width:200px;
+                    .ndright{
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                }
+                img{
+                    width: 70px;
+                    padding-bottom: 30px;
+                    // padding-left: 70px;
+                }
+                .mainImg{
+                    width: 70px !important;
+                }
+                
+            }
+            
+        }
+    
+        .chart-container{
+            position: relative;
+            img{
+                width: 100px !important;
+                z-index: 2;
+                left: 40%;
+                top: -20px;
+                position: absolute;
+            }
+        }
+    }
+    .backbtn {
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        bottom: 20px;
+        width: 100px;
+    }
+    .budget-main{
+        padding: 30px 0px;
+        background-size: cover;
+        height: 750px;
+        &.zarlaga{
+            position: relative;
+            margin-bottom: 20px;
+            .title {
+                h3 {
+                    color: #0081ff;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            img.main{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: -1;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            img.bottom{
+                position: absolute;
+                // width: 100%;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px auto;
+    
+            }
+            img.bottom_icon{
+                width: 70px;
+                position: absolute;
+                bottom: 40px;
+                left: 0px;
+                right: 290px;
+                margin: 0px auto;
+            }
+            .number{
+                text-align: center;
+                width: 180px;
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                right: 0;
+                margin: 0px auto;
+                color: #fff;
+                span{
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .curr{
+                    text-align: center;
+                    font-size: 45px !important;
+                    font-weight: 700;
+                    font-size: large;
+                }
+                p {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+            .process{
+                text-align: center;
+                font-weight: 600;
+                width: 160px;
+                position: absolute;
+                bottom: 50px;
+                left: 0px;
+                right: -360px;
+                margin: 0px auto;
+                color: #fff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                font-size: 14px;
+                line-height: 110%;
+                text-transform: none;
+            }
+            h3{
+                width: 450px;
+                margin: 0px auto;
+            }
+            .zarlaga-item{
+                font-size: 12px;
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                div.content{
+                    color: #fff;
+                    &:hover {
+                        .animate-show{
+                            visibility: visible;
+                            left: calc(50% - 100px);
+                            z-index: 999;
+                        }
+                    }
+        
+                    .animate-show {
+                        position: absolute;
+                        color: #505054;
+                        width: 240px;
+                        font-weight: 600;
+                        background: #fff;  
+                        border-radius: 30px;
+                        text-transform: none;
+                        border: 2px solid #505054;              
+                        line-height: 30px;
+                        text-align: center;
+                        visibility: hidden;
+                        top: calc(100% + 20px);
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            bottom: 100%;
+                            left: 40%;
+                            margin-left: -8px;
+                            width: 0; height: 0;
+                            border-bottom: 8px solid #505054;
+                            border-right: 8px solid transparent;
+                            border-left: 8px solid transparent;
+                        }
+                        span{
+                            font-size: 14px;
+                            padding: 10px;                 
+                            margin: auto;
+                            text-align: center;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            vertical-align: middle;
+                        }
+                    }           
+                    img{
+                        width: 20px;
+                        margin-right: 10px;
+                    }
+                    span{
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    div{
+                        font-size: 11px;
+                        padding-top: 5px;
+                    }
+                    p{
+                        // margin-top: 10px;
+                        text-transform: uppercase;
+                        font-size: 11px;
+                        font-weight: 700;
+                        line-height: 120%;
+                        vertical-align: middle;
+                    }
+                    padding: 5px;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    margin: auto;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1440px) {
+    .budget-main{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .title{
+            
+            h3{
+                padding-top: 20px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0081ff;
+            }
+            .chart-text{
+                padding-left: 10px;
+                padding-top: 100px;
+                text-align: center;
+                color: #9a9a9a;
+                .orlogo{
+                    position: relative;
+                    cursor: pointer;
+                    padding-top: 100px;
+                    width:200px;
+                    .ndleft{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                    
+                }
+                .zarlaga{
+                    cursor: pointer;
+                    position: relative;
+                    padding-top: 100px;
+                    width:200px;
+                    .ndright{
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                }
+                img{
+                    width: 70px;
+                    padding-bottom: 30px;
+                    // padding-left: 70px;
+                }
+                .mainImg{
+                    width: 70px !important;
+                }
+                
+            }
+            
+        }
+    
+        .chart-container{
+            position: relative;
+            img{
+                width: 100px !important;
+                z-index: 2;
+                left: 40%;
+                top: -20px;
+                position: absolute;
+            }
+        }
+    }
+    .backbtn {
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        bottom: 20px;
+        width: 100px;
+    }
+    .budget-main{
+        padding: 30px 0px;
+        background-size: cover;
+        height: 750px;
+        &.zarlaga{
+            position: relative;
+            margin-bottom: 20px;
+            .title {
+                h3 {
+                    color: #0081ff;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            img.main{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: -1;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            img.bottom{
+                position: absolute;
+                width: 100%;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px auto;
+    
+            }
+            img.bottom_icon{
+                width: 70px;
+                position: absolute;
+                bottom: 40px;
+                left: 0px;
+                right: 290px;
+                margin: 0px auto;
+            }
+            .number{
+                text-align: center;
+                width: 180px;
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                right: 0;
+                margin: 0px auto;
+                color: #fff;
+                span{
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .curr{
+                    text-align: center;
+                    font-size: 45px !important;
+                    font-weight: 700;
+                    font-size: large;
+                }
+                p {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+            .process{
+                text-align: center;
+                font-weight: 600;
+                width: 160px;
+                position: absolute;
+                bottom: 50px;
+                left: 0px;
+                right: -360px;
+                margin: 0px auto;
+                color: #fff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                font-size: 14px;
+                line-height: 110%;
+                text-transform: none;
+            }
+            h3{
+                width: 450px;
+                margin: 0px auto;
+            }
+            .zarlaga-item{
+                font-size: 12px;
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                div.content{
+                    color: #fff;
+                    &:hover {
+                        .animate-show{
+                            visibility: visible;
+                            left: calc(50% - 100px);
+                            z-index: 999;
+                        }
+                    }
+        
+                    .animate-show {
+                        position: absolute;
+                        color: #505054;
+                        width: 240px;
+                        font-weight: 600;
+                        background: #fff;  
+                        border-radius: 30px;
+                        text-transform: none;
+                        border: 2px solid #505054;              
+                        line-height: 30px;
+                        text-align: center;
+                        visibility: hidden;
+                        top: calc(100% + 20px);
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            bottom: 100%;
+                            left: 40%;
+                            margin-left: -8px;
+                            width: 0; height: 0;
+                            border-bottom: 8px solid #505054;
+                            border-right: 8px solid transparent;
+                            border-left: 8px solid transparent;
+                        }
+                        span{
+                            font-size: 14px;
+                            padding: 10px;                 
+                            margin: auto;
+                            text-align: center;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            vertical-align: middle;
+                        }
+                    }           
+                    img{
+                        width: 20px;
+                        margin-right: 10px;
+                    }
+                    span{
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    div{
+                        font-size: 11px;
+                        padding-top: 5px;
+                    }
+                    p{
+                        // margin-top: 10px;
+                        text-transform: uppercase;
+                        font-size: 11px;
+                        font-weight: 700;
+                        line-height: 120%;
+                        vertical-align: middle;
+                    }
+                    padding: 5px;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    margin: auto;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .budget-main{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .title{
+            
+            h3{
+                padding-top: 20px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0081ff;
+            }
+            .chart-text{
+                padding-left: 10px;
+                padding-top: 100px;
+                text-align: center;
+                color: #9a9a9a;
+                .orlogo{
+                    position: relative;
+                    cursor: pointer;
+                    padding-top: 70px;
+                    width:180px;
+                    .ndleft{
+                        position: absolute;
+                        right: 0;
+                        top: 40%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                    
+                }
+                .zarlaga{
+                    cursor: pointer;
+                    position: relative;
+                    padding-top: 70px;
+                    width:180px;
+                    .ndright{
+                        position: absolute;
+                        left: 0;
+                        top: 40%;
+                        width: 20px;
+                        img{
+                            width: 20px;
+                        }
+                    }
+                }
+                img{
+                    width: 70px;
+                    padding-bottom: 30px;
+                    // padding-left: 70px;
+                }
+                
+            }
+            
+        }
+    
+        .chart-container{
+            position: relative;
+            img{
+                width: 100px !important;
+                z-index: 2;
+                left: 40%;
+                top: -20px;
+                position: absolute;
+            }
+        }
+    }
+    .backbtn {
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        bottom: 20px;
+        width: 100px;
+    }
+    .budget-main{
+        padding: 30px 0px;
+        background-size: cover;
+        height: 750px;
+        &.zarlaga{
+            position: relative;
+            margin-bottom: 20px;
+            .title {
+                h3 {
+                    color: #0081ff;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            img.main{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: -1;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            img.bottom{
+                position: absolute;
+                width: 100%;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px auto;
+    
+            }
+            img.bottom_icon{
+                width: 70px;
+                position: absolute;
+                bottom: 40px;
+                left: 0px;
+                right: 290px;
+                margin: 0px auto;
+            }
+            .number{
+                text-align: center;
+                width: 180px;
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                right: 0;
+                margin: 0px auto;
+                color: #fff;
+                span{
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .curr{
+                    text-align: center;
+                    font-size: 45px !important;
+                    font-weight: 700;
+                    font-size: large;
+                }
+                p {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+            .process{
+                text-align: center;
+                font-weight: 600;
+                width: 160px;
+                position: absolute;
+                bottom: 50px;
+                left: 0px;
+                right: -360px;
+                margin: 0px auto;
+                color: #fff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                font-size: 14px;
+                line-height: 110%;
+                text-transform: none;
+            }
+            h3{
+                width: 450px;
+                margin: 0px auto;
+            }
+            .zarlaga-item{
+                font-size: 12px;
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                div.content{
+                    color: #fff;
+                    &:hover {
+                        .animate-show{
+                            visibility: visible;
+                            left: calc(50% - 100px);
+                            z-index: 999;
+                        }
+                    }
+        
+                    .animate-show {
+                        position: absolute;
+                        color: #505054;
+                        width: 240px;
+                        font-weight: 600;
+                        background: #fff;  
+                        border-radius: 30px;
+                        text-transform: none;
+                        border: 2px solid #505054;              
+                        line-height: 30px;
+                        text-align: center;
+                        visibility: hidden;
+                        top: calc(100% + 20px);
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            bottom: 100%;
+                            left: 40%;
+                            margin-left: -8px;
+                            width: 0; height: 0;
+                            border-bottom: 8px solid #505054;
+                            border-right: 8px solid transparent;
+                            border-left: 8px solid transparent;
+                        }
+                        span{
+                            font-size: 14px;
+                            padding: 10px;                 
+                            margin: auto;
+                            text-align: center;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            vertical-align: middle;
+                        }
+                    }           
+                    img{
+                        width: 20px;
+                        margin-right: 10px;
+                    }
+                    span{
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    div{
+                        font-size: 11px;
+                        padding-top: 5px;
+                    }
+                    p{
+                        // margin-top: 10px;
+                        text-transform: uppercase;
+                        font-size: 11px;
+                        font-weight: 700;
+                        line-height: 120%;
+                        vertical-align: middle;
+                    }
+                    padding: 5px;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    margin: auto;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+    .budget-main{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .title{
+            
+            h3{
+                padding-top: 20px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #0081ff;
+            }
+            .chart-text{
+                padding-left: 10px;
+                padding-top: 100px;
+                text-align: center;
+                color: #9a9a9a;
+                font-size: 14px;
+                .orlogo{
+                    position: relative;
+                    cursor: pointer;
+                    padding-top: 60px;
+                    width:100px;
+                    .ndleft{
+                        position: absolute;
+                        right: 0;
+                        top: 30%;
+                        width: 10px;
+                        img{
+                            width: 10px;
+                        }
+                    }
+                    
+                }
+                .zarlaga{
+                    cursor: pointer;
+                    position: relative;
+                    padding-top: 60px;
+                    width:100px;
+                    .ndright{
+                        position: absolute;
+                        left: 0;
+                        top: 30%;
+                        width: 10px;
+                        img{
+                            width: 10px;
+                        }
+                    }
+                }
+                img{
+                    width: 60px;
+                    padding-bottom: 10px;
+                    // padding-left: 70px;
+                }
+                
+            }
+            
+        }
+    
+        .chart-container{
+            position: relative;
+            img{
+                width: 100px !important;
+                z-index: 2;
+                left: 40%;
+                top: -20px;
+                position: absolute;
+            }
+        }
+    }
+    .backbtn {
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        bottom: 20px;
+        width: 100px;
+    }
+    .budget-main{
+        padding: 30px 0px;
+        background-size: cover;
+        height: 750px;
+        &.zarlaga{
+            position: relative;
+            margin-bottom: 20px;
+            .title {
+                h3 {
+                    color: #0081ff;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            img.main{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: -1;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            img.bottom{
+                position: absolute;
+                width: 100%;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px auto;
+    
+            }
+            img.bottom_icon{
+                width: 70px;
+                position: absolute;
+                bottom: 40px;
+                left: 0px;
+                right: 290px;
+                margin: 0px auto;
+            }
+            .number{
+                text-align: center;
+                width: 180px;
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                right: 0;
+                margin: 0px auto;
+                color: #fff;
+                span{
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .curr{
+                    text-align: center;
+                    font-size: 45px !important;
+                    font-weight: 700;
+                    font-size: large;
+                }
+                p {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+            .process{
+                text-align: center;
+                font-weight: 600;
+                width: 160px;
+                position: absolute;
+                bottom: 50px;
+                left: 0px;
+                right: -360px;
+                margin: 0px auto;
+                color: #fff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                font-size: 14px;
+                line-height: 110%;
+                text-transform: none;
+            }
+            h3{
+                width: 450px;
+                margin: 0px auto;
+            }
+            .zarlaga-item{
+                font-size: 12px;
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                div.content{
+                    color: #fff;
+                    &:hover {
+                        .animate-show{
+                            visibility: visible;
+                            left: calc(50% - 100px);
+                            z-index: 999;
+                        }
+                    }
+        
+                    .animate-show {
+                        position: absolute;
+                        color: #505054;
+                        width: 240px;
+                        font-weight: 600;
+                        background: #fff;  
+                        border-radius: 30px;
+                        text-transform: none;
+                        border: 2px solid #505054;              
+                        line-height: 30px;
+                        text-align: center;
+                        visibility: hidden;
+                        top: calc(100% + 20px);
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            bottom: 100%;
+                            left: 40%;
+                            margin-left: -8px;
+                            width: 0; height: 0;
+                            border-bottom: 8px solid #505054;
+                            border-right: 8px solid transparent;
+                            border-left: 8px solid transparent;
+                        }
+                        span{
+                            font-size: 14px;
+                            padding: 10px;                 
+                            margin: auto;
+                            text-align: center;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            vertical-align: middle;
+                        }
+                    }           
+                    img{
+                        width: 20px;
+                        margin-right: 10px;
+                    }
+                    span{
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+                    div{
+                        font-size: 9px;
+                        padding-top: 5px;
+                    }
+                    p{
+                        // margin-top: 10px;
+                        text-transform: uppercase;
+                        font-size: 9px;
+                        font-weight: 700;
+                        line-height: 120%;
+                        vertical-align: middle;
+                    }
+                    padding: 5px;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    margin: auto;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .budget-main{
+        padding: 30px 0px;
+        background-size: cover;
+        height: 750px;
+        &.zarlaga{
+            position: relative;
+            margin-bottom: 20px;
+            .title {
+                h3 {
+                    color: #0081ff;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            img.main{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: -1;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            img.bottom{
+                position: absolute;
+                width: 100%;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px auto;
+    
+            }
+            img.bottom_icon{
+                width: 50px;
+                position: absolute;
+                bottom: 40px;
+                left: 0px;
+                right: 290px;
+                margin: 0px auto;
+            }
+            .number{
+                text-align: center;
+                width: 180px;
+                position: absolute;
+                bottom: -10px;
+                left: 0px;
+                right: 0;
+                margin: 0px auto;
+                color: #fff;
+                span{
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .curr{
+                    text-align: center;
+                    font-size: 45px !important;
+                    font-weight: 700;
+                    font-size: large;
+                }
+                p {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+            .process{
+                text-align: center;
+                font-weight: 600;
+                width: 120px;
+                position: absolute;
+                bottom: 30px ;
+                left: 0px;
+                right: -300px;
+                margin: 0px auto;
+                color: #fff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 5px;
+                font-size: 10px;
+                line-height: 110%;
+                text-transform: none;
+            }
+            h3{
+                width: 450px;
+                margin: 0px auto;
+            }
+            .zarlaga-item{
+                font-size: 12px;
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                div.content{
+                    color: #fff;
+                    &:hover {
+                        .animate-show{
+                            visibility: visible;
+                            left: calc(50% - 100px);
+                            z-index: 999;
+                        }
+                    }
+        
+                    .animate-show {
+                        position: absolute;
+                        color: #505054;
+                        width: 240px;
+                        font-weight: 600;
+                        background: #fff;  
+                        border-radius: 30px;
+                        text-transform: none;
+                        border: 2px solid #505054;              
+                        line-height: 30px;
+                        text-align: center;
+                        visibility: hidden;
+                        top: calc(100% + 20px);
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            bottom: 100%;
+                            left: 40%;
+                            margin-left: -8px;
+                            width: 0; height: 0;
+                            border-bottom: 8px solid #505054;
+                            border-right: 8px solid transparent;
+                            border-left: 8px solid transparent;
+                        }
+                        span{
+                            font-size: 14px;
+                            padding: 10px;                 
+                            margin: auto;
+                            text-align: center;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            vertical-align: middle;
+                        }
+                    }           
+                    img{
+                        width: 20px;
+                        margin-right: 10px;
+                    }
+                    span{
+                        font-size: 10px;
+                        font-weight: bold;
+                    }
+                    div{
+                        font-size: 7px;
+                        padding-top: 5px;
+                    }
+                    p{
+                        // margin-top: 10px;
+                        text-transform: uppercase;
+                        font-size: 9px;
+                        font-weight: 700;
+                        line-height: 120%;
+                        vertical-align: middle;
+                    }
+                    padding: 5px;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    margin: auto;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    .backbtn {
+        cursor: pointer;
+        position: absolute;
+        right: -10px;
+        bottom: 20px;
+        width: 100px;
+        img{
+            width: 80px;
+        }
+    }
+}

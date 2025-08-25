@@ -1,0 +1,145 @@
+<app-menu [menuType]="'legacy'"></app-menu>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="sector-financing-container">
+      
+      <!-- Page Header -->
+      <div class="page-header text-center mb-5">
+        <div class="header-icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" 
+               class="bi bi-diagram-3" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5zM0 11.5A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm4.5.5A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+          </svg>
+        </div>
+        <h1 class="page-title">Гол салбаруудын санхүүжилт</h1>
+        <p class="page-subtitle">2025 оны төсвөөс гол салбаруудад хуваарилсан санхүүжилт</p>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="content-grid">
+        
+        <!-- Circle Diagram Section -->
+        <div class="diagram-section">
+          <div class="diagram-container">
+            <h3 class="section-title mb-4">Салбарын хуваарилалт</h3>
+            
+            <!-- SVG Circle Chart -->
+            <div class="circle-chart-wrapper">
+              <svg class="circle-chart" width="300" height="300" viewBox="0 0 300 300">
+                <!-- Background circle -->
+                <circle cx="150" cy="150" r="120" fill="none" stroke="#e5e7eb" stroke-width="3" />
+                
+                <!-- Data segments using paths -->
+                <g *ngFor="let sector of sectorData; let i = index">
+                  <path 
+                    [attr.d]="getSegmentPath(i)"
+                    [attr.fill]="sector.color"
+                    [attr.stroke]="sector.color"
+                    stroke-width="2"
+                    [class.animate]="animationComplete"
+                    [style.animation-delay]="(i * 200) + 'ms'"
+                    class="chart-segment">
+                  </path>
+                </g>
+                
+                <!-- Center circle -->
+                <circle cx="150" cy="150" r="80" fill="white" stroke="#e5e7eb" stroke-width="2" />
+                
+                <!-- Center text -->
+                <text x="150" y="140" text-anchor="middle" class="center-title">Нийт төсөв</text>
+                <text x="150" y="165" text-anchor="middle" class="center-value">{{ totalAmount }}</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend and Details Section -->
+        <div class="details-section">
+          <h3 class="section-title mb-4">Салбар бүрийн дэлгэрэнгүй</h3>          <div class="legend-container">
+            <div class="legend-item" 
+                 *ngFor="let sector of sectorData; let i = index"
+                 [style.animation-delay]="(i * 150 + 800) + 'ms'"
+                 [class.animate]="animationComplete">
+              
+              <div class="legend-header">
+                <div class="legend-color" [style.background-color]="sector.color">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" 
+                       [attr.class]="'bi ' + sector.icon" viewBox="0 0 16 16">
+                    <path [attr.d]="getSectorIcon(sector.icon)"></path>
+                  </svg>
+                </div>
+                <div class="legend-info">
+                  <div class="legend-title-section">
+                    <h4 class="legend-title">{{ sector.name }}</h4>
+                    <span class="legend-amount">{{ sector.amount }}</span>
+                  </div>
+                  <span class="legend-percentage">{{ getPercentage(sector.value) }}%</span>
+                </div>
+              </div>
+              
+              <p class="legend-description">{{ sector.description }}</p>
+              
+              <!-- Progress bar -->
+              <div class="progress-container">
+                <div class="progress-bar">
+                  <div class="progress-fill" 
+                       [style.width]="getPercentage(sector.value) + '%'"
+                       [style.background-color]="sector.color"
+                       [class.animate]="animationComplete"
+                       [style.animation-delay]="(i * 150 + 1200) + 'ms'">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sector Comparison Cards -->
+      <div class="comparison-section mt-5">
+        <h3 class="section-title text-center mb-4">Нийт зарлагын эх үүсвэрүүд эдийн засгийн ангиллаар</h3>
+        
+        <div class="comparison-cards">
+          <div class="comparison-card" 
+               *ngFor="let sector of sectorData; let i = index"
+               [style.animation-delay]="(i * 100 + 1500) + 'ms'"
+               [class.animate]="animationComplete">
+            <div class="card-header" [style.background-color]="sector.color">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" 
+                   [attr.class]="'bi ' + sector.icon" viewBox="0 0 16 16">
+                <path [attr.d]="getSectorIcon(sector.icon)"></path>
+              </svg>
+              <span class="card-percentage">{{ getPercentage(sector.value) }}%</span>
+            </div>
+            <div class="card-content">
+              <h5 class="card-title">{{ sector.name }}</h5>
+              <div class="card-amount">{{ sector.amount }}</div>
+              <p class="card-description mb-3">{{ sector.description }}</p>
+              
+              <!-- Detailed breakdown -->
+              <div class="detail-breakdown">
+                <h6 class="breakdown-title">Дэлгэрэнгүй:</h6>
+                <ul class="breakdown-list">
+                  <li class="breakdown-item" *ngFor="let detail of sector.details">
+                    <div class="detail-info">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" 
+                           class="detail-icon" viewBox="0 0 16 16">
+                        <path [attr.d]="getDetailIcon(detail.name)"></path>
+                      </svg>
+                      <span class="detail-name">{{ detail.name }}</span>
+                    </div>
+                    <span class="detail-amount">{{ detail.amount }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Insights Section -->
+      
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

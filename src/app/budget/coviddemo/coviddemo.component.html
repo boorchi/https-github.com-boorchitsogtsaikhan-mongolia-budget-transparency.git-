@@ -1,0 +1,107 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change [showSelect]="false"></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main-covid covid">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: </div>
+        <div class="title">
+            <h3 style="text-transform:uppercase; width: 400px; margin: 0 auto;">коронавируст халдварын цар тахлын эсрэг
+                авч хэрэгжүүлсэн арга хэмжээ</h3>
+        </div>
+              
+        <div class="house">
+            <div class="total zarlaga">
+                <div class="number">
+                    <span>
+                        нийт зарлага
+                    </span>
+                    <div class="curr">
+                        {{sum | number}}
+                    </div>
+                    <p>
+                        тэрбум төгрөг
+                    </p>
+                </div>
+            </div> 
+            <img src="../../../assets/image/house.svg" />
+        </div>
+      
+        <div *ngFor='let item of covidMain; let i = index' class="invest-item" (click)="select(item)" style="background: {{colors[i]}}; {{covid[i]}}">
+            <div class="content">
+                <div>
+                    <span>
+                        <img src="../../../assets/image/budget/main/HO1.svg" alt="">{{item["value"] | number}}
+                        <p  style="font-size: 12px;">
+                            тэрбум төгрөг
+                        </p>
+                    </span>
+                    <p style="font-size: 12px;">{{item["name"]}}</p>
+                </div>
+            </div>
+        </div>   
+    </div>
+    
+    
+</div>
+<!-- <module-description [description]="description"></module-description> -->
+<!-- 
+<div class="budget-block" id="covid-detail" style="margin-top: 0px;">
+    
+    <h3>Эрүүл мэндийн салбар болон холбогдох бусад салбарт олгосон нэмэлт санхүүжилт					
+        </h3>
+        <div class="row main-bottom">
+            <div class="col-md-6">
+                <a>
+                    <div class="item" style="text-align: left;">
+                        <img src="../../../assets/image/suld.png" /><h4>Олон улсын хөгжлийн түнш
+                            байгууллагуудаас олгосон дэмжлэг</h4>
+                    </div>      
+                </a>     
+            </div>
+            <div class="col-md-6">
+                <a>
+                    <div class="item">
+                        <img src="../../../assets/image/loan.PNG" /><h4>Засгийн газрын нөөц хөрөнгө болон
+                            төсвийн тодотголоор хэрэгжсэн арга хэмжээ</h4>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+</div> -->
+<div class="budget-block" style="margin-top: 0px;" *ngIf="selected.name && show">
+    
+    <h3>{{selected.name}}	
+        </h3>
+    <div class="block-container covid-bottom">
+        <img class="center" src="../../../assets/image/{{selected.code}}.png" />
+        <div class="row">
+                <div class="col-md-4 ">
+                    <div class="invest-main sub back" style="background-color: {{colors[index]}};">
+                        <!-- <img src="../../../../assets/image/Turiin_alban_haagch_3.svg"> -->
+                       
+                        
+                            <span class="process"><b>{{selectedSlide.value | number}}</b> <br/> тэрбум төгрөг</span>
+                            <p>
+                                {{selectedSlide.name2}}
+.
+                            </p>
+                    </div>
+                   
+                </div>
+                <div class="col-md-8">
+                    <div class="right-content">
+                        <div class="invest-table sub">
+                            <module-carousel [slideData]="slideData" (changeEvent)="changed($event)"></module-carousel>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+    
+</div>
+

@@ -1,0 +1,394 @@
+<div class="budget-outlet" *ngIf="showRepair == 1">
+    <div  class="budget-body">
+    <div class="budget-content">
+       
+        <div class="budget-main zarlaga">      
+            <div class="title-hd center"><b>Засвартай байна. Тун удахгүй...</b></div> 
+            <div class="no_data_search">                  
+                <div class="image">
+                    <div class="oval"></div>
+                    <img src="../../assets/image/404.png" />                  
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+    
+<div class="budget-outlet" *ngIf="showRepair == 0">
+    <div  class="budget-body">
+    <div class="budget-content">
+       
+        <div class="budget-main zarlaga">     
+            
+             <div class="title-hd center"><b>BOOST санаачилга гэж юу вэ?</b></div>  
+             <div class="description">Дэлхийн банкны ил тод төсвийн BOOST санаачилгад Монгол Улс нэгдээд байна. Холбогдох мэдээллийг эндээс авна уу.</div> 
+             <div class="no_data_search">                  
+                <div class="image">                    
+                    <img src="../../assets/image/404.png" />                
+                </div>
+            </div>     
+            <div class="row">
+                <div class="col-md-3 col-sm-6"  >         
+                    <div class="main-menu" style="background-color: rgb(40, 198, 111);" (click)="showType='1'">
+                        <table>
+                            <tr class="row-1"><td><img src="../../assets/image/icons/o1.svg" height="50px"/></td><td><h5>Төсвийн орлогын дата</h5></td></tr>
+                            <tr class="row-2"><td><span><img src="../../assets/image/icons/arrowsoutline.svg" width="30px"/></span></td><td><p>Төсвийн орлогын дата сонгосон үзүүлэлтээр харах</p></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" >         
+                    <div class="main-menu" style="background-color: rgb(234, 84, 85);" (click)="showType='2'">
+                        <table>
+                            <tr class="row-1"><td><img src="../../assets/image/icons/o1.svg" height="50px"/></td><td><h5>Төсвийн зарлагын дата</h5></td></tr>
+                            <tr class="row-2"><td><span><img src="../../assets/image/icons/arrowsoutline.svg" width="30px"/></span></td><td><p>Төсвийн зарлагын дата сонгосон үзүүлэлтээр харах</p></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" >         
+                    <div class="main-menu" style="background-color: rgb(5, 64, 140);"  (click)="showType='3'">
+                        <table>
+                            <tr class="row-1"><td><img src="../../assets/image/icons/o1.svg" height="50px"/></td><td><h5>Төсвийн дата татах</h5></td></tr>
+                            <tr class="row-2"><td><span><img src="../../assets/image/icons/arrowsoutline.svg" width="30px"/></span></td><td><p>Оюутан сурагчдад зориулсан төсвийн тоон мэдээлэл татах</p></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6"   >         
+                    <div class="main-menu" style="background-color: rgb(0, 129, 255);" (click)="showType='4'">
+                        <table>
+                            <tr class="row-1"><td><img src="../../assets/image/icons/o1.svg" height="50px"/></td><td><h5>Сарын мэдээ</h5></td></tr>
+                            <tr class="row-2"><td><span><img src="../../assets/image/icons/arrowsoutline.svg" width="30px"/></span></td><td><p>Төсвийн тоон мэдээллийн сан сар сараар</p></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12 boost-orlogo"  *ngIf="showType=='1'">
+                    <div class="main-menu" style="background-color: rgb(40, 198, 111);">
+                        <div class="row">
+                            
+                            <div class="col-md-3">
+                                <fieldset>
+                                    <legend>Нэгдсэн хүснэгт:</legend>                                    
+                                      <label class="check-container">Нэгдсэн төсвийн ангиллаар харах
+                                        <input type="radio" value="category" [(ngModel)]="searchParam.searchType">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">Төсвийн ерөнхийлөн захирагчаар харах
+                                        <input type="radio" value="tez" [(ngModel)]="searchParam.searchType">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">Орлого төвлөруулэгч байгууллагаар харах
+                                        <input type="radio" value="org" [(ngModel)]="searchParam.searchType">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      
+                                </fieldset>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Төсвийн ерөнхийлөн захирагч</label>
+                                    <select class="form-control" [(ngModel)]="searchParam.tezCode">
+                                        <option value="">--сонгох--</option>
+                                        <option *ngFor='let item of boosOrlogoTez' value="{{item.code}}">{{item.name | lowercase}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Байгууллага</label>
+                                    <select class="form-control">
+                                        <option value="">--сонгох--</option>
+                                        <option *ngFor='let item of boosOrlogoOrg' value="{{item.code}}">{{item.name | lowercase}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                             <div class="col-md-3">
+                                <fieldset>
+                                    <legend>Он сонгох:</legend>
+                                    <label class="check-container">2020
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="check-container">2019
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2018
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                    
+                                      <label class="check-container">2017
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="check-container">2016
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2015
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2014
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="check-container">2013
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2012
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="download-list">
+                                    <span (click)="chartType='bar'" [class.active]="chartType === 'bar'">
+                                        <img src="../../assets/image/charts/bar_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='column'" [class.active]="chartType === 'column'">
+                                        <img src="../../assets/image/charts/column_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='pie'" [class.active]="chartType === 'pie'">
+                                        <img src="../../assets/image/charts/pie_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='tree'" [class.active]="chartType === 'tree'">
+                                        <img src="../../assets/image/charts/tree_map_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='table'" [class.active]="chartType === 'table'">
+                                        <img src="../../assets/image/table.png" />
+                                    </span>
+                                </div>
+                                <div class="download">
+                                    <button style="color: rgb(40, 198, 111);" (click)="searchBoost()">Хайх</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 boost-zarlaga" *ngIf="showType=='2'">
+                    <div class="main-menu" style="background-color: rgb(234, 84, 85);">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>Төсвийн ерөнхийлөн захирагч</label>
+                                        <select class="form-control" [(ngModel)]="searchZarlagaParam.tezCode">
+                                            <option value="">--сонгох--</option>
+                                            <option *ngFor='let item of boosZarlagaTez' value="{{item.code}}">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Төсвийн захирагч</label>
+                                        <select class="form-control" [(ngModel)]="searchZarlagaParam.tzCode">
+                                            <option value="">--сонгох--</option>
+                                            <option *ngFor='let item of boosZarlagaTz' value="{{item.code}}">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Байгууллага</label>
+                                        <select class="form-control" [(ngModel)]="searchZarlagaParam.orgCode">
+                                            <option value="">--сонгох--</option>
+                                            <option *ngFor='let item of boosZarlagaOrg' value="{{item.code}}">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-2">
+                                <fieldset>
+                                    <legend>Төсвийн ангилал сонгох:</legend>                                    
+                                      <label class="check-container">Хөтөлбөр
+                                        <input type="radio" value="plan" [(ngModel)]="searchZarlagaParam.searchType">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">Зориулалт
+                                        <input type="radio" value="spec" [(ngModel)]="searchZarlagaParam.searchType">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">Эдийн засгийн ангилал
+                                        <input type="radio" value="category" [(ngModel)]="searchZarlagaParam.searchType">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      
+                                </fieldset>
+                            </div>
+                             <div class="col-md-3">
+                                <fieldset>
+                                    <legend>Он сонгох:</legend>
+                                    <label class="check-container">2020
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="check-container">2019
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2018
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                    
+                                      <label class="check-container">2017
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="check-container">2016
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2015
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2014
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="check-container">2013
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                      <label class="check-container">2012
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                      </label>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="download-list">
+                                    <span (click)="chartType='bar'" [class.active]="chartType === 'bar'">
+                                        <img src="../../assets/image/charts/bar_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='column'" [class.active]="chartType === 'column'">
+                                        <img src="../../assets/image/charts/column_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='pie'" [class.active]="chartType === 'pie'">
+                                        <img src="../../assets/image/charts/pie_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='tree'" [class.active]="chartType === 'tree'">
+                                        <img src="../../assets/image/charts/tree_map_chart.svg" />
+                                    </span>
+                                    <span (click)="chartType='table'" [class.active]="chartType === 'table'">
+                                        <img src="../../assets/image/table.png" />
+                                    </span>
+                                </div>
+                                <div class="download">
+                                    
+                                    <button style="color: rgb(234, 84, 85);"  (click)="searchBoostZarlaga()">Хайх</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 boost-file" *ngIf="showType=='3'">
+                    <div class="main-menu" style="background-color: rgb(5, 64, 140);">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>Төрөл</label>
+                                        <select class="form-control" [(ngModel)]="typeData">
+                                            <option value="Орлого">Орлого</option>
+                                            <option value="Зарлага">Зарлага</option>
+                                        </select>
+                                    </div>
+                                   
+                                    <div class="form-group col-md-12 download">
+                                        <button style="-color: rgb(0, 129, 255);"  (click)="searchBoostData()">Хайх</button>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="grid-view">
+                                    <div class="grid-item" *ngFor="let file of boostDatas">
+                                        <a target="_blank" routerLinkActive="active"  [href]="'http://iltod.mof.gov.mn:8080' + file.fileUrl">
+                                            <img src="../../assets/image/budget/ont/excel.svg">
+                                            <p>{{file.fileName}}</p>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="col-md-12 boost-month" *ngIf="showType=='4'">
+                    <div class="main-menu" style="background-color: rgb(0, 129, 255);">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>Огноо сонго</label>
+                                        <select class="form-control" [(ngModel)]="boostYear">
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12 download">
+                                        <button style="-color: rgb(0, 129, 255);"  (click)="searchBoostMonth()">Хайх</button>
+                                    </div>
+                                </div>
+                               
+                                
+                            </div>
+                            <div class="col-md-10">
+                                <div class="grid-view">
+                                    <div class="grid-item" *ngFor="let file of boostFiles">
+                                        <a target="_blank" routerLinkActive="active"  [href]="'http://iltod.mof.gov.mn:8080' + file.fileUrl">
+                                            <img src="../../assets/image/budget/ont/excel.svg">
+                                            <p>{{file.fileName}}</p>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="budget-content-boost" *ngIf="typeName && chartType != 'table'">
+            <div class="title-hd center"><b>{{title}}</b></div>  
+                <ul class="breadcrumb" style="background-color: {{mainColor}};">
+                <li><a>{{typeName}}</a></li> 
+                <li *ngFor='let item of map; let i = index'><a>{{item}}</a></li>                
+            </ul>
+            <div *ngIf="show" class="show_data">
+                <boost-charts [chartType]="chartType" [labels]="labels" [series]="series" [colors]="colors" [data1]="data1" [data2]="data2"></boost-charts>
+            </div>
+            <div *ngIf="!show" class="load_data">
+                <div class="loader">Уншиж байна...</div>
+            </div>
+        </div>        
+        <div class="budget-content-boost"  *ngIf="typeName && chartType == 'table'">
+            <div class="title-hd center"><b>{{title}}</b></div>  
+                <!-- <ul class="breadcrumb">
+                <li><a>{{typeName}}</a></li> 
+                <li *ngFor='let item of map; let i = index'><a>{{item}}</a></li>                
+            </ul> -->
+            
+              <app-table [mainData]="mainData" [typeName]="typeName" [orlogoData]="orlogoData" [type]="type" [color]="mainColor"></app-table>   
+        </div>
+        
+        
+    </div>
+    </div>
+    </div>
+    
+    
+    <app-footer></app-footer>
+    
+    
+    

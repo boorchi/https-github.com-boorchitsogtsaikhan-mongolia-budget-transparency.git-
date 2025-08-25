@@ -1,0 +1,193 @@
+
+.apexcharts-legend-marker{
+    border-radius: 0px!important;
+}
+.pie_chart{    
+    position: relative;
+    &.center{
+        margin: 0px auto;        
+    }
+    &.orlogo_m {
+        margin-top: 30px!important;
+    }
+    img{
+        display: block;
+        margin: 0px auto 0px;
+        position: absolute;
+        top: -45px;
+        left: 0px;
+        right: 0px;
+    }
+    .chart_text{
+        margin: auto;
+        text-align: center;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 50px;
+        width: 200px;
+        color: #505054;
+        font-weight: bold;
+        span{
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .help{
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 50%;
+            background-color: #28c66f;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        h4{
+            color: #28c66f;
+            font-weight: bold;
+            font-size: 55px;
+        }
+        b{
+            color: #28c66f;
+        }        
+        
+    }
+    .process{
+        display: inline-block;
+        border-radius: 30px;
+        border: 1px solid #999;
+        margin-top: 10px;
+        padding: 5px;
+        text-transform: none;
+    }
+    
+}
+.title{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    min-height: 40px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1440px) {
+    .pie_chart{    
+        position: relative;
+        &.center{
+            margin: 0px auto;        
+        }
+        &.orlogo_m {
+            margin-top: 30px!important;
+        }
+        img{
+            display: block;
+            margin: 0px auto 0px;
+            position: absolute;
+            top: -45px;
+            left: 0px;
+            right: 0px;
+        }
+        .chart_text{
+            margin: auto;
+            text-align: center;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 50px;
+            width: 150px;
+            color: #505054;
+            font-weight: bold;
+            span{
+                margin-top: 20px;
+                display: inline-block;
+            }
+            .help{
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 50%;
+                background-color: #28c66f;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+            h4{
+                color: #28c66f;
+                font-weight: bold;
+                font-size: 55px;
+            }
+            b{
+                color: #28c66f;
+            }        
+            
+        }
+        .process{
+            display: inline-block;
+            border-radius: 30px;
+            border: 1px solid #999;
+            margin-top: 10px;
+            padding: 5px;
+            text-transform: none;
+        }
+        
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .pie_chart{    
+        position: relative;
+        &.center{
+            margin: 0px auto;        
+        }
+        &.orlogo_m {
+            margin-top: 30px!important;
+        }
+        img{
+            display: block;
+            margin: 0px auto 0px;
+            position: absolute;
+            top: -45px;
+            left: 0px;
+            right: 0px;
+        }
+        .chart_text{
+            margin: auto;
+            text-align: center;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 50px;
+            width: 150px;
+            color: #505054;
+            font-weight: bold;
+            span{
+                margin-top: 20px;
+                display: inline-block;
+            }
+            .help{
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 50%;
+                background-color: #28c66f;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+            h4{
+                color: #28c66f;
+                font-weight: bold;
+                font-size: 55px;
+            }
+            b{
+                color: #28c66f;
+            }        
+            
+        }
+        .process{
+            display: inline-block;
+            border-radius: 30px;
+            border: 1px solid #999;
+            margin-top: 10px;
+            padding: 5px;
+            text-transform: none;
+        }
+        
+    }
+}
+

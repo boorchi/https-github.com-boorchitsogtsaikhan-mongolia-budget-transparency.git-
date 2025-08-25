@@ -1,0 +1,42 @@
+<div class="pie_chart center" style="text-align:center; width: {{width}}px;"  *ngIf="isDataLoaded">
+    <apx-chart
+      [series]="chartOptions.series"
+      [labels]="chartOptions.labels"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+      [legend]="chartOptions.legend"
+      [plotOptions]="chartOptions.plotOptions"
+      [colors]="chartOptions.colors"
+      [stroke]="chartOptions.stroke"
+      [dataLabels]="chartOptions.dataLabels"
+      [tooltip]="chartOptions.tooltip"
+    ></apx-chart>
+    <div class="chart_text" >
+      <div *ngIf="isOrlogo">
+        <img class="m_l" src="../../../../assets/image/budget/main/orlogo.png" />
+      </div>
+      
+      <div *ngIf="isZarlaga">
+        <img class="m_l" src="../../../../assets/image/budget/main/zarlaga.png" />
+      </div>
+      
+      <span >{{title}}</span>
+      <h4 style="color:{{colors[0]}}">{{sum | number}}</h4>
+      <div class="terbum">тэрбум төгрөг</div>
+      <!-- <div class="process">гүйцэтгэл <b>{{process}}% 123</b> тэрбум</div>  -->
+<!-- {{params['category']=='APPROVED'}} -->
+      <div *ngIf="prefValue != null" class="process" style="width: 100%;">
+        <ng-container *ngIf="params['category']=='APPROVED'">
+          Гүйцэтгэл <b style="display: inline-block; color:{{colors[0]}}">{{percent}}%</b><br/>
+            <b style="color:{{colors[0]}}">{{prefValue | number}}</b> тэрбум
+        </ng-container>
+        <div *ngIf="params['category']!='APPROVED'">
+          Өмнөх оноос <b style="display: inline-block; color:{{colors[0]}}">{{befPercent}}%
+            <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="params['category']!='APPROVED' && befPercent < 0"></i-feather>
+            <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="params['category']!='APPROVED' && befPercent >= 0"></i-feather>    
+            </b><br/>
+        </div>
+    </div>
+    </div>
+  </div>

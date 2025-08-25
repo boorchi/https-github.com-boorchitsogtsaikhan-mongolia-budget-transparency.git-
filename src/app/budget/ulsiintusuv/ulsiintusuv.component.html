@@ -1,0 +1,134 @@
+
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">            
+              <module-year-change></module-year-change>
+        </div>
+    </div> 
+    <div class="budget-main">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <div class="title">
+            <h3>УЛСЫН ТӨСӨВ</h3>
+            <div class="chart-text row justify-content-md-center">
+                <div class="orlogo" (click) ="orlogoClick()" (mouseover)="orlogo()">
+                    <div>
+                        <img *ngIf="isZarlaga" src="../../../assets/image/budget/zeeliintuslamj/tuslamj/BCH_5 - Copy.svg" width="100">
+                        <img *ngIf="isOrlogo" src="../../../assets/image/budget/zeeliintuslamj/tuslamj/BCH_5.svg" width="100"><br>
+                        <span *ngIf="isZarlaga" style="font-weight: bold;">орлого эдийн засгийн
+                            ангиллаар харах</span>
+                        <span *ngIf="isOrlogo" style="font-weight: bold; color: #0081ff">орлого эдийн засгийн
+                            ангиллаар харах</span>
+                    </div>
+                    <div class="ndleft">
+                        <img *ngIf="isOrlogo" src="../../../assets/image/icons/right.png">
+                    </div>                   
+                </div>
+                <div *ngIf="isOrlogo">
+                    <div class="chart-container" *ngIf="isDataLoaded">
+                        <ulsiintusuv-charts [sub]="0" [colors]="['#28c66f']" [legend]="isLegend" [isOrlogo]="isOrlogo" [title]="'Нийт орлого'" [sum]="sum" [percent]="ulsProcess" [befPercent]="befulsProcess" [values]="ulsValues" [names]="ulsNames" [prefValue]="ulsPrefVal"></ulsiintusuv-charts>
+                    </div>
+                </div>
+                <div *ngIf="isZarlaga">
+                    <div class="chart-container" *ngIf="isDataLoaded">
+                        <ulsiintusuv-charts [sub]="0" [colors]="['#ea5455']" [legend]="isLegend" [isZarlaga]="isZarlaga" [title]="'Нийт Зарлага'" [sum]="sumZarlaga" [percent]="ulsZarlagaProcess" [befPercent]="befulsZarlagaProcess" [values]="ulsZarlagaValues" [names]="ulsZarlagaNames" [prefValue]="ulsZarlagaPrefVal"></ulsiintusuv-charts>
+                    </div>
+                </div> 
+                <div class="zarlaga" (click) ="zarlagaClick()"  (mouseover)="zarlaga()">
+                    <div class="ndright">
+                        <img *ngIf="isZarlaga" src="../../../assets/image/icons/left.png">
+                </div>
+                <div>
+                        <img *ngIf="isOrlogo" src="../../../assets/image/budget/zeeliintuslamj/tuslamj/BOH_3 - Copy.svg" width="100">
+                        <img *ngIf="isZarlaga" src="../../../assets/image/budget/zeeliintuslamj/tuslamj/BOH_3.svg" width="100"><br>
+                        <span *ngIf="isOrlogo" style="font-weight: bold;">зарлага ерөнхийлөн
+                            захирагчаар харах</span>
+                        <span *ngIf="isZarlaga" style="font-weight: bold; color: #0081ff">зарлага ерөнхийлөн
+                            захирагчаар харах</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+<module-description [description]="description"></module-description>
+
+<div class="budget-block"  *ngIf="isSub1">
+    <h3>Орлого эдийн засгийн ангиллаар</h3>
+    <div class="block-container">
+        <budget-charts [sub]="0" [isOrlogo]="isOrlogo" [legend]="true" [title]="'Нийт орлого ба тусламжийн дүн'" [sum]="sum" [values]="orlogoSub1Values" [names]="orlogoSub1Names" [percent]="ulsProcess" [befPercent]="befulsProcess"  [prefValue]="ulsPrefVal"></budget-charts>
+    </div>
+</div>
+<div class="budget-block " id="sub-top"  *ngIf="isSub1 && isSub2">
+    <h3>Тэнцвэржүүлсэн орлого</h3>
+    <div class="block-container">
+        <app-simple [sub]="1" [isOrlogo]="isOrlogo" [legend]="true" [title]="'Тэнцвэржүүлсэн орлого'" [sum]="sum1" [values]="orlogoSub2Values" [names]="orlogoSub2Names" [percent]="ulsProcess2" [befPercent]="beforlogoSub2ValuesPer" [prefValue]="ulsPrefVal2"></app-simple>
+    </div>
+</div>
+
+<div class="budget-block"  *ngIf="isSub1 && isSub3">  
+    <div class="block-container">
+        <app-orlogo-sub [datas]="orlogoDetailList"></app-orlogo-sub>
+    </div>
+</div>
+
+<div class="budget-block"  *ngIf="isSubZarlaga">
+    <h3>Улсын төсвийн зарлага ерөнхийлөн захирагчаар</h3>
+    <div class="block-container">
+        <div class="row">
+            <div class="col-md-1"></div>
+                <div class="col-md-2 zarlaga-item">
+                    <span>урсгал<br>зардал</span>
+                    <div class="number1">{{ulsiintusuvTEZ_process_cost| number}}</div>
+                    <p>тэрбум төгрөг</p>
+                </div>
+                <div class="col-md-2 zarlaga-item">
+                    <span>хөрөнгийн<br>зардал</span>
+                    <div class="number2">{{ulsiintusuvTEZ_capital_cost| number}}</div>
+                    <p>тэрбум төгрөг</p>
+                </div>
+                <div class="col-md-2 zarlaga-item">
+                    <span>гадаад,<br>зээл тусламж</span>
+                    <div class="number3">{{ulsiintusuvTEZ_loan| number}}</div>
+                    <p>тэрбум төгрөг</p>
+                </div>
+                <div class="col-md-2 zarlaga-item">
+                    <span>эргэж төлөгдөх<br>цэвэр зээл</span>
+                    <div class="number4">{{ulsiintusuvTEZ_repayment_loan| number}}</div>
+                    <p>тэрбум төгрөг</p>
+                </div>
+                <div class="col-md-2 zarlaga-item">
+                    <span>нийт<br>зардал</span>
+                    <div class="number5">{{ulsiintusuvTEZ_total| number}}</div>
+                    <p>тэрбум төгрөг</p>
+                </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grap">
+                    <div class="row tusuv-row" *ngFor='let detail of ulsiintusuvTEZDetail; let i = index'>
+                        <div class="lastRow" *ngIf="detail.percent > 0 && params['category'] == 'APPROVED'">Гүйцэтгэл <b>{{detail.percent}}%<br> {{detail.perfoValue| number}}</b> тэрбум ₮</div>
+                        <div class="lastRow" style="position: relative;" *ngIf="params['category'] == 'SUBMITTED'">Өмнөх оноос <br><b>{{detail.percent}}% </b> 
+                            <i-feather name="arrow-down" class="down-icon" style="position: absolute;top: 20px;right: 20px;color: #505054;" *ngIf="params['category']=='SUBMITTED' && detail.percent < 0"></i-feather>
+                            <i-feather name="arrow-up" class="down-icon" style="position: absolute;top: 20px;right: 20px;color: #505054;" *ngIf="params['category']=='SUBMITTED' && detail.percent >= 0"></i-feather>   
+                        </div>
+                        
+                        <div class="first6Row">{{detail.total| number}}</div>
+                        <div class="first5Row" *ngIf="detail.repaymentLoan > 0" style="width: {{appendValues[i] + width4Temp*detail.repaymentLoan| number}}px">{{detail.repaymentLoan}}</div>
+                        <div class="first4Row" *ngIf="detail.loan > 0" style="width: {{appendValues[i] + width3Temp*detail.loan}}px">{{detail.loan| number}}</div>
+                        <div class="first3Row" *ngIf="detail.capitalCost > 0" style="width: {{appendValues[i] + width2Temp*detail.capitalCost| number}}px">{{detail.capitalCost}}</div>
+                        <div class="first2Row" style="width: {{appendValues[i] + width1Temp*detail.processCost}}px">{{detail.processCost | number}}</div>
+                        <div class="first1Row">{{detail.name}}</div>
+                        
+                        
+                        
+                    </div><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

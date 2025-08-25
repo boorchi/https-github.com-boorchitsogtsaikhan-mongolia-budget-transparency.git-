@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-light main-menu" id="header">
+    <a class="navbar-brand" routerLink="/"><img src="../../../assets/image/logo.png"/></a>
+    <!-- Links -->    
+    <ul class="navbar-nav ml-auto top-menu">
+      <li class="nav-item" [class.active]="urlName.includes('/home')">
+        <a class="nav-link" routerLink="/home">Нүүр</a>
+      </li>
+      <li class="nav-item"  [class.active]="urlName.includes('legacy')">
+        <a class="nav-link" routerLink="legacy" [queryParams]="{type: '46'}">Төсвийн танилцуулга</a>
+        <!-- <a class="nav-link" routerLink="legacy">Төсвийн эрх зүйн орчин</a> -->
+      </li>
+      <li class="nav-item" [class.active]="urlName.includes('budget/main')">
+        <a class="nav-link" routerLink="budget/main">Салбарын төсвийн танилцуулга</a>
+      </li>
+     <!--- <li class="nav-item" [class.active]="urlName.includes('opendata')">
+        <a class="nav-link" routerLink="opendata">Төсвийн мэдээллийн сан</a>
+      </li>-->
+      <li class="nav-item" [class.active]="urlName.includes('cp')">
+        <a class="nav-link" routerLink="cp">Хэлэлцүүлэг</a>
+      </li>
+      <li class="nav-item" [class.active]="urlName.includes('education')">
+        <a class="nav-link" [routerLink]="['education']" [queryParams]="{subType: '1'}">Хэвлэл мэдээлэл</a>
+      </li>
+    </ul>
+    <a class="icon mobile-toggle" (click)="isMobile=!isMobile">
+      <i-feather name="menu" class="menu-icon" style="color: #fff;"></i-feather> 
+    </a>
+</nav>
+<ul class="mobile-menu" *ngIf="isMobile">
+  <li class="nav-item" [class.active]="urlName.includes('/home')">
+    <a class="nav-link" routerLink="/home" (click)="isMobile=false">Нүүр</a>
+  </li>
+  <li class="nav-item"  [class.active]="urlName.includes('legacy')">
+    <a class="nav-link" routerLink="legacy" [queryParams]="{type: '46'}" (click)="isMobile=false">Төсвийн танилцуулга</a>
+    <!-- <a class="nav-link" routerLink="legacy">Төсвийн эрх зүйн орчин</a> -->
+  </li>
+  <li class="nav-item" [class.active]="urlName.includes('budget/main')">
+    <a class="nav-link" routerLink="budget/main" (click)="isMobile=false">Салбарын төсвийн танилцуулга</a>
+  </li>
+  <!--<li class="nav-item" [class.active]="urlName.includes('opendata')">
+    <a class="nav-link" routerLink="opendata" (click)="isMobile=false">Төсвийн мэдээллийн сан</a>
+  </li>-->
+  <li class="nav-item" [class.active]="urlName.includes('cp')">
+    <a class="nav-link" routerLink="cp" (click)="isMobile=false">Хэлэлцүүлэг</a>
+  </li>
+  <li class="nav-item" [class.active]="urlName.includes('education')">
+    <a class="nav-link" [routerLink]="['education']" [queryParams]="{subType: '1'}" (click)="isMobile=false">Хэвлэл мэдээлэл</a>
+  </li>
+</ul>

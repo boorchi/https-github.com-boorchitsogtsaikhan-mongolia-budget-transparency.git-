@@ -1,0 +1,67 @@
+<div class="budget-block">
+    
+    <h3>Макро эдийн засгийн үзүүлэлтүүд</h3>
+        <div class="row">
+            <div *ngFor='let macro of macro; let i = index' (click)="showChart(i, macro.code)" class="col-md-4">
+                <div class="special-col">
+                    <div class="special-item">
+                        <div class="special-img" style="background: {{colors[i]}}">  
+                            <img class="macro_img" src="../../../assets/image/icons/Main/4_macro_white.svg" />
+                            <div class="title">
+                                {{macro.name}}
+                            </div>
+                        </div>
+                        <div class="special-text">
+                            <div class="currency">
+                                {{macro.value | number}}
+                            </div>
+                            <div class="cur-text">
+                                {{macro.unit}}
+                            </div>
+                            <hr>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text">{{macro.description}}</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="subdiv" *ngIf="show" >
+        <h3>{{macroName?.name}}</h3>
+            <div class="block-container">
+                <div class="budget-block">
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+    </div>
+    <div class="subdiv" *ngIf="show1" >
+        <h3>{{macroName?.name}}</h3>
+            <div class="block-container">
+                <div class="budget-block">
+                    <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+    </div>
+    
+</div>
+<module-description [description]="description"></module-description>
+<!-- <div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+                <p>Үзүүлж буй үйлчилгээний тухай дэлгэрэнгүй
+                    мэдээллийг эрүүл мэндийн даатгалын сангийн
+                    цахим хуудаснаас аваарай.</p>    
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="https://mof.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

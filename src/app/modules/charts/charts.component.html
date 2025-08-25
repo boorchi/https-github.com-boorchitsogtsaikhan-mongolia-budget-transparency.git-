@@ -1,0 +1,48 @@
+<ng-container *ngIf="chartType==='donut'">
+  <div class="pie_chart center" style="text-align:center; width: {{width}}px;"  *ngIf="isDataLoaded" [ngClass]="(isOrlogo)?'orlogo_m':''">
+    <apx-chart
+      [series]="chartOptions.series"
+      [labels]="chartOptions.labels"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+      [legend]="chartOptions.legend"
+      [plotOptions]="chartOptions.plotOptions"
+      [colors]="chartOptions.colors"
+      [stroke]="chartOptions.stroke"
+      [dataLabels]="chartOptions.dataLabels"
+      [tooltip]="chartOptions.tooltip"
+    ></apx-chart>
+    <div *ngIf="isOrlogo">
+      <img class="m_l" src="../../../../assets/image/budget/main/orlogo.png" />
+    </div>      
+    <div *ngIf="isZarlaga">
+      <img class="m_l" src="../../../../assets/image/budget/main/zarlaga.png" />
+    </div>
+    <div class="chart_text">
+      <app-simple-number class="orlogo" [text1]="title"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="getValues()"     
+                        [color]="'#28c66f'"      
+                        [percent]="percent"
+                        [befPercent]="befPercent"
+                        [prefValue]="prefValue"         
+                    ></app-simple-number>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="chartType==='multi'">
+  <h4 class="title">{{title}}</h4>
+  <div class="multi_chart"  *ngIf="isDataLoaded">
+  <apx-chart
+  [series]="chartOptions.series"
+  [chart]="chartOptions.chart"
+  [stroke]="chartOptions.stroke"
+  [title]="chartOptions.title"
+  [dataLabels]="chartOptions.dataLabels"
+  [labels]="chartOptions.labels"
+  [xaxis]="chartOptions.xaxis"
+  [yaxis]="chartOptions.yaxis"
+></apx-chart>
+</div>
+</ng-container>

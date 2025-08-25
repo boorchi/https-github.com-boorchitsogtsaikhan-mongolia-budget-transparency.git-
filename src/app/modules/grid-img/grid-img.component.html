@@ -1,0 +1,37 @@
+<div class="special-col">
+    <div class="special-item">
+        <div class="special-img" style="background-image: url(../../../assets/image/bg/salbar_bg_{{colorCode}}.svg)">
+            <div class="percentage">
+                {{percent}}%
+            </div>
+            <div class="title">
+                {{name}}
+            </div> 
+            <div class="bottom-img">
+                <img src="../../../assets/image/crop/{{type}}_{{code}}.png"/>
+            </div>
+        </div>         
+        <div class="special-text">
+            <div class="currency">
+                {{budget | number}}
+            </div>
+
+            
+            <div class="cur-text">
+                тэрбум төгрөг
+            </div>
+            <span class="arrow-hr"><i class="arrow down"  style="border-color: #505054;"></i></span>
+            <div *ngIf="toggle==='APPROVED';else other_content">
+                <div class="cur-desc" *ngIf="process">
+                    <div class="cur-desc-text">Гүйцэтгэл <b>{{process}}%</b></div>
+                    <div class="cur-desc-number"><b>{{processBudget | number}}</b> тэрбум ₮</div>                                
+                </div>
+            </div>
+            <ng-template #other_content>
+                <div class="cur-desc-text" *ngIf="process">Өмнөх оноос <b>{{process}}%</b>
+                    <i-feather name="arrow-down" class="down-icon" style="color: #333;" *ngIf="process < 0"></i-feather>
+                    <i-feather name="arrow-up" class="down-icon" style="color: #333;" *ngIf="process >= 0"></i-feather> </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

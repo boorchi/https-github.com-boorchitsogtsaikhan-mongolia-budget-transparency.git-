@@ -1,0 +1,56 @@
+.layout-5{
+    padding: 30px;
+    background-color: #f8f9fa;
+    margin-top: 50px;
+    border-top: 1px solid #ddd;
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    clear: both;
+    .icon{
+        float: left;
+        *{
+            width: 30px;
+            color: #0081ff;
+        }
+    }
+    
+    .icon-social{
+        float: left;
+        padding-left: 10px;
+        padding: 13px;
+        border: 2px solid #0081ff;
+        border-radius: 50%;
+        margin: 5px;
+        height: 50px;
+        *{
+            width: 24px;
+            height: 24px;
+            color: #0081ff;
+        }
+    }
+
+    .content{
+        line-height: 18px;
+        span{
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .links{
+            font-weight: 600;
+            a{
+                font-weight: 400;
+                color: #333;
+            }
+        }
+        float: left;
+        width: calc(100% - 40px);
+        margin-left: 10px;
+    }
+}
+.footerhr{
+    padding-bottom: 10px;
+}

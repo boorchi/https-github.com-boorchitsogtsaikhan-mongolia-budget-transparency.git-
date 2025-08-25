@@ -1,0 +1,1318 @@
+
+.budget-main-invest{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 12px 0px #d2d2d2;
+    min-height: 700px;
+    background-image: url("/../../../../assets/image/bg/concept.PNG");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    &.investment{
+        position: relative;
+        background-size: 100%;
+        margin-bottom: 20px;
+    }    
+    .title{
+        h3{
+            padding-top: 20px;
+            padding-bottom: 45px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0081ff;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        img{
+            width: 100%;
+        }
+        
+    }
+    .total{
+        text-align: center;
+        width: 780px;
+        top: 100px;
+        height: 260px;
+        left: 120px;
+        border-radius: 15px;
+        position: relative;
+        color: #fff;
+        background-color: #28c66f;
+        transform: skewX(-20deg);
+    }
+    .tugrug{
+        img{
+            position: absolute;
+            bottom: 0;
+            right: 200px;
+        }
+    }
+    
+}
+
+.main-description{
+    padding: 30px 30px;
+    p{
+        width: 40%;
+        float: right;
+        text-align: left;
+    }
+    img{
+        width: 100%;
+    }
+}
+.budget-content .budget-top .trapezoid{
+    // width: 200px;
+}
+.budget-content>h3 {
+    color: #0081ff;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;    
+}
+.title {
+    h3 {
+        color: #0081ff;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+.ded-col{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .ded-item{
+        position: relative;
+        padding: 15px;
+        background-color: #fff;
+        width: 100%;
+        height: 270px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 10px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 30px;
+            }
+        }
+        
+        .ded-name{
+            color: #505054;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 270px;
+            bottom: 50px ;
+            left: 800px;
+            margin: 0px auto;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 15px;
+            }
+            .right{
+                text-align: right;
+                font-size: 15px;
+            }
+        }
+        .ded-left{
+            float: left;
+            width: 30%;
+            img{
+                width: 60px;
+                padding-top: 70px;
+                padding-bottom: 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+        .ded-right{
+            float: right;
+            width: 70%;
+            .ded-ded-left{
+                float: left;
+                position: absolute;
+                top: 50px;
+                span{
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .ded-ded-right{
+                float: right;
+                position: absolute;
+                top: 35px;
+                right: 35px;
+            }
+        }
+        
+        .arrow {
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 2.5px;
+          }
+          
+          .arrow-hr{
+              position: relative;
+          }
+          .arrow-hr:after{
+              position: absolute;
+              height: 1px;
+              top: 50%;
+              width: 100px;
+              right: -110px;
+              content: "";
+              border-top: 1px solid #666;
+          }
+          .arrow-hr:before{
+              position: absolute;
+              height: 1px;
+              top: 50%;
+              width: 100px;
+              left: -110px;
+              content: "";
+              border-top: 1px solid #666;
+          }
+          .down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }  
+          .up {
+            transform: rotate(225deg);
+            -webkit-transform: rotate(225deg);
+          } 
+    }
+    .ded-item2{
+        position: relative;
+        padding: 15px;
+        background-color: #fff;
+        width: 100%;
+        height: 270px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 25px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 40px;
+            }
+        }
+        
+        .ded-name{
+            color: #505054;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 270px;
+            bottom: 50px ;
+            left: 800px;
+            margin: 0px auto;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 17px;
+            }
+            .right{
+                text-align: right;
+                font-size: 17px;
+            }
+        }
+        .ded-left{
+            // padding-top: 30px;
+            float: left;
+            width: 30%;
+            img{
+                width: 60px;
+                // padding-top: 30px;
+                padding-bottom: 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        .ded-right{
+            float: right;
+            width: 70%;
+            .ded-ded-left{
+                position: relative;
+                padding-bottom: 10px;
+                span{
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .ded-ded-right{
+                position: relative;
+            }
+        }
+        
+        .arrow {
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 2.5px;
+          }
+          
+          .arrow-hr{
+              position: relative;
+          }
+          .arrow-hr:after{
+              position: absolute;
+              height: 1px;
+              top: 50%;
+              width: 100px;
+              right: -110px;
+              content: "";
+              border-top: 1px solid #666;
+          }
+          .arrow-hr:before{
+              position: absolute;
+              height: 1px;
+              top: 50%;
+              width: 100px;
+              left: -110px;
+              content: "";
+              border-top: 1px solid #666;
+          }
+          .down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }  
+          .up {
+            transform: rotate(225deg);
+            -webkit-transform: rotate(225deg);
+          } 
+    }
+}
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+.animation{
+    // animation: 1s ease-in-out 0s 1 slideInFromLeft;
+      opacity: 1;
+}
+
+@media screen and (max-width: 1680px) {
+    .ded-left{
+        // padding-top: 30px;
+        float: left;
+        width: 20%;
+        img{
+            width: 50px !important;
+            // padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        span{
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+    .ded-right{
+        float: right;
+        width: 70%;
+        .ded-ded-left{
+            position: relative;
+            padding-bottom: 10px;
+            span{
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+            }
+        }
+        .ded-ded-right{
+            position: relative;
+        }
+    }
+    .ded-col{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .ded-item{
+            position: relative;
+            padding: 15px;
+            background-color: #fff;
+            width: 100%;
+            height: 230px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px 0px #d2d2d2;
+            .ded-img{
+                background-color: #795446;
+                padding: 10px;
+                border-radius: 50%;
+                margin: 10px auto;
+                height: 90px;
+                width: 90px;
+
+                img{
+                    width: 30px;
+                }
+            }
+            
+            .ded-name{
+                color: #505054;
+                font-weight: 800;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+            .ded-number{
+                color: #795446;
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 80%;
+            }
+            .ded-detail{
+                b{
+                    color: #5d5d5d;
+                }
+                padding-bottom: 10px;
+            }
+            .ded-process{
+                text-align: center;
+                font-weight: 600;
+                width: 270px;
+                bottom: 50px ;
+                left: 800px;
+                margin: 0px auto;
+                color: #ffffff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                line-height: 110%;
+                text-transform: none;
+                .left{
+                    text-align: left;
+                    font-size: 15px;
+                }
+                .right{
+                    text-align: right;
+                    font-size: 15px;
+                }
+            }
+            .ded-left{
+                float: left;
+                width: 30%;
+                img{
+                    width: 60px;
+                    padding-top: 70px;
+                    padding-bottom: 10px;
+                }
+                span{
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+            .ded-right{
+                float: right;
+                width: 70%;
+                .ded-ded-left{
+                    float: left;
+                    position: absolute;
+                    top: 50px;
+                    span{
+                        font-size: 16px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: #fff;
+                    }
+                }
+                .ded-ded-right{
+                    float: right;
+                    position: absolute;
+                    top: 35px;
+                    right: 35px;
+                }
+            }
+        }
+    }
+    .ded-item2{
+        position: relative;
+        padding: 5px !important;
+        background-color: #fff;
+        width: 100%;
+        height: 230px !important;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 25px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 40px;
+            }
+        }
+        
+        .ded-name{
+            color: #505054;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 270px;
+            bottom: 50px ;
+            left: 800px;
+            margin: 0px auto;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 17px;
+            }
+            .right{
+                text-align: right;
+                font-size: 17px;
+            }
+        }
+        .ded-left{
+            // padding-top: 30px;
+            float: left;
+            width: 30%;
+            img{
+                width: 60px;
+                // padding-top: 30px;
+                padding-bottom: 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 14px !important;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        .ded-right{
+            float: right;
+            width: 70%;
+            .ded-ded-left{
+                position: relative;
+                padding-bottom: 10px;
+                span{
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .ded-ded-right{
+                position: relative;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1440px) {
+    .ded-left{
+        // padding-top: 30px;
+        float: left;
+        width: 20%;
+        img{
+            width: 40px !important;
+            // padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        span{
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+    .ded-right{
+        float: right;
+        width: 70%;
+        .ded-ded-left{
+            position: relative;
+            padding-bottom: 10px;
+            span{
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+            }
+        }
+        .ded-ded-right{
+            position: relative;
+        }
+    }
+    .ded-col{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .ded-item{
+            position: relative;
+            padding: 15px;
+            background-color: #fff;
+            width: 100%;
+            height: 230px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px 0px #d2d2d2;
+            .ded-img{
+                background-color: #795446;
+                padding: 10px;
+                border-radius: 50%;
+                margin: 10px auto;
+                height: 90px;
+                width: 90px;
+
+                img{
+                    width: 30px;
+                }
+            }
+            
+            .ded-name{
+                color: #505054;
+                font-weight: 800;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+            .ded-number{
+                color: #795446;
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 80%;
+            }
+            .ded-detail{
+                b{
+                    color: #5d5d5d;
+                }
+                padding-bottom: 10px;
+            }
+            .ded-process{
+                text-align: center;
+                font-weight: 600;
+                width: 270px;
+                bottom: 50px ;
+                left: 800px;
+                margin: 0px auto;
+                color: #ffffff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                line-height: 110%;
+                text-transform: none;
+                .left{
+                    text-align: left;
+                    font-size: 15px;
+                }
+                .right{
+                    text-align: right;
+                    font-size: 15px;
+                }
+            }
+            .ded-left{
+                float: left;
+                width: 30%;
+                img{
+                    width: 60px;
+                    padding-top: 70px;
+                    padding-bottom: 10px;
+                }
+                span{
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+            .ded-right{
+                float: right;
+                width: 70%;
+                .ded-ded-left{
+                    float: left;
+                    position: absolute;
+                    top: 50px;
+                    span{
+                        font-size: 16px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: #fff;
+                    }
+                }
+                .ded-ded-right{
+                    float: right;
+                    position: absolute;
+                    top: 35px;
+                    right: 35px;
+                }
+            }
+        }
+    }
+    .ded-item2{
+        position: relative;
+        padding: 5px !important;
+        background-color: #fff;
+        width: 100%;
+        height: 230px !important;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 25px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 40px;
+            }
+        }
+        
+        .ded-name{
+            color: #505054;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 270px;
+            bottom: 50px ;
+            left: 800px;
+            margin: 0px auto;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 17px;
+            }
+            .right{
+                text-align: right;
+                font-size: 17px;
+            }
+        }
+        .ded-left{
+            // padding-top: 30px;
+            float: left;
+            width: 30%;
+            img{
+                width: 60px;
+                // padding-top: 30px;
+                padding-bottom: 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 14px !important;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        .ded-right{
+            float: right;
+            width: 70%;
+            .ded-ded-left{
+                position: relative;
+                padding-bottom: 10px;
+                span{
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .ded-ded-right{
+                position: relative;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+    .ded-left{
+        // padding-top: 30px;
+        float: left;
+        width: 20%;
+        img{
+            width: 40px !important;
+            // padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        span{
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+    .ded-right{
+        float: right;
+        width: 70%;
+        .ded-ded-left{
+            position: relative;
+            padding-bottom: 10px;
+            span{
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+            }
+        }
+        .ded-ded-right{
+            position: relative;
+        }
+    }
+    .ded-col{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .ded-item{
+            position: relative;
+            padding: 15px;
+            background-color: #fff;
+            width: 100%;
+            height: 230px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px 0px #d2d2d2;
+            .ded-img{
+                background-color: #795446;
+                padding: 10px;
+                border-radius: 50%;
+                margin: 10px auto;
+                height: 90px;
+                width: 90px;
+
+                img{
+                    width: 30px;
+                }
+            }
+            
+            .ded-name{
+                color: #505054;
+                font-weight: 800;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+            .ded-number{
+                color: #795446;
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 80%;
+            }
+            .ded-detail{
+                b{
+                    color: #5d5d5d;
+                }
+                padding-bottom: 10px;
+            }
+            .ded-process{
+                text-align: center;
+                font-weight: 600;
+                width: 270px;
+                bottom: 50px ;
+                left: 800px;
+                margin: 0px auto;
+                color: #ffffff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                line-height: 110%;
+                text-transform: none;
+                .left{
+                    text-align: left;
+                    font-size: 15px;
+                }
+                .right{
+                    text-align: right;
+                    font-size: 15px;
+                }
+            }
+            .ded-left{
+                float: left;
+                width: 30%;
+                img{
+                    width: 60px;
+                    padding-top: 70px;
+                    padding-bottom: 10px;
+                }
+                span{
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+            .ded-right{
+                float: right;
+                width: 70%;
+                .ded-ded-left{
+                    float: left;
+                    position: absolute;
+                    top: 50px;
+                    span{
+                        font-size: 16px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: #fff;
+                    }
+                }
+                .ded-ded-right{
+                    float: right;
+                    position: absolute;
+                    top: 35px;
+                    right: 35px;
+                }
+            }
+        }
+    }
+    .ded-item2{
+        position: relative;
+        padding: 5px !important;
+        background-color: #fff;
+        width: 100%;
+        height: 230px !important;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 25px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 40px;
+            }
+        }
+        
+        .ded-name{
+            color: #505054;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 270px;
+            bottom: 50px ;
+            left: 800px;
+            margin: 0px auto;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 17px;
+            }
+            .right{
+                text-align: right;
+                font-size: 17px;
+            }
+        }
+        .ded-left{
+            // padding-top: 30px;
+            float: left;
+            width: 30%;
+            img{
+                width: 60px;
+                // padding-top: 30px;
+                padding-bottom: 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 10px  !important;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        .ded-right{
+            float: right;
+            width: 70%;
+            .ded-ded-left{
+                position: relative;
+                padding-bottom: 10px;
+                span{
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .ded-ded-right{
+                position: relative;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .ded-left{
+        // padding-top: 30px;
+        float: left;
+        width: 20%;
+        img{
+            width: 40px !important;
+            // padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        span{
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+    .ded-right{
+        float: right;
+        width: 70%;
+        .ded-ded-left{
+            position: relative;
+            padding-bottom: 10px;
+            span{
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+            }
+        }
+        .ded-ded-right{
+            position: relative;
+        }
+    }
+    .ded-col{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .ded-item{
+            position: relative;
+            padding: 15px;
+            background-color: #fff;
+            width: 100%;
+            height: 230px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px 0px #d2d2d2;
+            .ded-img{
+                background-color: #795446;
+                padding: 10px;
+                border-radius: 50%;
+                margin: 10px auto;
+                height: 90px;
+                width: 90px;
+
+                img{
+                    width: 30px;
+                }
+            }
+            
+            .ded-name{
+                color: #505054;
+                font-weight: 800;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+            .ded-number{
+                color: #795446;
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 80%;
+            }
+            .ded-detail{
+                b{
+                    color: #5d5d5d;
+                }
+                padding-bottom: 10px;
+            }
+            .ded-process{
+                text-align: center;
+                font-weight: 600;
+                width: 270px;
+                bottom: 50px ;
+                left: 800px;
+                margin: 0px auto;
+                color: #ffffff;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px solid #fff;
+                padding: 10px;
+                line-height: 110%;
+                text-transform: none;
+                .left{
+                    text-align: left;
+                    font-size: 15px;
+                }
+                .right{
+                    text-align: right;
+                    font-size: 15px;
+                }
+            }
+            .ded-left{
+                float: left;
+                width: 30%;
+                img{
+                    width: 60px;
+                    padding-top: 70px;
+                    padding-bottom: 10px;
+                }
+                span{
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+            .ded-right{
+                float: right;
+                width: 70%;
+                .ded-ded-left{
+                    float: left;
+                    position: absolute;
+                    top: 50px;
+                    span{
+                        font-size: 16px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: #fff;
+                    }
+                }
+                .ded-ded-right{
+                    float: right;
+                    position: absolute;
+                    top: 35px;
+                    right: 35px;
+                }
+            }
+        }
+    }
+    .ded-item2{
+        position: relative;
+        padding: 5px !important;
+        background-color: #fff;
+        width: 100%;
+        height: 230px !important;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 25px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 40px;
+            }
+        }
+        
+        .ded-name{
+            color: #505054;
+            font-weight: 800;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 270px;
+            bottom: 50px ;
+            left: 800px;
+            margin: 0px auto;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 17px;
+            }
+            .right{
+                text-align: right;
+                font-size: 17px;
+            }
+        }
+        .ded-left{
+            // padding-top: 30px;
+            float: left;
+            width: 30%;
+            img{
+                width: 60px;
+                // padding-top: 30px;
+                padding-bottom: 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 10px  !important;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        .ded-right{
+            float: right;
+            width: 70%;
+            .ded-ded-left{
+                position: relative;
+                padding-bottom: 10px;
+                span{
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .ded-ded-right{
+                position: relative;
+            }
+        }
+    }
+}

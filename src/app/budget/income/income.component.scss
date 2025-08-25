@@ -1,0 +1,330 @@
+.budget-main-invest{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 12px 0px #d2d2d2;
+    min-height: 700px;
+    background-image: url("../../../../src/assets/image/bg/bluebg.PNG");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 0;
+    &.investment{
+        position: relative;
+        background-size: 100%;
+        margin-bottom: 20px;
+    }    
+    .title{
+        h3{
+            padding-top: 20px;
+            padding-bottom: 45px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0081ff;
+        }
+        img{
+            width: 100%;
+        }
+        
+    }
+    .total{
+        text-align: center;
+        width: 480px;
+        top: 250px;
+        height: 160px;
+        border-radius: 15px;
+        position: absolute;
+        left: 0px;
+        right: 0;
+        margin: 0px auto;
+        color: #fff;
+        background-color: #ea5455;
+    }
+    .number{
+        text-align: center;
+        width: 180px;
+        position: absolute;
+        bottom: 10px ;
+        left: 550px;
+        right: 0;
+        // margin: 0px auto;
+        color: #fff;
+        span{
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .curr{
+            text-align: center;
+            font-size: 45px !important;
+            font-weight: 700;
+            font-size: large;
+        }
+        p {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+    .process{
+        text-align: center;
+        font-weight: 600;
+        width: 180px;
+        position: absolute;
+        bottom: 50px ;
+        left: 800px;
+        // right: 0px;
+        margin: 0px auto;
+        color: #fff;
+        display: inline-block;
+        border-radius: 30px;
+        border: 2px solid #fff;
+        padding: 10px;
+        line-height: 110%;
+        text-transform: none;
+    }
+    .items{
+        font-size: 12px;
+        border-radius: 50%;
+        bottom: 20px;
+        div.content{
+            color: #fff;
+            img{
+                width: 30px;
+                margin-right: 10px;
+            }
+            span{
+                font-size: 22px;
+                font-weight: bold;
+            }
+            p{
+                margin-top: 10px;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 120%;
+                vertical-align: middle;
+            }
+            padding: 15px;
+            // position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+        }
+    }
+    .income-img {
+        img{
+            position: absolute;
+            margin: auto;
+            left: 0;
+            bottom: 0px;
+            right: 0;
+        }
+    }
+   
+    .income-item{
+        font-size: 12px;
+        border-radius: 50%;
+        position: absolute;
+        div.content{
+            color: #fff;
+            img{
+                width: 30px;
+                margin-right: 10px;
+            }
+            span{
+                font-size: 18px;
+                font-weight: bold;
+            }
+            p{
+                margin-top: 10px;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 120%;
+                vertical-align: middle;
+            }
+            padding: 15px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+        }
+    }
+}
+
+.main-description{
+    padding: 30px 30px;
+    p{
+        width: 40%;
+        float: right;
+        text-align: left;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+.budget-block>h3 {
+    color: #0081ff;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.title {
+    h3 {
+        color: #0081ff;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+.ded-col{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .ded-item{
+        position: relative;
+        padding: 15px;
+        background-color: #fff;
+        width: 100%;
+        height: 390px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 12px 0px #d2d2d2;
+        .ded-img{
+            background-color: #795446;
+            padding: 25px;
+            border-radius: 50%;
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+
+            img{
+                width: 40px;
+            }
+        }
+        
+        .ded-name{
+            color: #5d5d5d;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .ded-number{
+            color: #795446;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 80%;
+        }
+        .ded-detail{
+            b{
+                color: #5d5d5d;
+            }
+            padding-bottom: 10px;
+        }
+        .ded-process{
+            text-align: center;
+            font-weight: 600;
+            width: 230px;
+            // position: absolute;
+            bottom: 50px ;
+            left: 800px;
+            // right: 0px;
+            margin: 0px auto;
+            color: #5d5d5d;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px solid #5d5d5d;
+            padding: 10px;
+            line-height: 110%;
+            text-transform: none;
+            .left{
+                text-align: left;
+                font-size: 15px;
+            }
+            .right{
+                text-align: right;
+                font-size: 15px;
+            }
+        }
+        .ded-button{
+            width: 50px;
+            position: absolute;
+            bottom: 0px;
+            padding: 10px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            border-top-left-radius: 40%;
+            border-top-right-radius: 40%;
+            height: 50px;
+        }
+        .ded-back{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            // background-color: aliceblue;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px 0px #d2d2d2;
+            p{
+                color: #fff;
+            }
+        }
+        
+        .arrow {
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 2.5px;
+          }
+          
+          .arrow-hr{
+              position: relative;
+          }
+          .arrow-hr:after{
+              position: absolute;
+              height: 1px;
+              top: 50%;
+              width: 100px;
+              right: -110px;
+              content: "";
+              border-top: 1px solid #666;
+          }
+          .arrow-hr:before{
+              position: absolute;
+              height: 1px;
+              top: 50%;
+              width: 100px;
+              left: -110px;
+              content: "";
+              border-top: 1px solid #666;
+          }
+          .down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }  
+          .up {
+            transform: rotate(225deg);
+            -webkit-transform: rotate(225deg);
+          } 
+    }
+}

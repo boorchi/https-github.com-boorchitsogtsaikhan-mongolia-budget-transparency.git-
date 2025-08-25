@@ -1,0 +1,15 @@
+<select [(ngModel)]="yearSelect" (change)="changeYear()">
+    <option *ngIf="check(2023)">2023 он</option>
+    <option *ngIf="check(2022)">2022 он</option>
+    <option *ngIf="check(2021)">2021 он</option>
+    <option *ngIf="check(2020)">2020 он</option>
+    <option *ngIf="check(2019)">2019 он</option>  
+</select>
+<ng-container *ngIf="showSelect">
+<span>Батлагдсан төсөв</span>
+<label class="switch">
+    <input type="checkbox" [checked]="budgetType" (change)="changeType()">
+    <span class="slider round"></span>
+  </label>
+<span>Төсвийн төсөл</span>
+</ng-container>

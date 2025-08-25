@@ -1,0 +1,482 @@
+<div class="budget-content">
+    <div class="budget-top">
+        <div class="trapezoid">
+            <module-year-change [showSelect]="0" style="width:200px"></module-year-change>
+        </div>
+    </div>
+    <div class="budget-main">
+        <div class="last_updated">Мэдээлэл шинэчлэгдсэн: {{updateDate}}</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h3>Орон нутгийн төсөв</h3>
+                </div>
+            </div>
+            <div class="col-md-4" *ngIf="ont">
+                <div class="trapezoid">
+                    <select (change)="onChange($event)">
+                        <option *ngFor="let r of ontList; let i = index" value="{{r.aimagCode}}"  [selected]="r.aimagCode === oldChange">{{r.aimagName}}</option> 
+                    </select>
+                </div>
+                <div class="aimag">
+                    <div>
+                        <img src="../../../assets/image/aimag/{{aimagCode}}.png" alt="" width="100px">
+                        <span>{{aimagName}}</span>
+                    </div>
+                    <div class="sub">
+                        <div class="people">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="../../../assets/image/people.PNG" alt="" width="100px">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="aimag-title">
+                                        Хүн ам
+                                    </div>
+                                    <div class="desc">
+                                        {{population | number}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="../../../assets/image/location.PNG" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="aimag-title">
+                                        Газар нутаг
+                                    </div>
+                                    <div class="desc">
+                                        {{place | number}} мян.км<sup>2</sup>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="aimag-center"  *ngIf="oldChange != 'P29'">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="../../../assets/image/location1.PNG" alt="">
+                                </div>
+                                <div class="col-md-10">                             
+                                    <div class="aimag-title">
+                                        Аймгийн төв
+                                    </div>
+                                    <div class="desc">
+                                        {{center}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sum">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="../../../assets/image/sum.PNG" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="aimag-title" *ngIf="oldChange == 'P29'">
+                                        Дүүрэг
+                                    </div>
+                                    <div class="aimag-title" *ngIf="oldChange != 'P29'">
+                                        Сумын тоо
+                                    </div>
+                                    <div class="desc">
+                                        {{sum}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div [ngClass]="(ont)?'col-md-8':'col-md-8'" class="col-centered">
+               
+                <div id="canvas">
+                    <div id="paper"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="downArrow bounce" *ngIf="ont" (click)="down()">
+            <i-feather name="chevron-down" class="down-icon"></i-feather>
+        </div>
+    </div>
+    
+</div>
+<module-description [description]="description"></module-description>
+<div class="budget-block" *ngIf="ont">
+    <h3 *ngIf="oldChange != 'P29'">{{aimagName}} аймгийн төсөв</h3>
+    <h3 *ngIf="oldChange == 'P29'">{{aimagName}} хотын төсөв</h3>
+    <div class="block-container">
+        <div class="main_budget">
+                <module-base-number class="orlogo"                       
+                        [text1]="'суурь орлого'"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="suuriOrlogo | number"     
+                        [color]="'#28c66f'" 
+                                  
+                ></module-base-number>
+            <module-base-number class="zarlaga"
+                    [text1]="'суурь зарлага'"
+                    [text2]="'тэрбум төгрөг'"
+                    [baseNumber]="suuriZarlaga | number"     
+                    [color]="'#ea5455'"
+                    >
+            </module-base-number>
+                
+           
+            <module-base-number class="tentsel2"
+                        [text1]="'тэнцэл'"
+                        [text2]="'тэрбум төгрөг'"
+                        [baseNumber]="tentsel | number"     
+                        [color]="'#feb018'" 
+                        [width]="'auto'">
+            </module-base-number>
+            <div class="arrow_main_left" *ngIf="demjleg > 0">
+                <img src="../../../assets/image/Arrow.PNG">
+            </div>
+            <div class="arrow_main" *ngIf="tovloruuleh > 0">
+                <img src="../../../assets/image/Arrow.PNG">
+            </div>
+            <div class="main_bg_left" *ngIf="demjleg > 0">
+                <div class="main_bg_spam">Улсын төсвөөс дэмжлэг авах</div>
+                <div class="main_bg_number">{{demjleg}}</div>
+                <div class="main_bg_desc">тэрбум төгрөг</div>
+                <div class="main_bg_per">Гүйцэтгэл {{demjlegPercent}}% <b>{{demjlegValue}}</b> тэрбум</div>
+            </div>
+            <div class="main_bg" *ngIf="tovloruuleh > 0">
+                <div class="main_bg_spam">Улсын төсөвт төвлөрүүлэх</div>
+                <div class="main_bg_number">{{tovloruuleh}}</div>
+                <div class="main_bg_desc">тэрбум төгрөг</div>
+                <div class="main_bg_per">Гүйцэтгэл {{tovloruulehPercent}}% <b>{{tovloruulehValue}}</b> тэрбум</div>
+            </div>
+            <div class="main_scale">
+                <img class="m_r" src="../../../assets/image/budget/out4.png" />
+                <img class="m_l" src="../../../assets/image/budget/in4.png" />
+                <img class="g" src="../../../assets/image/budget/main/gol.svg" />
+                <img class="j" src="../../../assets/image/budget/main/jin.svg" />
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div class="budget-block" *ngIf="ont">
+    <h3  *ngIf="oldChange != 'P29'">{{aimagName}} аймгийн орон нутгийн хөгжлийн сан</h3>
+    <h3  *ngIf="oldChange == 'P29'">{{aimagName}} хотын орон нутгийн хөгжлийн сан</h3>
+    <div class="block-container">
+        <div class="or-col">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="or-item">
+                        <div class="or-text">
+                            <div class="currency">
+                                {{hugjliinSan.data | number}}
+                            </div>
+                            <div class="cur-text">
+                                тэрбум төгрөг
+                            </div>
+                            <hr>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text1">Гүйцэтгэл <b>{{hugjliinSan.percent | number}}%</b></div>
+                                <div class="cur-desc-number"><b>{{hugjliinSan.value | number}}</b> тэрбум ₮</div>
+                                
+                            </div>
+                        </div>
+                        <div class="or-desc">
+                            Орон нутгийн хөгжлийг дэмжих, бүс нутгийн хөгжлийн тэнцвэртэй байдлыг хангах, иргэд тогтвор суурьшилтай амьдрах орчин, нөхцөлийг бүрдүүлэхэд орон нутгийн хөгжлийн сангийн зорилго оршино.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="maining" src="../../assets/image/1.PNG" />
+        </div>
+    </div>
+</div>
+<div class="main-description">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <a href="http://tusuv-oronnutag.mof.gov.mn/" target="_blank" rel="noopener noreferrer">
+                        <img src="../../../assets/image/desc.PNG" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="budget-block" *ngIf="ont" style="margin-bottom: 0px;">
+    <h3 style="margin-bottom: 0px;" class="title">Тусгай зориулалтын шилжүүлэг</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="special-col">
+                    <div class="special-item">
+                        <div class="special-img" style="background-color: {{colors[2]}};">
+                            <div class="percentage">
+                                {{tsetserleg.calc}}%
+                            </div>
+                            <div class="title">
+                                Цэцэрлэг
+                            </div>
+                            <img src="../../assets/image/town.png" />
+                        </div>                         
+                        <div class="special-text">
+                            <div class="currency" style="color: {{colors[2]}};">
+                                {{tsetserleg.data}}
+                            </div>
+                            <div class="cur-text">
+                                тэрбум төгрөг
+                            </div>
+                            <span class="arrow-hr"><i class="arrow down"  style="border-color: {{colors[2]}};"></i></span>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[2]}};">{{tsetserleg.percent}}%</b></div>
+                                <div class="cur-desc-number"><b style="color: {{colors[2]}};">{{tsetserleg.value}}</b> тэрбум ₮</div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <div class="special-col">
+                    <div class="special-item">
+                        <div class="special-img" style="background-color: {{colors[3]}};">
+                            <div class="percentage">
+                                {{surguuli.calc}}%
+                            </div>
+                            <div class="title">
+                                Сургууль
+                            </div>
+                            <img src="../../assets/image/town.png" />
+                        </div>                         
+                        <div class="special-text">
+                            <div class="currency" style="color: {{colors[3]}};">
+                                {{surguuli.data}}
+                            </div>
+                            <div class="cur-text">
+                                тэрбум төгрөг
+                            </div>
+                            <span class="arrow-hr"><i class="arrow down"  style="border-color: {{colors[3]}};"></i></span>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[3]}};">{{surguuli.percent}}%</b></div>
+                                <div class="cur-desc-number"><b style="color: {{colors[3]}};">{{surguuli.value}}</b> тэрбум ₮</div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <div class="special-col">
+                    <div class="special-item">
+                        <div class="special-img" style="background-color: {{colors[4]}};">
+                            <div class="percentage">
+                                {{emneleg.calc}}%
+                            </div>
+                            <div class="title">
+                                Эмнэлэг
+                            </div>
+                            <img src="../../assets/image/town.png" />
+                        </div>
+                         
+                        <div class="special-text">
+                            <div class="currency" style="color: {{colors[4]}};">
+                                {{emneleg.data}}
+                            </div>
+                            <div class="cur-text">
+                                тэрбум төгрөг
+                            </div>
+                            <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[4]}};"></i></span>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[4]}};">{{emneleg.percent}}%</b></div>
+                                <div class="cur-desc-number"><b style="color: {{colors[4]}};">{{emneleg.value}}</b> тэрбум ₮</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <div class="special-col">
+                    <div class="special-item">
+                        <div class="special-img" style="background-color: {{colors[5]}};">
+                            <div class="percentage">
+                                {{kadastr.calc}}%
+                            </div>
+                            <div class="title">
+                                газрын харилцаа, кадастр
+                            </div>
+                            <img src="../../assets/image/town.png" />
+                        </div>
+                         
+                        <div class="special-text">
+                            <div class="currency" style="color: {{colors[5]}};">
+                                {{kadastr.data}}
+                            </div>
+                            <div class="cur-text">
+                                тэрбум төгрөг
+                            </div>
+                            <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[5]}};"></i></span>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[5]}};">{{kadastr.percent}}%</b></div>
+                                <div class="cur-desc-number"><b style="color: {{colors[5]}};">{{kadastr.value}}</b> тэрбум ₮</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <div class="special-col">
+                    <div class="special-item">
+                        <div class="special-img" style="background-color: {{colors[6]}};">
+                            <div class="percentage">
+                                {{hamgaalal.calc}}%
+                            </div>
+                            <div class="title">
+                                хүүхэд хөгжил,
+хамгаалал
+                            </div>
+                            <img src="../../assets/image/town.png" />
+                        </div>
+                         
+                        <div class="special-text">
+                            <div class="currency" style="color: {{colors[6]}};">
+                                {{hamgaalal.data}}
+                            </div>
+                            <div class="cur-text">
+                                тэрбум төгрөг
+                            </div>
+                            <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[6]}};"></i></span>
+                            <div class="cur-desc">
+                                <div class="cur-desc-text">Гүйцэтгэл <b style="color: {{colors[6]}};">{{hamgaalal.percent}}%</b></div>
+                                <div class="cur-desc-number"><b style="color: {{colors[6]}};">{{hamgaalal.value}}</b> тэрбум ₮</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+</div>
+
+
+<div class="budget-block" *ngIf="ont" style="margin-top: 0px;">
+    <h3 style="margin: 0px" class="title">Улсын төсвийн хөрөнгөөр хэрэгжих дэд бүтцийн арга хэмжээнүүд</h3>
+    <div class="row">
+        <div class="col-md-{{breakpoint}}">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors[1]}};">
+                        <img src="../../assets/image/budget/ont/DB_4.svg" />
+                    </div>
+                    <div class="ded-name">Дэд бүтэц</div>
+                    <div class="ded-number"  style="color: {{colors[1]}};">{{dedButets.value | number}}</div>
+                    <div class="ded-cur">тэрбум төгрөг</div>
+                    <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[1]}};"></i></span>
+                    <div class="ded-sub-item" *ngFor="let item of getSubList(dedButets.data); let i = index">{{item}}</div>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-{{breakpoint}}">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors[2]}};">
+                        <img src="../../assets/image/budget/ont/EM_2.svg" />
+                    </div>
+                    <div class="ded-name">Эрүүл мэнд</div>
+                    <div class="ded-number" style="color: {{colors[2]}};">{{eruulMend.value | number}}</div>
+                    <div class="ded-cur">тэрбум төгрөг</div>
+                    <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[2]}};"></i></span>
+                    <div class="ded-sub-item" *ngFor="let item of getSubList(eruulMend.data); let i = index">{{item}}</div>
+                </div>
+            </div>
+        </div>  
+        <div class="col-md-{{breakpoint}}">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors[3]}};">
+                        <img src="../../assets/image/budget/ont/ONU_5.svg" />
+                    </div>
+                    <div class="ded-name">Орон нутгийн удирдлага</div>
+                    <div class="ded-number" style="color: {{colors[3]}};">{{onUdirdlaga.value | number}}</div>
+                    <div class="ded-cur">тэрбум төгрөг</div>
+                    <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[3]}};"></i></span>
+                    <div class="ded-sub-item" *ngFor="let item of getSubList(onUdirdlaga.data); let i = index">{{item}}</div>
+                </div>
+            </div>
+        </div>  
+        <div class="col-md-{{breakpoint}}">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors[4]}};">
+                        <img src="../../assets/image/budget/ont/B_1.svg" />
+                    </div>
+                    <div class="ded-name">Боловсрол</div>
+                    <div class="ded-number" style="color: {{colors[4]}};">{{bolovsrol.value | number}}</div>
+                    <div class="ded-cur">тэрбум төгрөг</div>
+                    <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[4]}};"></i></span>
+                    <div class="ded-sub-item" *ngFor="let item of getSubList(bolovsrol.data); let i = index">{{item}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-{{breakpoint}}">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors[5]}};">
+                        <img src="../../assets/image/budget/ont/TU_6.svg" />
+                    </div>
+                    <div class="ded-name">Төрийн үйлчилгээ, Бусад</div>
+                    <div class="ded-number" style="color: {{colors[5]}};">{{turiinUilchilgee.value | number}}</div>
+                    <div class="ded-cur">тэрбум төгрөг</div>
+                    <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[5]}};"></i></span>
+                    <div class="ded-sub-item" *ngFor="let item of getSubList(turiinUilchilgee.data); let i = index">{{item}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-{{breakpoint}}">
+            <div class="ded-col">
+                <div class="ded-item">
+                    <div class="ded-img" style="background-color: {{colors[6]}};">
+                        <img src="../../assets/image/budget/ont/SS_3.svg" />
+                    </div>
+                    <div class="ded-name">Соёл, Спорт</div>
+                    <div class="ded-number" style="color: {{colors[6]}};">{{soylSport.value | number}}</div>
+                    <div class="ded-cur">сая төгрөг</div>
+                    <span class="arrow-hr"><i class="arrow down" style="border-color: {{colors[6]}};"></i></span>
+                    <div class="ded-sub-item" *ngFor="let item of getSubList(soylSport.data); let i = index">{{item}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="budget-block" *ngIf="ont">
+    <h3 class="title" *ngIf="oldChange != 'P29'">{{aimagName}} аймгийн сумдын иргэдийн төсөв</h3>
+    <h3 class="title" *ngIf="oldChange == 'P29'">{{aimagName}} хотын дүүргүүдийн иргэдийн төсөв</h3>
+    <div class="block-container">
+        <div class="sum-container" >
+            <select class="form-control" *ngIf="oldChange === 'P29'">
+                <option>Баянзүрх дүүрэг</option>
+                <option>Хан-Уул дүүрэг</option>
+            </select>
+            <select class="form-control" *ngIf="oldChange != 'P29'">
+                <option>Сонгох</option>
+            </select>
+        <embed class="pdf" src= "../../assets/sample.pdf"  *ngIf="oldChange === 'P29'">
+            <!-- <div class="row">
+                <div class="col-md-2">
+                    <div class="sum-col">
+                        <div class="sum-item">
+                            <div class="sum-header"><img src="../../assets/image/budget/ont/pdf.svg" /></div>
+                            <div class="sum-footer">presentation-file.pptx</div>
+                            <div class="sum-file">10.50kb</div>
+                        </div>
+                    </div>
+                </div>                
+            </div> -->
+        </div>
+    </div>
+</div>

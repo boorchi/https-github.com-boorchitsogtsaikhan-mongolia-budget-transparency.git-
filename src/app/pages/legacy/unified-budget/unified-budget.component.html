@@ -1,0 +1,94 @@
+<app-menu [menuType]="'legacy'"></app-menu>
+<div class="main-content">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-content" [class.fade-in]="titleVisible">
+                        <div class="hero-icon">
+                            <i class="fas fa-university fa-4x text-white"></i>
+                        </div>
+                        <h1 class="hero-title">{{ budgetData.title }}</h1>
+                        <p class="hero-subtitle">
+                            {{ budgetData.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="intro-card">
+                        <div class="intro-content">
+                            <h2 class="intro-title">Нэгдсэн төсвийн тухай</h2>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="concept-card">
+                                        <h5 class="concept-title">
+                                            <i class="fas fa-info-circle me-2"></i>Төсөв гэж юу вэ?
+                                        </h5>
+                                        <p class="concept-text">
+                                            Төсөв бол төрийн орлого, зарлагын төлөвлөгөө бөгөөд улс орны эдийн засгийн бодлогыг хэрэгжүүлэх үндсэн хэрэгсэл юм.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="concept-card">
+                                        <h5 class="concept-title">
+                                            <i class="fas fa-balance-scale me-2"></i>Нэгдсэн төсөв
+                                        </h5>
+                                        <p class="concept-text">
+                                            Нэгдсэн төсөв нь төв болон орон нутгийн төсвийг нэгтгэсэн ерөнхий төсвийн тогтолцоо юм.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Budget Sections -->
+    <div class="cards-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="section-title text-center mb-5">Төсвийн үндсэн бүрэлдэхүүн хэсгүүд</h2>
+                    <div class="navigation-grid">
+                        <div class="nav-card" 
+                             *ngFor="let section of budgetData.sections; let i = index"
+                             [class.slide-in]="buttonsVisible[i]"
+                             (click)="onSectionClick(section)"
+                             [attr.tabindex]="0"
+                             (keydown.enter)="onSectionClick(section)"
+                             [attr.aria-label]="'Navigate to ' + section.title"
+                             role="button">
+                            <div class="nav-card-icon">
+                                <i class="fas fa-file-invoice-dollar fa-2x"></i>
+                            </div>
+                            <div class="nav-card-content">
+                                <h3 class="nav-card-title">{{ section.title }}</h3>
+                                <p class="nav-card-text">
+                                    {{ section.description }}
+                                </p>
+                            </div>
+                            <div class="nav-card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
