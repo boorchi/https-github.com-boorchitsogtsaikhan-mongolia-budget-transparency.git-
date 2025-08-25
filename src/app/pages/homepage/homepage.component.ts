@@ -301,4 +301,8 @@ export class HomepageComponent implements OnInit {
     }
     return 1;
   }
+
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
 }

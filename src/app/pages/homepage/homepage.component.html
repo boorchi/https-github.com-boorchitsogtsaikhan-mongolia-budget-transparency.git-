@@ -13,8 +13,8 @@
             <a href="{{hm.url}}">
                     <div class="main-menu" style="background-color: {{colors[i]}};">
                     <table>
-                        <tr class="row-1"><td><img src="../../assets/image/icons/o{{i + 1}}.svg" height="50px"/></td><td><h5>{{hm.name}}</h5></td></tr>
-                        <tr class="row-2"><td><span><img src="../../assets/image/icons/arrowsoutline.svg" width="30px"/></span></td><td><p>{{hm.description}}</p></td></tr>
+                        <tr class="row-1"><td><img [src]="getImagePath('icons/o' + (i + 1) + '.svg')" height="50px"/></td><td><h5>{{hm.name}}</h5></td></tr>
+                        <tr class="row-2"><td><span><img [src]="getImagePath('icons/arrowsoutline.svg')" width="30px"/></span></td><td><p>{{hm.description}}</p></td></tr>
                     </table>
                 </div>
             </a>
@@ -23,9 +23,9 @@
 </div>
 <div class="layout layout-2">
     
-    <img class="cloud1" src="../../../assets/image/cloud1.png" />
-    <img class="cloud2" src="../../../assets/image/cloud2.png" />
-    <img class="cloud3" src="../../../assets/image/cloud3.PNG" />
+    <img class="cloud1" [src]="getImagePath('cloud1.png')" />
+    <img class="cloud2" [src]="getImagePath('cloud2.png')" />
+    <img class="cloud3" [src]="getImagePath('cloud3.PNG')" />
     <div class="container">
         <h5 class="title">Иргэдийн төсвийн</h5>
         <h5 class="sub-title">Онцлох тоо</h5>
@@ -113,11 +113,11 @@
        
         </div>
         <div class="main_scale">
-            <img class="m_r" src="../../../assets/image/budget/out{{check(budgetMain['APPROVED']['OUT']['percent'])}}.png" />
-                    <img class="m_l" src="../../../assets/image/budget/in{{check(budgetMain['APPROVED']['IN']['percent'])}}.png" />
-            <img class="g" src="../../../assets/image/budget/main/gol.svg" />
-            <img class="j" src="../../../assets/image/budget/main/jin.svg" />
-            <img class="t" src="../../../assets/image/banner_pic3.png" />
+            <img class="m_r" [src]="getImagePath('budget/out' + check(budgetMain['APPROVED']['OUT']['percent']) + '.png')" />
+                    <img class="m_l" [src]="getImagePath('budget/in' + check(budgetMain['APPROVED']['IN']['percent']) + '.png')" />
+            <img class="g" [src]="getImagePath('budget/main/gol.svg')" />
+            <img class="j" [src]="getImagePath('budget/main/jin.svg')" />
+            <img class="t" [src]="getImagePath('banner_pic3.png')" />
         </div>
         <div class="downArrow bounce" (click)="down()">
             <i-feather name="chevron-down" class="down-icon-home"></i-feather>
@@ -147,14 +147,14 @@
                             </div>
                             <div class="col-md-3 left">
                                 <div>
-                                    <img src="../../assets/image/date.png" class="reverse" width="40">
+                                    <img [src]="getImagePath('date.png')" class="reverse" width="40">
                                     <p><span>Купон</span> <br/>
                                         {{bnd.coupon}}%</p>
                                 </div>
                             </div>
                             <div class="col-md-5 left">
                                 <div>
-                                <img src="../../assets/image/coupon.PNG" width="25"><p><span>Эргэн төлөгдөх огноо</span>
+                                <img [src]="getImagePath('coupon.PNG')" width="25"><p><span>Эргэн төлөгдөх огноо</span>
                                     {{bnd.date}}</p>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                         <div class="top-video">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="../../assets/image/news.PNG"/>
+                                    <img [src]="getImagePath('news.PNG')"/>
                                 </div>
                                 <div class="col-md-6">
                                     <h3><a  routerLink="/news" [queryParams]="{id: vid.id}">{{vid.name | slice:0:50 }}</a></h3>
@@ -252,9 +252,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img src="../../assets/image/icons/mn-logo-rectangle-with-border.svg" width="200px" style="padding-bottom: 15px;"/>
-                <img src="../../assets/image/icons/union.jpg" width="78px" style="padding-bottom: 15px; float: left;"/> <div style="font-size: 11px;padding-top: 18px;padding-left: 90px;font-weight: 600;color: #003399;">Funded by<br> the European Union</div>
-                <img src="../../assets/image/icons/world.png" width="250px" style="padding-bottom: 15px;"/>
+                <img [src]="getImagePath('icons/mn-logo-rectangle-with-border.svg')" width="200px" style="padding-bottom: 15px;"/>
+                <img [src]="getImagePath('icons/union.jpg')" width="78px" style="padding-bottom: 15px; float: left;"/> <div style="font-size: 11px;padding-top: 18px;padding-left: 90px;font-weight: 600;color: #003399;">Funded by<br> the European Union</div>
+                <img [src]="getImagePath('icons/world.png')" width="250px" style="padding-bottom: 15px;"/>
             </div>
             <div class="col-md-9">
                 <div class="row">
