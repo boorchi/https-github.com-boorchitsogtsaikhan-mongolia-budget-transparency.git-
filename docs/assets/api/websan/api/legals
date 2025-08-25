@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Budget Law 2025",
+    "year": 2025,
+    "type": 46,
+    "subType": 1,
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "title": "Revenue Collection Regulations",
+    "year": 2025,
+    "type": 46,
+    "subType": 2,
+    "status": "Active"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "title": "Budget Transparency Updates",
+  "content": "This is demo content for the GitHub Pages deployment. The actual content would be loaded from the government API when accessed from an HTTP environment.",
+  "date": "2025-08-25",
+  "type": 1,
+  "author": "Ministry of Finance"
+}

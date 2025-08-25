@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Ministry of Finance",
+    "phone": "+976-11-123456",
+    "email": "info@mof.gov.mn",
+    "department": "Budget Department"
+  },
+  {
+    "name": "Budget Transparency Unit",
+    "phone": "+976-11-123457",
+    "email": "transparency@mof.gov.mn",
+    "department": "Public Information"
+  }
+]

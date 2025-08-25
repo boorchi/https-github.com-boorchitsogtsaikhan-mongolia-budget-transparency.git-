@@ -68,8 +68,35 @@ export class Constants {
 	// public static HOST = 'http://localhost:8080/';
 	// public static PATH = 'http://localhost:8080';
 
-	public static HOST = window.location.origin.indexOf("10.11.11.59") > 1 ? 'http://10.11.11.59:8080/' : 'http://iltod.mof.gov.mn:8080/';
-	public static PATH = window.location.origin.indexOf("10.11.11.59") > 1 ? 'http://10.11.11.59:8080' : 'http://iltod.mof.gov.mn:8080';
+	// Fix mixed content issue for GitHub Pages (HTTPS) deployment
+	private static getSecureApiUrl(): { HOST: string, PATH: string } {
+		const isHttps = window.location.protocol === 'https:';
+		const isGitHubPages = window.location.hostname === 'boorchi.github.io';
+		
+		if (isHttps && isGitHubPages) {
+			// For GitHub Pages, use mock API endpoints that serve static data
+			// This prevents mixed content issues while maintaining functionality
+			const baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '');
+			return {
+				HOST: baseUrl + '/api/',
+				PATH: baseUrl + '/api'
+			};
+		} else if (window.location.origin.indexOf("10.11.11.59") > -1) {
+			return {
+				HOST: 'http://10.11.11.59:8080/',
+				PATH: 'http://10.11.11.59:8080'
+			};
+		} else {
+			return {
+				HOST: 'http://iltod.mof.gov.mn:8080/',
+				PATH: 'http://iltod.mof.gov.mn:8080'
+			};
+		}
+	}
+
+	private static apiUrls = Constants.getSecureApiUrl();
+	public static HOST = Constants.apiUrls.HOST;
+	public static PATH = Constants.apiUrls.PATH;
 
 	public static PAGE_DETAILJOB = 'detail';
 	public static DICTIONARY = "websan/api/dictionary";

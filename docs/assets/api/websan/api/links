@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Ministry of Finance Official Website",
+    "url": "https://mof.gov.mn",
+    "description": "Official government website"
+  },
+  {
+    "name": "National Statistics Office",
+    "url": "https://nso.mn",
+    "description": "National statistics and data"
+  }
+]

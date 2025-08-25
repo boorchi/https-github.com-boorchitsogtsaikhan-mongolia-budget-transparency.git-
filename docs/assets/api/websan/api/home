@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "data": {
+    "totalBudget": 15000000000000,
+    "totalRevenue": 13500000000000,
+    "totalExpenditure": 14800000000000,
+    "lastUpdated": "2025-08-25",
+    "message": "Demo data for GitHub Pages deployment"
+  }
+}

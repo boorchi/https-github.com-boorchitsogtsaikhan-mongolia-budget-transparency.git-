@@ -1,0 +1,16 @@
+[
+  {
+    "year": 2025,
+    "totalRevenue": 13500000000000,
+    "totalExpenditure": 14800000000000,
+    "type": "SUBMITTED",
+    "code": "IN"
+  },
+  {
+    "year": 2024,
+    "totalRevenue": 12800000000000,
+    "totalExpenditure": 13200000000000,
+    "type": "APPROVED",
+    "code": "IN"
+  }
+]
