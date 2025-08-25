@@ -1173,7 +1173,13 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/constants */
+    "./src/app/services/constants.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -1343,7 +1349,13 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
       return _createClass(HeaderComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {} // Helper method for image paths
+
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return _services_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].getImagePath(imagePath);
+        }
       }]);
     }();
 
@@ -1358,8 +1370,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         menu: "menu"
       },
       decls: 22,
-      vars: 17,
-      consts: [["id", "header", 1, "navbar", "navbar-expand-sm", "navbar-light", "main-menu"], ["routerLink", "/", 1, "navbar-brand"], ["src", "../../../assets/image/logo.png"], [1, "navbar-nav", "ml-auto", "top-menu"], [1, "nav-item"], ["routerLink", "/home", 1, "nav-link"], ["routerLink", "legacy", 1, "nav-link", 3, "queryParams"], ["routerLink", "budget/main", 1, "nav-link"], ["routerLink", "cp", 1, "nav-link"], [1, "nav-link", 3, "routerLink", "queryParams"], [1, "icon", "mobile-toggle", 3, "click"], ["name", "menu", 1, "menu-icon", 2, "color", "#fff"], ["class", "mobile-menu", 4, "ngIf"], [1, "mobile-menu"], ["routerLink", "/home", 1, "nav-link", 3, "click"], ["routerLink", "legacy", 1, "nav-link", 3, "queryParams", "click"], ["routerLink", "budget/main", 1, "nav-link", 3, "click"], ["routerLink", "cp", 1, "nav-link", 3, "click"], [1, "nav-link", 3, "routerLink", "queryParams", "click"]],
+      vars: 18,
+      consts: [["id", "header", 1, "navbar", "navbar-expand-sm", "navbar-light", "main-menu"], ["routerLink", "/", 1, "navbar-brand"], [3, "src"], [1, "navbar-nav", "ml-auto", "top-menu"], [1, "nav-item"], ["routerLink", "/home", 1, "nav-link"], ["routerLink", "legacy", 1, "nav-link", 3, "queryParams"], ["routerLink", "budget/main", 1, "nav-link"], ["routerLink", "cp", 1, "nav-link"], [1, "nav-link", 3, "routerLink", "queryParams"], [1, "icon", "mobile-toggle", 3, "click"], ["name", "menu", 1, "menu-icon", 2, "color", "#fff"], ["class", "mobile-menu", 4, "ngIf"], [1, "mobile-menu"], ["routerLink", "/home", 1, "nav-link", 3, "click"], ["routerLink", "legacy", 1, "nav-link", 3, "queryParams", "click"], ["routerLink", "budget/main", 1, "nav-link", 3, "click"], ["routerLink", "cp", 1, "nav-link", 3, "click"], [1, "nav-link", 3, "routerLink", "queryParams", "click"]],
       template: function HeaderComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
@@ -1440,7 +1452,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/logo.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("active", ctx.urlName.includes("/home"));
 
@@ -1450,7 +1466,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("queryParams", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c0));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("queryParams", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c0));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
@@ -1466,14 +1482,14 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c1))("queryParams", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c2));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c1))("queryParams", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](17, _c2));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isMobile);
         }
       },
-      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"]],
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]],
       styles: [".main-menu[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  background-color: #fff;\n  height: 80px;\n  position: fixed;\n  width: 100%;\n  z-index: 10001;\n  top: 0px;\n  display: flex;\n  align-items: center;\n}\n.main-menu[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  margin-left: 20px;\n  width: 250px;\n}\n.top-menu[_ngcontent-%COMP%] {\n  display: flex;\n  flex: 1;\n  justify-content: space-evenly;\n  align-items: center;\n  margin: 0;\n  padding: 0;\n}\n.top-menu[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  list-style: none;\n  padding: 5px 10px;\n}\n.top-menu[_ngcontent-%COMP%]   li.active[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  background-color: #0081ff;\n  border-radius: 10px;\n}\n.top-menu[_ngcontent-%COMP%]   li.active[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #0081ff;\n}\n.top-menu[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #666666;\n  font-weight: 700;\n  text-align: center;\n}\n.top-menu[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: #0081ff;\n}\n.top-menu[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-weight: bold;\n}\n@media screen and (max-width: 1366px) {\n  .top-menu[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n    padding: 5px 10px;\n  }\n  .top-menu[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n    font-size: 15px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ib29yY2hpdHNvZ3RzYWlraGFuL0Rvd25sb2Fkcy93ZWJzYW5fZnJvbnQtbWFzdGVyL3NyYy9hcHAvcGFnZXMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFnZXMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHlCQUFBO0VBQ0Esc0JBQUE7RUFDQSxZQUFBO0VBQ0EsZUFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0EsUUFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtBQ0NKO0FEQUk7RUFDSSxpQkFBQTtFQUNBLFlBQUE7QUNFUjtBREVBO0VBQ0ksYUFBQTtFQUNBLE9BQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7QUNDSjtBREFJO0VBQ0ksZ0JBQUE7RUFDQSxpQkFBQTtBQ0VSO0FEQVk7RUFDSSx5QkFBQTtFQUNBLG1CQUFBO0FDRWhCO0FEQVk7RUFDSSxjQUFBO0FDRWhCO0FEQ1E7RUFDSSxjQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQ0NaO0FEQ1E7RUFDSSxjQUFBO0FDQ1o7QURFSTtFQUNJLGlCQUFBO0FDQVI7QURJQTtFQUVRO0lBQ0ksaUJBQUE7RUNGVjtFREdVO0lBQ0ksZUFBQTtFQ0RkO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4tbWVudSB7XG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xuICAgIGhlaWdodDogODBweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgei1pbmRleDogMTAwMDE7XG4gICAgdG9wOiAwcHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGltZyB7XG4gICAgICAgIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICAgICAgICB3aWR0aDogMjUwcHg7XG4gICAgfVxufVxuXG4udG9wLW1lbnUge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleDogMTtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWV2ZW5seTsgLy8gRXZlbmx5IHNwYWNlIG5hdiBpdGVtc1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgbGkge1xuICAgICAgICBsaXN0LXN0eWxlOiBub25lO1xuICAgICAgICBwYWRkaW5nOiA1cHggMTBweDtcbiAgICAgICAgJi5hY3RpdmUge1xuICAgICAgICAgICAgc3BhbiB7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwODFmZjtcbiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgYSB7XG4gICAgICAgICAgICAgICAgY29sb3I6ICMwMDgxZmY7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogIzY2NjY2NjtcbiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG4gICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgIH1cbiAgICAgICAgYTpob3ZlciB7XG4gICAgICAgICAgICBjb2xvcjogIzAwODFmZjtcbiAgICAgICAgfVxuICAgIH1cbiAgICBhIHtcbiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgfVxufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMzY2cHgpIHtcbiAgICAudG9wLW1lbnUge1xuICAgICAgICBsaSB7XG4gICAgICAgICAgICBwYWRkaW5nOiA1cHggMTBweDtcbiAgICAgICAgICAgIGEge1xuICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn0iLCIubWFpbi1tZW51IHtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgaGVpZ2h0OiA4MHB4O1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHdpZHRoOiAxMDAlO1xuICB6LWluZGV4OiAxMDAwMTtcbiAgdG9wOiAwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4ubWFpbi1tZW51IGltZyB7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICB3aWR0aDogMjUwcHg7XG59XG5cbi50b3AtbWVudSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXg6IDE7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtZXZlbmx5O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG59XG4udG9wLW1lbnUgbGkge1xuICBsaXN0LXN0eWxlOiBub25lO1xuICBwYWRkaW5nOiA1cHggMTBweDtcbn1cbi50b3AtbWVudSBsaS5hY3RpdmUgc3BhbiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDgxZmY7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG59XG4udG9wLW1lbnUgbGkuYWN0aXZlIGEge1xuICBjb2xvcjogIzAwODFmZjtcbn1cbi50b3AtbWVudSBsaSBhIHtcbiAgY29sb3I6ICM2NjY2NjY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi50b3AtbWVudSBsaSBhOmhvdmVyIHtcbiAgY29sb3I6ICMwMDgxZmY7XG59XG4udG9wLW1lbnUgYSB7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMzY2cHgpIHtcbiAgLnRvcC1tZW51IGxpIHtcbiAgICBwYWRkaW5nOiA1cHggMTBweDtcbiAgfVxuICAudG9wLW1lbnUgbGkgYSB7XG4gICAgZm9udC1zaXplOiAxNXB4O1xuICB9XG59Il19 */"]
     });
     /*@__PURE__*/

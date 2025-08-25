@@ -189,6 +189,12 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           this.getAddress();
           this.getContact();
           this.getLink();
+        } // Helper method for image paths
+
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return src_app_services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
         }
       }, {
         key: "getAddress",
@@ -240,8 +246,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       type: BudgetFooterComponent,
       selectors: [["app-budget-footer"]],
       decls: 44,
-      vars: 3,
-      consts: [[1, "layout", "layout-5"], [1, "container"], [1, "row"], [1, "col-md-3"], ["src", "../../assets/image/icons/mn-logo-rectangle-with-border.svg", "width", "200px", 2, "padding-bottom", "15px"], ["src", "../../assets/image/icons/union.jpg", "width", "78px", 2, "padding-bottom", "15px", "float", "left"], [2, "font-size", "11px", "padding-top", "18px", "padding-left", "90px", "font-weight", "600", "color", "#003399"], ["src", "../../assets/image/icons/world.png", "width", "250px", 2, "padding-bottom", "15px"], [1, "col-md-9"], [1, "col-md-4"], ["class", "block", 4, "ngFor", "ngForOf"], [1, "block"], [1, "icon"], ["name", "Map", 1, "someclass"], [1, "content"], [1, "links"], [4, "ngFor", "ngForOf"], [1, "icon-social"], ["href", "youtube.com"], ["name", "Youtube", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "facebook.com"], ["name", "Facebook", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "instagram.com"], ["name", "Instagram", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "twitter.com"], ["name", "Twitter", 1, "someclass", 2, "width", "20px", "height", "20px"], [1, "row", "footerhr"], [1, "col-md-12"], ["name", "map-pin", 1, "someclass"], ["name", "phone", 1, "someclass"], [3, "href"]],
+      vars: 6,
+      consts: [[1, "layout", "layout-5"], [1, "container"], [1, "row"], [1, "col-md-3"], ["width", "200px", 2, "padding-bottom", "15px", 3, "src"], ["width", "78px", 2, "padding-bottom", "15px", "float", "left", 3, "src"], [2, "font-size", "11px", "padding-top", "18px", "padding-left", "90px", "font-weight", "600", "color", "#003399"], ["width", "250px", 2, "padding-bottom", "15px", 3, "src"], [1, "col-md-9"], [1, "col-md-4"], ["class", "block", 4, "ngFor", "ngForOf"], [1, "block"], [1, "icon"], ["name", "Map", 1, "someclass"], [1, "content"], [1, "links"], [4, "ngFor", "ngForOf"], [1, "icon-social"], ["href", "youtube.com"], ["name", "Youtube", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "facebook.com"], ["name", "Facebook", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "instagram.com"], ["name", "Instagram", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "twitter.com"], ["name", "Twitter", 1, "someclass", 2, "width", "20px", "height", "20px"], [1, "row", "footerhr"], [1, "col-md-12"], ["name", "map-pin", 1, "someclass"], ["name", "phone", 1, "someclass"], [3, "href"]],
       template: function BudgetFooterComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -388,7 +394,19 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/mn-logo-rectangle-with-border.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/union.jpg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/world.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.address);
 

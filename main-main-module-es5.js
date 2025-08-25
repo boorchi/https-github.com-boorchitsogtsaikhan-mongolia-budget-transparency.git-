@@ -91,7 +91,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
     function MainComponent_div_20_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 64);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 57);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " % ");
 
@@ -101,13 +101,13 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
     function MainComponent_i_feather_21_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "i-feather", 65);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "i-feather", 58);
       }
     }
 
     function MainComponent_i_feather_22_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "i-feather", 66);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "i-feather", 59);
       }
     }
 
@@ -115,9 +115,9 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 60);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 61);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -139,9 +139,9 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 60);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 61);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -161,7 +161,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
     function MainComponent_module_description_31_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "module-description", 69);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "module-description", 62);
       }
 
       if (rf & 2) {
@@ -252,6 +252,12 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         key: "getAssetPath",
         value: function getAssetPath(path) {
           return _services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getAssetPath(path);
+        } // Helper method for image paths
+
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return _services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
         }
       }, {
         key: "down",
@@ -418,8 +424,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       type: MainComponent,
       selectors: [["budget-main"]],
       decls: 97,
-      vars: 40,
-      consts: [[1, "budget-content"], [1, "budget-top"], [1, "trapezoid"], [1, "budget-main", "main_page"], [1, "last_updated"], [1, "title"], [1, "main_budget"], ["routerLink", "/budget/income"], [1, "orlogo", 3, "showHelp", "text1", "text2", "baseNumber", "color", "percent", "befPercent", "prefValue"], ["routerLink", "/budget/expense"], [1, "zarlaga", 3, "showHelp", "text1", "text2", "baseNumber", "color", "percent", "befPercent", "prefValue"], [1, "tentsel"], [1, "cur", 3, "text1", "text2", "baseNumber", "color", "width"], [1, "hover", 3, "text1", "text2", "baseNumber", "color", "width"], [1, "guitsetgel"], [3, "text1", "text2", "baseNumber", "color", "width"], ["style", "color: rgb(254, 176, 24);", 4, "ngIf"], ["name", "arrow-down", "class", "down-icon", "style", "position: absolute;top: 70px;right: 100px;color: #505054;", 4, "ngIf"], ["name", "arrow-up", "class", "down-icon", "style", "position: absolute;top: 70px;right: 100px;color: #505054;", 4, "ngIf"], [1, "main_scale"], [4, "ngIf"], [1, "g", 3, "src"], [1, "j", 3, "src"], [1, "t", 3, "src"], [1, "downArrow", "bounce", "main", 3, "click"], ["name", "chevron-down", 1, "down-icon"], [3, "description", 4, "ngIf"], [1, "budget-content", "main-block"], [1, "main-title"], [1, "second-title"], [1, "row", "d-flex", "justify-content-center", 2, "margin", "0px auto"], [1, "col-3", "right"], ["routerLink", "/budget/state-budget"], [1, "budget-type", 2, "background", "#284c80"], [1, "soyombo"], ["src", "../../../assets/image/1.svg"], ["src", "../../../assets/image/icons/Duruud/Turiin_alban_haagch_3.png", "width", "130", 1, "dur1"], ["routerLink", "/budget/health-insurance"], [1, "budget-type", 2, "background", "#05a8eb"], ["src", "../../../assets/image/4.svg"], ["src", "../../../assets/image/icons/Duruud/emch.png", "width", "110", 1, "dur2"], [1, "col-5", "center"], ["src", "../../../assets/image/map.svg", 1, "main-map"], ["src", "../../../assets/image/map_line.svg", 1, "main-map"], [1, "col-3", "left"], ["routerLink", "/budget/oron-nutag"], [1, "budget-type", 2, "background", "#feb018"], [1, "ger"], ["src", "../../../assets/image/2.svg"], ["src", "../../../assets/image/icons/Duruud/Malchin.png", "width", "100", 1, "dur3"], ["routerLink", "/budget/tax"], [1, "budget-type", 2, "background", "#0d7c5c"], ["src", "../../../assets/image/3.svg"], ["src", "../../../assets/image/icons/Duruud/tatvar.png", "width", "150", 1, "dur4"], [1, "row", "main-bottom"], [1, "col-md-4"], ["routerLink", "/budget/debt"], [1, "item", 2, "text-align", "left"], ["src", "../../../assets/image/suld.png"], ["routerLink", "/budget/government-assistance"], [1, "item"], ["src", "../../../assets/image/loan.PNG"], ["routerLink", "/budget/macro"], ["src", "../../../assets/image/macro.PNG"], [2, "color", "rgb(254, 176, 24)"], ["name", "arrow-down", 1, "down-icon", 2, "position", "absolute", "top", "70px", "right", "100px", "color", "#505054"], ["name", "arrow-up", 1, "down-icon", 2, "position", "absolute", "top", "70px", "right", "100px", "color", "#505054"], [1, "m_r", 3, "src"], [1, "m_l", 3, "src"], [3, "description"]],
+      vars: 53,
+      consts: [[1, "budget-content"], [1, "budget-top"], [1, "trapezoid"], [1, "budget-main", "main_page"], [1, "last_updated"], [1, "title"], [1, "main_budget"], ["routerLink", "/budget/income"], [1, "orlogo", 3, "showHelp", "text1", "text2", "baseNumber", "color", "percent", "befPercent", "prefValue"], ["routerLink", "/budget/expense"], [1, "zarlaga", 3, "showHelp", "text1", "text2", "baseNumber", "color", "percent", "befPercent", "prefValue"], [1, "tentsel"], [1, "cur", 3, "text1", "text2", "baseNumber", "color", "width"], [1, "hover", 3, "text1", "text2", "baseNumber", "color", "width"], [1, "guitsetgel"], [3, "text1", "text2", "baseNumber", "color", "width"], ["style", "color: rgb(254, 176, 24);", 4, "ngIf"], ["name", "arrow-down", "class", "down-icon", "style", "position: absolute;top: 70px;right: 100px;color: #505054;", 4, "ngIf"], ["name", "arrow-up", "class", "down-icon", "style", "position: absolute;top: 70px;right: 100px;color: #505054;", 4, "ngIf"], [1, "main_scale"], [4, "ngIf"], [1, "g", 3, "src"], [1, "j", 3, "src"], [1, "t", 3, "src"], [1, "downArrow", "bounce", "main", 3, "click"], ["name", "chevron-down", 1, "down-icon"], [3, "description", 4, "ngIf"], [1, "budget-content", "main-block"], [1, "main-title"], [1, "second-title"], [1, "row", "d-flex", "justify-content-center", 2, "margin", "0px auto"], [1, "col-3", "right"], ["routerLink", "/budget/state-budget"], [1, "budget-type", 2, "background", "#284c80"], [1, "soyombo"], [3, "src"], ["width", "130", 1, "dur1", 3, "src"], ["routerLink", "/budget/health-insurance"], [1, "budget-type", 2, "background", "#05a8eb"], ["width", "110", 1, "dur2", 3, "src"], [1, "col-5", "center"], [1, "main-map", 3, "src"], [1, "col-3", "left"], ["routerLink", "/budget/oron-nutag"], [1, "budget-type", 2, "background", "#feb018"], [1, "ger"], ["width", "100", 1, "dur3", 3, "src"], ["routerLink", "/budget/tax"], [1, "budget-type", 2, "background", "#0d7c5c"], ["width", "150", 1, "dur4", 3, "src"], [1, "row", "main-bottom"], [1, "col-md-4"], ["routerLink", "/budget/debt"], [1, "item", 2, "text-align", "left"], ["routerLink", "/budget/government-assistance"], [1, "item"], ["routerLink", "/budget/macro"], [2, "color", "rgb(254, 176, 24)"], ["name", "arrow-down", 1, "down-icon", 2, "position", "absolute", "top", "70px", "right", "100px", "color", "#505054"], ["name", "arrow-up", 1, "down-icon", 2, "position", "absolute", "top", "70px", "right", "100px", "color", "#505054"], [1, "m_r", 3, "src"], [1, "m_l", 3, "src"], [3, "description"]],
       template: function MainComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -570,7 +576,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](51, "img", 39);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](51, "img", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -580,7 +586,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](54, "img", 40);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](54, "img", 39);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -588,11 +594,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 41);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 40);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](56, "img", 42);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](56, "img", 41);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](57, "img", 43);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](57, "img", 41);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "h3");
 
@@ -602,15 +608,15 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 44);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 42);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "a", 45);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "a", 43);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 46);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 44);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "div", 47);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "div", 45);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](64, "img", 48);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](64, "img", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -620,19 +626,19 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](67, "img", 49);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](67, "img", 46);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "a", 50);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "a", 47);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 51);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 48);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](71, "img", 52);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](71, "img", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -642,7 +648,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](74, "img", 53);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](74, "img", 49);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -662,15 +668,15 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "div", 54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "div", 50);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](79, "div", 55);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](79, "div", 51);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "a", 56);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "a", 52);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](81, "div", 57);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](81, "div", 53);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](82, "img", 58);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](82, "img", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](83, "h4");
 
@@ -684,13 +690,13 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "div", 55);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "div", 51);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](86, "a", 59);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](86, "a", 54);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "div", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "div", 55);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](88, "img", 61);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](88, "img", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](89, "h4");
 
@@ -704,13 +710,13 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "div", 55);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "div", 51);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "a", 62);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "a", 56);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](93, "div", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](93, "div", 55);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](94, "img", 63);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](94, "img", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "h4");
 
@@ -789,6 +795,58 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.description);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/1.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/Duruud/Turiin_alban_haagch_3.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/4.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/Duruud/emch.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/map.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/map_line.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/2.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/Duruud/Malchin.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/3.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/icons/Duruud/tatvar.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/suld.png"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/loan.PNG"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("image/macro.PNG"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
         }
       },
       directives: [_modules_year_change_year_change_component__WEBPACK_IMPORTED_MODULE_4__["YearChangeComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _modules_base_number_base_number_component__WEBPACK_IMPORTED_MODULE_5__["BaseNumberComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _modules_description_description_component__WEBPACK_IMPORTED_MODULE_7__["DescriptionComponent"]],
