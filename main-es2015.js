@@ -481,9 +481,12 @@ class FooterComponent {
             console.log(error);
         });
     }
+    getImagePath(imagePath) {
+        return src_app_services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
+    }
 }
 FooterComponent.ɵfac = function FooterComponent_Factory(t) { return new (t || FooterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_main_service__WEBPACK_IMPORTED_MODULE_2__["MainService"])); };
-FooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FooterComponent, selectors: [["app-footer"]], decls: 38, vars: 3, consts: [[1, "layout", "layout-5"], [1, "container"], [1, "row"], [1, "col-md-3"], ["src", "../../assets/image/icons/mn-logo-rectangle-with-border.svg", "width", "200px", 2, "padding-bottom", "15px"], [1, "col-md-9"], [1, "col-md-4"], ["class", "block", 4, "ngFor", "ngForOf"], [1, "block"], [1, "icon"], ["name", "Map", 1, "someclass"], [1, "content"], [1, "links"], [4, "ngFor", "ngForOf"], [1, "icon-social"], ["href", "youtube.com"], ["name", "Youtube", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "facebook.com"], ["name", "Facebook", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "instagram.com"], ["name", "Instagram", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "twitter.com"], ["name", "Twitter", 1, "someclass", 2, "width", "20px", "height", "20px"], [1, "row", "footerhr"], [1, "col-md-12"], ["name", "map-pin", 1, "someclass"], ["name", "phone", 1, "someclass"], [3, "href"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
+FooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FooterComponent, selectors: [["app-footer"]], decls: 38, vars: 4, consts: [[1, "layout", "layout-5"], [1, "container"], [1, "row"], [1, "col-md-3"], ["width", "200px", 2, "padding-bottom", "15px", 3, "src"], [1, "col-md-9"], [1, "col-md-4"], ["class", "block", 4, "ngFor", "ngForOf"], [1, "block"], [1, "icon"], ["name", "Map", 1, "someclass"], [1, "content"], [1, "links"], [4, "ngFor", "ngForOf"], [1, "icon-social"], ["href", "youtube.com"], ["name", "Youtube", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "facebook.com"], ["name", "Facebook", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "instagram.com"], ["name", "Instagram", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "twitter.com"], ["name", "Twitter", 1, "someclass", 2, "width", "20px", "height", "20px"], [1, "row", "footerhr"], [1, "col-md-12"], ["name", "map-pin", 1, "someclass"], ["name", "phone", 1, "someclass"], [3, "href"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -549,7 +552,9 @@ FooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("icons/mn-logo-rectangle-with-border.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.address);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.contacts);

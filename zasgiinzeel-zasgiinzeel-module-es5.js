@@ -223,7 +223,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("series", ctx_r0.chartOptions.series)("labels", ctx_r0.chartOptions.labels)("chart", ctx_r0.chartOptions.chart)("xaxis", ctx_r0.chartOptions.xaxis)("title", ctx_r0.chartOptions.title)("legend", ctx_r0.chartOptions.legend)("plotOptions", ctx_r0.chartOptions.plotOptions)("colors", ctx_r0.chartOptions.colors)("stroke", ctx_r0.chartOptions.stroke)("tooltip", ctx_r0.chartOptions.tooltip);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx_r0.getImagePath("budget/main/small_m.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.params["category"] == "APPROVED");
 
@@ -367,6 +371,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           };
           this.isDataLoaded = true;
         }
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return src_app_services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
+        }
       }]);
     }();
 
@@ -406,10 +415,10 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]],
       decls: 1,
       vars: 1,
-      consts: [["class", "pie_chart center", 3, "style", 4, "ngIf"], [1, "pie_chart", "center"], [3, "series", "labels", "chart", "xaxis", "title", "legend", "plotOptions", "colors", "stroke", "tooltip"], [1, "chart_text"], ["src", "../../../assets/image/budget/main/small_m.svg", 1, "m_l"], [4, "ngIf"], ["class", "process", 4, "ngIf"], [1, "tops"], [1, "terbum"], [1, "tops1"], [1, "process"], [2, "color", "#505054"], ["name", "arrow-down", "class", "down-icon", "style", "color: #505054;", 4, "ngIf"], ["name", "arrow-up", "class", "down-icon", "style", "color: #505054;", 4, "ngIf"], ["name", "arrow-down", 1, "down-icon", 2, "color", "#505054"], ["name", "arrow-up", 1, "down-icon", 2, "color", "#505054"]],
+      consts: [["class", "pie_chart center", 3, "style", 4, "ngIf"], [1, "pie_chart", "center"], [3, "series", "labels", "chart", "xaxis", "title", "legend", "plotOptions", "colors", "stroke", "tooltip"], [1, "chart_text"], [1, "m_l", 3, "src"], [4, "ngIf"], ["class", "process", 4, "ngIf"], [1, "tops"], [1, "terbum"], [1, "tops1"], [1, "process"], [2, "color", "#505054"], ["name", "arrow-down", "class", "down-icon", "style", "color: #505054;", 4, "ngIf"], ["name", "arrow-up", "class", "down-icon", "style", "color: #505054;", 4, "ngIf"], ["name", "arrow-down", 1, "down-icon", 2, "color", "#505054"], ["name", "arrow-up", 1, "down-icon", 2, "color", "#505054"]],
       template: function ZasgiinzeelChartComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ZasgiinzeelChartComponent_div_0_Template, 7, 16, "div", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ZasgiinzeelChartComponent_div_0_Template, 7, 17, "div", 0);
         }
 
         if (rf & 2) {
@@ -565,7 +574,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("series", ctx_r0.chartOptions.series)("labels", ctx_r0.chartOptions.labels)("chart", ctx_r0.chartOptions.chart)("xaxis", ctx_r0.chartOptions.xaxis)("title", ctx_r0.chartOptions.title)("legend", ctx_r0.chartOptions.legend)("plotOptions", ctx_r0.chartOptions.plotOptions)("colors", ctx_r0.chartOptions.colors)("stroke", ctx_r0.chartOptions.stroke);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx_r0.getImagePath("budget/main/small_m.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.title);
 
@@ -700,6 +713,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           };
           this.isDataLoaded = true; // setTimeout(function(){ this.isDataLoaded = true;}, 1000);
         }
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return src_app_services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
+        }
       }]);
     }();
 
@@ -738,10 +756,10 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       },
       decls: 1,
       vars: 1,
-      consts: [["class", "pie_chart center", 3, "style", 4, "ngIf"], [1, "pie_chart", "center"], [3, "series", "labels", "chart", "xaxis", "title", "legend", "plotOptions", "colors", "stroke"], [1, "chart_text"], ["src", "../../../assets/image/budget/main/small_m.svg", 1, "m_l"], [1, "terbum"]],
+      consts: [["class", "pie_chart center", 3, "style", 4, "ngIf"], [1, "pie_chart", "center"], [3, "series", "labels", "chart", "xaxis", "title", "legend", "plotOptions", "colors", "stroke"], [1, "chart_text"], [1, "m_l", 3, "src"], [1, "terbum"]],
       template: function ZasgiinzeelSubChartComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ZasgiinzeelSubChartComponent_div_0_Template, 10, 14, "div", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ZasgiinzeelSubChartComponent_div_0_Template, 10, 15, "div", 0);
         }
 
         if (rf & 2) {

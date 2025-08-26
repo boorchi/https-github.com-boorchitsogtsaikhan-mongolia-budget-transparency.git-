@@ -875,6 +875,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
             console.log(error);
           });
         }
+      }, {
+        key: "getImagePath",
+        value: function getImagePath(imagePath) {
+          return src_app_services_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].getImagePath(imagePath);
+        }
       }]);
     }();
 
@@ -886,8 +891,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
       type: FooterComponent,
       selectors: [["app-footer"]],
       decls: 38,
-      vars: 3,
-      consts: [[1, "layout", "layout-5"], [1, "container"], [1, "row"], [1, "col-md-3"], ["src", "../../assets/image/icons/mn-logo-rectangle-with-border.svg", "width", "200px", 2, "padding-bottom", "15px"], [1, "col-md-9"], [1, "col-md-4"], ["class", "block", 4, "ngFor", "ngForOf"], [1, "block"], [1, "icon"], ["name", "Map", 1, "someclass"], [1, "content"], [1, "links"], [4, "ngFor", "ngForOf"], [1, "icon-social"], ["href", "youtube.com"], ["name", "Youtube", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "facebook.com"], ["name", "Facebook", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "instagram.com"], ["name", "Instagram", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "twitter.com"], ["name", "Twitter", 1, "someclass", 2, "width", "20px", "height", "20px"], [1, "row", "footerhr"], [1, "col-md-12"], ["name", "map-pin", 1, "someclass"], ["name", "phone", 1, "someclass"], [3, "href"]],
+      vars: 4,
+      consts: [[1, "layout", "layout-5"], [1, "container"], [1, "row"], [1, "col-md-3"], ["width", "200px", 2, "padding-bottom", "15px", 3, "src"], [1, "col-md-9"], [1, "col-md-4"], ["class", "block", 4, "ngFor", "ngForOf"], [1, "block"], [1, "icon"], ["name", "Map", 1, "someclass"], [1, "content"], [1, "links"], [4, "ngFor", "ngForOf"], [1, "icon-social"], ["href", "youtube.com"], ["name", "Youtube", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "facebook.com"], ["name", "Facebook", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "instagram.com"], ["name", "Instagram", 1, "someclass", 2, "width", "20px", "height", "20px"], ["href", "twitter.com"], ["name", "Twitter", 1, "someclass", 2, "width", "20px", "height", "20px"], [1, "row", "footerhr"], [1, "col-md-12"], ["name", "map-pin", 1, "someclass"], ["name", "phone", 1, "someclass"], [3, "href"]],
       template: function FooterComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -1020,7 +1025,11 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.getImagePath("icons/mn-logo-rectangle-with-border.svg"), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.address);
 
