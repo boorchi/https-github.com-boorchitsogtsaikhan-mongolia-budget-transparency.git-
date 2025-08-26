@@ -985,7 +985,9 @@ class Constants {
         const baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/';
         // If base href includes our repo name, we're on GitHub Pages
         if (baseHref.includes('https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-')) {
-            return `${baseHref}assets/${cleanPath}`;
+            // Ensure base href ends with / and construct proper path
+            const normalizedBase = baseHref.endsWith('/') ? baseHref : baseHref + '/';
+            return `${normalizedBase}assets/${cleanPath}`;
         }
         // Fallback to hostname check
         const isGitHubPages = window.location.hostname === 'boorchi.github.io';

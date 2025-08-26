@@ -1896,7 +1896,9 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           var baseHref = baseElement ? baseElement.getAttribute('href') || '/' : '/'; // If base href includes our repo name, we're on GitHub Pages
 
           if (baseHref.includes('https-github.com-boorchitsogtsaikhan-mongolia-budget-transparency.git-')) {
-            return "".concat(baseHref, "assets/").concat(cleanPath);
+            // Ensure base href ends with / and construct proper path
+            var normalizedBase = baseHref.endsWith('/') ? baseHref : baseHref + '/';
+            return "".concat(normalizedBase, "assets/").concat(cleanPath);
           } // Fallback to hostname check
 
 
