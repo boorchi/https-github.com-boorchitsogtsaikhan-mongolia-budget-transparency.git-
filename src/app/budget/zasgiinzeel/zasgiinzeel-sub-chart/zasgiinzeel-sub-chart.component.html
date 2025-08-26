@@ -11,7 +11,7 @@
       [stroke]="chartOptions.stroke"
     ></apx-chart>
     <div class="chart_text">
-      <img class="m_l" src="../../../assets/image/budget/main/small_m.svg" />
+      <img class="m_l" [src]="getImagePath('budget/main/small_m.svg')" />
       <span>{{title}}</span>
       <h4>{{sum}}</h4>
       <div class="terbum">тэрбум төгрөг</div>

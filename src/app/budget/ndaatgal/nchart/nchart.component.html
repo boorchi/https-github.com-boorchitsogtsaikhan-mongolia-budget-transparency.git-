@@ -13,7 +13,7 @@
       [tooltip]="chartOptions.tooltip"
     ></apx-chart>
     <div class="chart_text">
-      <img class="m_l" src="../../../assets/image/budget/main/small_m.svg" />
+      <img class="m_l" [src]="getImagePath('budget/main/small_m.svg')" />
       
       <app-simple-number class="orlogo"
                         [text1]="title"

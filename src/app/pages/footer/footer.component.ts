@@ -47,4 +47,8 @@ export class FooterComponent implements OnInit {
       console.log(error);
     });
   }
+
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
 }

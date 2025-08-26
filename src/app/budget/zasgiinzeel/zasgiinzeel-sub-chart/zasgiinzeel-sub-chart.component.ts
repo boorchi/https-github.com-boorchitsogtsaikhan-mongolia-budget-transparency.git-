@@ -161,6 +161,10 @@ export class ZasgiinzeelSubChartComponent implements OnInit {
     
   }
 
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+
   
 
 }

@@ -12,7 +12,7 @@
       [tooltip]="chartOptions.tooltip"
     ></apx-chart>
     <div class="chart_text">
-      <img class="m_l" src="../../../assets/image/budget/main/small_m.svg" />
+      <img class="m_l" [src]="getImagePath('budget/main/small_m.svg')" />
       <div *ngIf="params['category']=='APPROVED'">
         <span class="tops">{{title}}</span>
         <h4>{{sum | number}}</h4>

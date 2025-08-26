@@ -224,4 +224,8 @@ export class NchartComponent implements OnInit {
     }
   }
 
+  getImagePath(imagePath: string): string {
+    return Constants.getImagePath(imagePath);
+  }
+
 }
